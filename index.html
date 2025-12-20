@@ -1,1770 +1,1130 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكاديمية ملهم التعليمية - مراجعات ليلة الامتحان</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a365d;
-            --secondary: #2b6cb0;
-            --accent: #4299e1;
-            --light: #f7fafc;
-            --dark: #2d3748;
-            --success: #38a169;
-            --warning: #dd6b20;
-            --text: #2d3748;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
-            --border-radius: 12px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            color: var(--text);
-            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 1.2rem 0;
-            box-shadow: 0 4px 20px rgba(26, 54, 93, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: white;
-        }
-
-        .logo img {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .logo-text h1 {
-            font-size: 1.9rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-text span {
-            color: #ffd700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo-text .tagline {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .date-display {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 5rem 0;
-            background: linear-gradient(rgba(26, 54, 93, 0.95), rgba(43, 108, 176, 0.95)), 
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(66, 153, 225, 0.3) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
-            color: var(--primary);
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(255, 170, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover:before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(255, 170, 0, 0.6);
-        }
-
-        /* Today Info */
-        .today-info {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: white;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            margin: 2rem auto 3rem;
-            max-width: 1200px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .today-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .today-subjects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 1.5rem;
-        }
-
-        .subject-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: var(--transition);
-        }
-
-        .subject-badge:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 3rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title h3 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            display: inline-block;
-            padding-bottom: 15px;
-            position: relative;
-            font-weight: 800;
-        }
-
-        .section-title h3:after {
-            content: '';
-            position: absolute;
-            width: 120px;
-            height: 5px;
-            background: linear-gradient(to right, var(--accent), var(--secondary));
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            border-radius: 3px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--dark);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            opacity: 0.9;
-        }
-
-        /* Exams Section */
-        .exams-section {
-            margin-bottom: 5rem;
-        }
-
-        .grade-selector {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 3rem;
-        }
-
-        .grade-btn {
-            padding: 14px 28px;
-            background: white;
-            border: 2px solid var(--secondary);
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1rem;
-            color: var(--secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .grade-btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(66, 153, 225, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .grade-btn:hover:before {
-            left: 100%;
-        }
-
-        .grade-btn:hover, .grade-btn.active {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: white;
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(66, 153, 225, 0.3);
-        }
-
-        .exam-table-container {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            display: none;
-            border: 1px solid #e2e8f0;
-        }
-
-        .exam-table-container.active {
-            display: block;
-            animation: fadeInUp 0.6s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .table-header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .table-header:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
-            background-size: 15px 15px;
-            animation: moveBackground 20s linear infinite;
-        }
-
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-15px, -15px) rotate(360deg); }
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 1.05rem;
-        }
-
-        th {
-            background: var(--light);
-            padding: 1.2rem 1rem;
-            text-align: center;
-            color: var(--primary);
-            border-bottom: 2px solid #e2e8f0;
-            font-weight: 700;
-            position: relative;
-        }
-
-        th:after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        th:hover:after {
-            width: 100%;
-        }
-
-        td {
-            padding: 1.2rem 1rem;
-            text-align: center;
-            border-bottom: 1px solid #edf2f7;
-            transition: var(--transition);
-        }
-
-        tr:hover td {
-            background: #f8fafc;
-        }
-
-        .today-row {
-            background: linear-gradient(90deg, rgba(56, 161, 105, 0.1), rgba(56, 161, 105, 0.05)) !important;
-            position: relative;
-        }
-
-        .today-row:before {
-            content: 'اليوم';
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--success);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .review-available {
-            background: rgba(66, 153, 225, 0.1);
-            position: relative;
-        }
-
-        .review-available:after {
-            content: '✓';
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--success);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* Sessions Section */
-        .sessions-section {
-            margin-bottom: 5rem;
-        }
-
-        .days-navigation {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .day-btn {
-            padding: 12px 24px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            color: var(--dark);
-            min-width: 120px;
-        }
-
-        .day-btn:hover, .day-btn.active {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: white;
-            border-color: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(66, 153, 225, 0.2);
-        }
-
-        .sessions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 3rem;
-        }
-
-        .session-card {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid #e2e8f0;
-            position: relative;
-        }
-
-        .session-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .session-image {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .session-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .session-card:hover .session-image img {
-            transform: scale(1.05);
-        }
-
-        .session-overlay {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-        }
-
-        .session-overlay .grade {
-            background: var(--accent);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .session-content {
-            padding: 1.8rem;
-        }
-
-        .session-title {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .session-details {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 1.5rem;
-        }
-
-        .detail-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--dark);
-        }
-
-        .detail-item i {
-            color: var(--accent);
-            width: 20px;
-            text-align: center;
-        }
-
-        .session-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 1.5rem;
-        }
-
-        .whatsapp-btn {
-            flex: 1;
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .reminder-btn {
-            background: var(--light);
-            color: var(--primary);
-            border: 2px solid var(--accent);
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            text-align: center;
-            flex: 1;
-        }
-
-        .reminder-btn:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .no-sessions {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: white;
-            border-radius: var(--border-radius);
-            grid-column: 1 / -1;
-            border: 2px dashed #e2e8f0;
-        }
-
-        .no-sessions i {
-            font-size: 4rem;
-            color: #cbd5e0;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Social Section */
-        .social-section {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-            padding: 4rem 0;
-            border-radius: var(--border-radius);
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
-            background-size: 20px 20px;
-        }
-
-        .social-section .section-title h3 {
-            color: white;
-        }
-
-        .social-section .section-title h3:after {
-            background: linear-gradient(to right, #ffd700, var(--accent));
-        }
-
-        .social-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 3rem;
-        }
-
-        .social-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .social-card:hover:before {
-            transform: translateX(100%);
-        }
-
-        .social-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .social-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            height: 80px;
-            width: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .social-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .social-card p {
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: white;
-            color: var(--primary);
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: var(--transition);
-            width: 100%;
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--accent), #ffd700);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            color: #ffd700;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-section h4:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        .footer-section p {
-            opacity: 0.9;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            background: rgba(255, 255, 255, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffd700;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
-
-        .copyright p {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .sessions-grid {
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            
-            .date-display {
-                margin-top: 10px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 3rem 0;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h3 {
-                font-size: 1.8rem;
-            }
-            
-            .sessions-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .grade-selector, .days-navigation {
-                overflow-x: auto;
-                padding-bottom: 10px;
-                justify-content: flex-start;
-            }
-            
-            .grade-btn, .day-btn {
-                flex-shrink: 0;
-            }
-            
-            table {
-                font-size: 0.95rem;
-            }
-            
-            th, td {
-                padding: 1rem 0.5rem;
-            }
-            
-            .session-actions {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .cta-button {
-                padding: 14px 30px;
-                font-size: 1.1rem;
-            }
-            
-            .section-title h3 {
-                font-size: 1.6rem;
-            }
-            
-            .table-header {
-                font-size: 1.3rem;
-                padding: 1.2rem;
-            }
-            
-            .social-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أكاديمية ملهم التعليمية - مراجعات ليلة الامتحان</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1a365d;
+      --secondary: #2b6cb0;
+      --accent: #4299e1;
+      --light: #f7fafc;
+      --dark: #2d3748;
+      --success: #38a169;
+      --warning: #dd6b20;
+      --text: #2d3748;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --transition: all .25s ease;
+      --radius: 14px;
+      --border: #e2e8f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header{
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color:#fff; padding:1.15rem 0; box-shadow: 0 4px 20px rgba(26,54,93,.2);
+      position: sticky; top:0; z-index: 1000; backdrop-filter: blur(10px);
+    }
+    .header-content{ display:flex; justify-content:space-between; align-items:center; gap:18px; }
+    .logo{ display:flex; align-items:center; gap:14px; text-decoration:none; color:#fff; }
+    .logo img{ width:62px; height:62px; border-radius:50%; border:3px solid rgba(255,255,255,.28); object-fit:cover; transition:var(--transition); }
+    .logo:hover img{ transform:scale(1.05); border-color: rgba(255,255,255,.55); }
+    .logo-text h1{ font-size:1.85rem; font-weight:800; letter-spacing:-.4px; }
+    .logo-text span{ color:#ffd700; text-shadow:0 2px 4px rgba(0,0,0,.2); }
+    .logo-text .tagline{ font-size:.95rem; opacity:.92; font-weight:300; margin-top:3px; }
+    .date-display{
+      background: rgba(255,255,255,.14);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.12);
+      white-space: nowrap;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 4.8rem 0;
+      background: linear-gradient(rgba(26,54,93,.92), rgba(43,108,176,.92)),
+      url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover; background-position:center; background-attachment:fixed;
+      color:#fff; text-align:center; position:relative; overflow:hidden;
+    }
+    .hero:before{
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(circle at 25% 50%, rgba(66,153,225,.28) 0%, transparent 55%);
+    }
+    .hero-content{ position:relative; z-index:2; max-width: 900px; margin:0 auto; }
+    .hero h2{
+      font-size: 3rem; font-weight: 900; line-height:1.15;
+      text-shadow: 0 6px 16px rgba(0,0,0,.28);
+      margin-bottom: 1.2rem;
+    }
+    .hero p{ font-size:1.22rem; opacity:.96; max-width:760px; margin: 0 auto 2.5rem; }
+    .cta-button{
+      display:inline-flex; align-items:center; gap:10px;
+      background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+      color: var(--primary);
+      padding: 16px 38px;
+      border-radius: 999px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      text-decoration:none;
+      transition: var(--transition);
+      box-shadow: 0 14px 35px rgba(255,170,0,.35);
+      position:relative; overflow:hidden;
+    }
+    .cta-button:before{
+      content:''; position:absolute; top:0; left:-100%;
+      width:100%; height:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.38), transparent);
+      transition:.55s;
+    }
+    .cta-button:hover:before{ left:100%; }
+    .cta-button:hover{ transform: translateY(-4px); box-shadow: 0 18px 45px rgba(255,170,0,.5); }
+
+    /* Today info */
+    .today-info{
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color:#fff; padding: 2rem; border-radius: var(--radius);
+      margin: 2rem auto 3rem; max-width: 1200px; text-align:center;
+      box-shadow: var(--shadow); border:1px solid rgba(255,255,255,.12);
+    }
+    .today-info h3{ font-size:1.75rem; font-weight:900; display:flex; gap:10px; justify-content:center; align-items:center; }
+    .today-subjects{
+      display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top: 1.2rem;
+    }
+    .subject-badge{
+      background: rgba(255,255,255,.18);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,.12);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .subject-badge:hover{ background: rgba(255,255,255,.26); transform: translateY(-2px); }
+
+    .main-content{ padding: 2.5rem 0; }
+
+    .section-title{ text-align:center; margin-bottom: 2.2rem; }
+    .section-title h3{
+      font-size: 2.15rem; color: var(--primary);
+      font-weight: 900; display:inline-block; padding-bottom: 12px; position: relative;
+    }
+    .section-title h3:after{
+      content:''; position:absolute; bottom:0; right:50%; transform: translateX(50%);
+      width: 120px; height: 5px; border-radius: 999px;
+      background: linear-gradient(to right, var(--accent), var(--secondary));
+    }
+    .section-subtitle{
+      text-align:center; color: var(--dark); opacity:.9; font-size: 1.08rem;
+      max-width: 900px; margin: 0 auto 2.6rem;
+    }
+
+    /* Grade selector */
+    .grade-selector{
+      display:flex; justify-content:center; flex-wrap:wrap; gap: 10px;
+      margin-bottom: 2rem;
+    }
+    .grade-btn{
+      padding: 12px 22px;
+      background: #fff;
+      border: 2px solid var(--secondary);
+      border-radius: 12px;
+      font-weight: 900;
+      cursor:pointer;
+      transition: var(--transition);
+      color: var(--secondary);
+      position:relative; overflow:hidden;
+      display:flex; align-items:center; gap:10px;
+    }
+    .grade-btn i{ opacity:.9; }
+    .grade-btn:hover, .grade-btn.active{
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color:#fff; transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(66,153,225,.26);
+    }
+
+    /* Table container */
+    .exam-table-container{
+      background:#fff;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border:1px solid var(--border);
+      margin-bottom: 2rem;
+      display:none;
+    }
+    .exam-table-container.active{ display:block; animation: fadeInUp .55s ease; }
+
+    @keyframes fadeInUp{
+      from{ opacity:0; transform: translateY(16px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    .table-header{
+      background: linear-gradient(135deg, var(--primary), #203554);
+      color:#fff;
+      padding: 1.3rem 1.2rem;
+      font-size: 1.35rem;
+      font-weight: 900;
+      text-align:center;
+    }
+
+    /* Table toolbar */
+    .table-toolbar{
+      display:flex; gap: 12px; align-items:center; justify-content: space-between;
+      padding: 14px 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .toolbar-left{ display:flex; gap:10px; align-items:center; flex-wrap: wrap; }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      background: #eef6ff;
+      color: #1f4f8f;
+      border: 1px solid #d6e8ff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: .95rem;
+      white-space: nowrap;
+    }
+    .search-box{
+      display:flex; align-items:center; gap:10px;
+      background:#fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      min-width: 260px;
+    }
+    .search-box i{ color: var(--accent); }
+    .search-box input{
+      border:none; outline:none; width: 100%;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+    }
+    .toolbar-right{ display:flex; gap:10px; align-items:center; }
+    .btn-ghost{
+      border: 1px solid var(--border);
+      background:#fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 900;
+      cursor:pointer;
+      transition: var(--transition);
+      display:inline-flex; gap:10px; align-items:center;
+      color: var(--dark);
+    }
+    .btn-ghost:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+      border-color: #cfe2ff;
+    }
+
+    /* Real table */
+    .table-wrap{
+      width:100%;
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      font-size: 1.02rem;
+      min-width: 860px; /* يحافظ على ترتيب الأعمدة على الشاشات المتوسطة */
+    }
+    th{
+      background: var(--light);
+      padding: 1rem .85rem;
+      text-align:center;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      font-weight: 900;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    td{
+      padding: 1rem .85rem;
+      text-align:center;
+      border-bottom: 1px solid #edf2f7;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    tr:hover td{ background: #f8fafc; }
+
+    /* Today row */
+    .today-row td{
+      background: linear-gradient(90deg, rgba(56,161,105,.10), rgba(56,161,105,.04));
+      font-weight: 900;
+    }
+    .today-badge{
+      display:inline-flex; align-items:center; gap:8px;
+      background: var(--success);
+      color:#fff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .85rem;
+      font-weight: 900;
+      margin-inline-start: 8px;
+    }
+
+    /* Review available */
+    .review-available td{ background: rgba(66,153,225,.08); }
+    .review-tag{
+      display:inline-flex; align-items:center; gap:8px;
+      background: rgba(66,153,225,.16);
+      border: 1px solid rgba(66,153,225,.24);
+      color: #1f4f8f;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: .9rem;
+      margin-inline-start: 8px;
+    }
+
+    /* Sessions (same as yours with small polish) */
+    .sessions-section{ margin: 4.5rem 0; }
+    .days-navigation{
+      display:flex; justify-content:center; gap:10px; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .day-btn{
+      padding: 12px 18px; background:#fff; border:2px solid var(--border);
+      border-radius: 12px; font-weight: 900; cursor:pointer; transition: var(--transition);
+      color: var(--dark); min-width: 140px;
+    }
+    .day-btn:hover,.day-btn.active{
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color:#fff; border-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(66,153,225,.22);
+    }
+    .sessions-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 24px;
+      margin-bottom: 2.5rem;
+    }
+    .session-card{
+      background:#fff; border-radius: var(--radius); overflow:hidden;
+      box-shadow: var(--shadow); border:1px solid var(--border);
+      transition: var(--transition);
+    }
+    .session-card:hover{ transform: translateY(-10px); box-shadow: 0 22px 50px rgba(0,0,0,.14); }
+    .session-image{ width:100%; height: 200px; position:relative; overflow:hidden; }
+    .session-image img{ width:100%; height:100%; object-fit: cover; transition: transform .6s ease; }
+    .session-card:hover .session-image img{ transform: scale(1.06); }
+    .session-overlay{
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+      display:flex; align-items:flex-end; padding: 18px;
+    }
+    .session-overlay .grade{
+      background: var(--accent); color:#fff;
+      padding: 8px 16px; border-radius: 999px;
+      font-weight: 900; font-size: 1.05rem;
+    }
+    .session-content{ padding: 1.6rem; }
+    .session-title{ font-size: 1.3rem; color: var(--primary); font-weight: 900; margin-bottom: .9rem; }
+    .session-details{ display:flex; flex-direction: column; gap:10px; margin-bottom: 1.2rem; }
+    .detail-item{ display:flex; gap:10px; align-items:flex-start; color: var(--dark); }
+    .detail-item i{ color: var(--accent); width: 20px; text-align:center; margin-top: 3px; }
+    .whatsapp-btn{
+      width:100%;
+      background:#25D366; color:#fff; border:none; padding: 14px;
+      border-radius: 12px; font-size: 1rem; font-weight: 900;
+      cursor:pointer; transition: var(--transition); text-decoration:none;
+      display:flex; gap:10px; align-items:center; justify-content:center;
+    }
+    .whatsapp-btn:hover{
+      background:#128C7E; transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(37,211,102,.25);
+    }
+    .no-sessions{
+      text-align:center; padding: 3.2rem 1.5rem; background:#fff;
+      border-radius: var(--radius);
+      grid-column: 1 / -1;
+      border: 2px dashed var(--border);
+    }
+    .no-sessions i{ font-size: 3.6rem; color: #cbd5e0; margin-bottom: 1.1rem; }
+
+    /* Social & Footer (kept mostly) */
+    .social-section{
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color:#fff; padding: 4rem 0; border-radius: var(--radius);
+      margin-bottom: 4rem; position:relative; overflow:hidden;
+    }
+
+    footer{ background: var(--dark); color:#fff; padding: 4rem 0 2rem; position:relative; overflow:hidden; }
+    footer:before{
+      content:''; position:absolute; top:0; right:0; width:100%; height:5px;
+      background: linear-gradient(to right, var(--accent), #ffd700);
+    }
+
+    /* ✅ Mobile table -> cards */
+    @media (max-width: 820px){
+      .header-content{ flex-direction: column; text-align:center; }
+      .hero{ padding: 3.4rem 0; background-attachment: scroll; }
+      .hero h2{ font-size: 2.15rem; }
+      .hero p{ font-size: 1.05rem; }
+
+      table{ min-width: 0; }
+      .table-wrap{ overflow: hidden; }
+
+      /* hide header on small screens */
+      table thead{ display:none; }
+
+      table, tbody, tr, td{ display:block; width:100%; }
+      tr{
+        border-bottom: 1px solid var(--border);
+        padding: 10px 12px;
+      }
+      td{
+        border: none;
+        padding: 10px 10px;
+        text-align: right;
+        white-space: normal;
+      }
+      td::before{
+        content: attr(data-label);
+        font-weight: 900;
+        color: var(--primary);
+        display:block;
+        margin-bottom: 4px;
+      }
+
+      .table-toolbar{ gap: 10px; }
+      .search-box{ min-width: 100%; }
+      .toolbar-right{ width: 100%; justify-content: space-between; }
+      .sessions-grid{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px){
+      .logo-text h1{ font-size: 1.55rem; }
+      .section-title h3{ font-size: 1.7rem; }
+      .grade-btn{ width: 100%; justify-content: center; }
+      .day-btn{ width: 100%; }
+    }
+  </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <a href="#" class="logo">
-                <img src="https://e.top4top.io/p_3641ccfhy1.jpeg" alt="شعار أكاديمية ملهم">
-                <div class="logo-text">
-                    <h1>أكاديمية <span>ملهم</span> التعليمية</h1>
-                    <p class="tagline">مراجعات ليلة الامتحان - نحو تفوق أكاديمي</p>
-                </div>
-            </a>
-            <div class="date-display" id="currentDate">
-                <!-- سيتم تعبئته بالجافاسكريبت -->
-            </div>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h2>مراجعات ليلة الامتحان المجانية</h2>
-            <p>نقدم لطلاب صفوف النقل مراجعات شاملة قبل الامتحانات بيوم واحد. انضم لحصصنا المجانية وكن مستعدًا لتحقيق التفوق في جميع المواد</p>
-            <a href="#sessions" class="cta-button">
-                <i class="fas fa-play-circle"></i>
-                انضم للحصص المجانية
-            </a>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo">
+        <img src="https://e.top4top.io/p_3641ccfhy1.jpeg" alt="شعار أكاديمية ملهم">
+        <div class="logo-text">
+          <h1>أكاديمية <span>ملهم</span> التعليمية</h1>
+          <p class="tagline">مراجعات ليلة الاختبار - حصص مجانية يوميًا</p>
         </div>
+      </a>
+      <div class="date-display" id="currentDate"></div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h2>مراجعات ليلة الاختبار المجانية</h2>
+      <p>اليوم نراجع… وغدًا نقتنص الدرجة. حصص مجانية ليلة الامتحان تُضاف يوميًا حسب جدول الاختبارات.</p>
+      <a href="#sessions" class="cta-button"><i class="fas fa-play-circle"></i> انضم للحصص المجانية</a>
+    </div>
+  </section>
+
+  <!-- Today's Info -->
+  <div class="container">
+    <div class="today-info">
+      <h3><i class="far fa-calendar-check"></i> امتحان الغد + مراجعة الليلة</h3>
+      <p id="todayText">سيتم تحديثها تلقائيًا</p>
+      <div class="today-subjects" id="todaySubjects"></div>
+    </div>
+  </div>
+
+  <div class="container main-content">
+    <!-- Exams -->
+    <section class="exams-section">
+      <div class="section-title"><h3>جداول الامتحانات</h3></div>
+      <p class="section-subtitle">
+        اختر مجموعتك الدراسية. الجداول مصممة لتظهر ممتاز على الجوال (بدون تكسير أو تمرير مزعج).
+      </p>
+
+      <div class="grade-selector">
+        <button class="grade-btn active" data-grade="grade5"><i class="fa-solid fa-layer-group"></i> الخامس والسادس</button>
+        <button class="grade-btn" data-grade="grade7"><i class="fa-solid fa-layer-group"></i> السابع والثامن</button>
+        <button class="grade-btn" data-grade="grade9"><i class="fa-solid fa-9"></i> التاسع</button>
+        <button class="grade-btn" data-grade="grade10"><i class="fa-solid fa-10"></i> العاشر</button>
+        <button class="grade-btn" data-grade="grade11"><i class="fa-solid fa-11"></i> الحادي عشر</button>
+      </div>
+
+      <!-- Grade 5/6 -->
+      <div class="exam-table-container active" id="grade5">
+        <div class="table-header">جدول امتحان الصف الخامس والسادس - 2025/2026</div>
+
+        <div class="table-toolbar">
+          <div class="toolbar-left">
+            <span class="pill"><i class="fa-solid fa-bolt"></i> مراجعة ليلة الاختبار: حصص مجانية</span>
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="ابحث عن مادة أو تاريخ..." data-table-search="grade5Table">
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn-ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="grade5Table">
+            <thead>
+            <tr>
+              <th>اليوم</th><th>التاريخ</th><th>المادة</th><th>زمن الإجابة</th><th>الحصة المجانية</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/21</td>
+              <td data-label="المادة">اللغة العربية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الاثنين</td>
+              <td data-label="التاريخ">2025/12/22</td>
+              <td data-label="المادة">العلوم</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الثلاثاء</td>
+              <td data-label="التاريخ">2025/12/23</td>
+              <td data-label="المادة">اللغة الإنجليزية</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأربعاء</td>
+              <td data-label="التاريخ">2025/12/24</td>
+              <td data-label="المادة">الدراسات الاجتماعية</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الخميس</td>
+              <td data-label="التاريخ">2025/12/25</td>
+              <td data-label="المادة">التربية الإسلامية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/28</td>
+              <td data-label="المادة">الرياضيات</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grade 7/8 -->
+      <div class="exam-table-container" id="grade7">
+        <div class="table-header">جدول امتحان الصف السابع والثامن - 2025/2026</div>
+
+        <div class="table-toolbar">
+          <div class="toolbar-left">
+            <span class="pill"><i class="fa-solid fa-bolt"></i> مراجعة ليلة الاختبار: حصص مجانية</span>
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="ابحث عن مادة أو تاريخ..." data-table-search="grade7Table">
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn-ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="grade7Table">
+            <thead>
+            <tr>
+              <th>اليوم</th><th>التاريخ</th><th>المادة</th><th>زمن الإجابة</th><th>الحصة المجانية</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/21</td>
+              <td data-label="المادة">اللغة العربية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الاثنين</td>
+              <td data-label="التاريخ">2025/12/22</td>
+              <td data-label="المادة">العلوم</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الثلاثاء</td>
+              <td data-label="التاريخ">2025/12/23</td>
+              <td data-label="المادة">اللغة الإنجليزية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأربعاء</td>
+              <td data-label="التاريخ">2025/12/24</td>
+              <td data-label="المادة">الدراسات الاجتماعية</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الخميس</td>
+              <td data-label="التاريخ">2025/12/25</td>
+              <td data-label="المادة">التربية الإسلامية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/28</td>
+              <td data-label="المادة">الرياضيات</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grade 9 -->
+      <div class="exam-table-container" id="grade9">
+        <div class="table-header">جدول امتحان الصف التاسع - 2025/2026</div>
+
+        <div class="table-toolbar">
+          <div class="toolbar-left">
+            <span class="pill"><i class="fa-solid fa-bolt"></i> حصص مجانية تُضاف يوميًا</span>
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="ابحث عن مادة أو تاريخ..." data-table-search="grade9Table">
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn-ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="grade9Table">
+            <thead>
+            <tr>
+              <th>اليوم</th><th>التاريخ</th><th>المادة</th><th>زمن الإجابة</th><th>الحصة المجانية</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/21</td>
+              <td data-label="المادة">اللغة العربية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الاثنين</td>
+              <td data-label="التاريخ">2025/12/22</td>
+              <td data-label="المادة">التربية الإسلامية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr class="review-available">
+              <td data-label="اليوم">الثلاثاء <span class="review-tag"><i class="fa-solid fa-circle-check"></i> توجد مراجعة</span></td>
+              <td data-label="التاريخ">2025/12/23</td>
+              <td data-label="المادة">الكيمياء</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأربعاء</td>
+              <td data-label="التاريخ">2025/12/24</td>
+              <td data-label="المادة">اللغة الإنجليزية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">9:00 - 11:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الخميس</td>
+              <td data-label="التاريخ">2025/12/25</td>
+              <td data-label="المادة">الفيزياء</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">9:00 - 10:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/28</td>
+              <td data-label="المادة">الرياضيات</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">9:00 - 10:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الاثنين</td>
+              <td data-label="التاريخ">2025/12/29</td>
+              <td data-label="المادة">الدراسات الاجتماعية</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">9:00 - 10:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الثلاثاء</td>
+              <td data-label="التاريخ">2025/12/30</td>
+              <td data-label="المادة">الأحياء</td>
+              <td data-label="زمن الإجابة">ساعة ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 9:30 صباحاً</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grade 10 -->
+      <div class="exam-table-container" id="grade10">
+        <div class="table-header">جدول امتحان الصف العاشر - 2025/2026</div>
+
+        <div class="table-toolbar">
+          <div class="toolbar-left">
+            <span class="pill"><i class="fa-solid fa-bolt"></i> ليلة الاختبار = حصص مجانية</span>
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="ابحث عن مادة أو تاريخ..." data-table-search="grade10Table">
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn-ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="grade10Table">
+            <thead>
+            <tr>
+              <th>اليوم</th><th>التاريخ</th><th>المادة</th><th>زمن الإجابة</th><th>الحصة المجانية</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/21</td>
+              <td data-label="المادة">اللغة العربية</td>
+              <td data-label="زمن الإجابة">3 ساعات</td>
+              <td data-label="الحصة المجانية">8:00 - 11:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الاثنين</td>
+              <td data-label="التاريخ">2025/12/22</td>
+              <td data-label="المادة">التربية الإسلامية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr class="review-available">
+              <td data-label="اليوم">الثلاثاء <span class="review-tag"><i class="fa-solid fa-circle-check"></i> توجد مراجعة</span></td>
+              <td data-label="التاريخ">2025/12/23</td>
+              <td data-label="المادة">الكيمياء</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأربعاء</td>
+              <td data-label="التاريخ">2025/12/24</td>
+              <td data-label="المادة">اللغة الإنجليزية</td>
+              <td data-label="زمن الإجابة">ساعتان ونصف</td>
+              <td data-label="الحصة المجانية">9:00 - 11:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الخميس</td>
+              <td data-label="التاريخ">2025/12/25</td>
+              <td data-label="المادة">الفيزياء</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/28</td>
+              <td data-label="المادة">الرياضيات</td>
+              <td data-label="زمن الإجابة">ساعتان ونصف</td>
+              <td data-label="الحصة المجانية">9:00 - 11:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الاثنين</td>
+              <td data-label="التاريخ">2025/12/29</td>
+              <td data-label="المادة">الدراسات الاجتماعية</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الثلاثاء</td>
+              <td data-label="التاريخ">2025/12/30</td>
+              <td data-label="المادة">الأحياء</td>
+              <td data-label="زمن الإجابة">ساعتان</td>
+              <td data-label="الحصة المجانية">8:00 - 10:00 صباحاً</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grade 11 -->
+      <div class="exam-table-container" id="grade11">
+        <div class="table-header">جدول امتحان الصف الحادي عشر - 2025/2026</div>
+
+        <div class="table-toolbar">
+          <div class="toolbar-left">
+            <span class="pill"><i class="fa-solid fa-bolt"></i> ليلة الاختبار: روابط عبر قناة واتساب</span>
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="ابحث عن مادة أو تاريخ..." data-table-search="grade11Table">
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <button class="btn-ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> طباعة</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table id="grade11Table">
+            <thead>
+            <tr>
+              <th>اليوم</th><th>التاريخ</th><th>المادة</th><th>زمن الإجابة</th><th>الحصة المجانية</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td data-label="اليوم">الأحد</td>
+              <td data-label="التاريخ">2025/12/21</td>
+              <td data-label="المادة">الرياضيات الأساسية / المتقدمة</td>
+              <td data-label="زمن الإجابة">ساعتان ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 10:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الاثنين</td>
+              <td data-label="التاريخ">2025/12/22</td>
+              <td data-label="المادة">اللغة الإنجليزية / الرياضة / الفنون / المهارات الموسيقية</td>
+              <td data-label="زمن الإجابة">ساعتان ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 10:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الثلاثاء</td>
+              <td data-label="التاريخ">2025/12/23</td>
+              <td data-label="المادة">اللغة العربية</td>
+              <td data-label="زمن الإجابة">3 ساعات</td>
+              <td data-label="الحصة المجانية">8:00 - 11:00 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الأربعاء</td>
+              <td data-label="التاريخ">2025/12/24</td>
+              <td data-label="المادة">الفيزياء / التاريخ والحضارة الإسلامية</td>
+              <td data-label="زمن الإجابة">ساعتان ونصف</td>
+              <td data-label="الحصة المجانية">8:00 - 10:30 صباحاً</td>
+            </tr>
+            <tr>
+              <td data-label="اليوم">الخميس</td>
+              <td data-label="التاريخ">2025/12/25</td>
+              <td data-label="المادة">التربية الإسلامية / الفرنسية / الألمانية / الصينية</td>
+              <td data-label="زمن الإجابة">ساعتان ونصف</td>
+              <td data-label="الحصة المجانية">9:00 - 11:30 صباحاً</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
-    <!-- Today's Info -->
-    <div class="container">
-        <div class="today-info">
-            <h3><i class="far fa-calendar-check"></i> امتحانات اليوم</h3>
-            <p id="todayText">الأحد 21 ديسمبر 2025 - ليلة امتحان اللغة العربية</p>
-            <div class="today-subjects" id="todaySubjects">
-                <!-- سيتم تعبئته بالجافاسكريبت -->
+    <!-- Sessions (احتفظت بمحتواك كما هو تقريبًا) -->
+    <section class="sessions-section" id="sessions">
+      <div class="section-title"><h3>الحصص المجانية لليلة الاختبار</h3></div>
+      <p class="section-subtitle">الرابط يصل عبر قناة الواتساب قبل 15 دقيقة من البدء. يتم تحديث الصفحة يوميًا.</p>
+
+      <div class="days-navigation">
+        <button class="day-btn active" data-day="sunday">الأحد 21/12</button>
+        <button class="day-btn" data-day="monday">الاثنين 22/12</button>
+        <button class="day-btn" data-day="tuesday">الثلاثاء 23/12</button>
+        <button class="day-btn" data-day="wednesday">الأربعاء 24/12</button>
+        <button class="day-btn" data-day="thursday">الخميس 25/12</button>
+      </div>
+
+      <!-- Sunday -->
+      <div class="sessions-grid" id="sunday-sessions">
+        <!-- نفس بطاقاتك (بدون تغيير النص) -->
+        <div class="session-card">
+          <div class="session-image">
+            <img src="https://g.top4top.io/p_36419hzz13.jpeg" alt="حصة مراجعة اللغة العربية للصف الخامس">
+            <div class="session-overlay"><div class="grade">الصف الخامس</div></div>
+          </div>
+          <div class="session-content">
+            <h3 class="session-title">مراجعة ليلة الامتحان - اللغة العربية</h3>
+            <div class="session-details">
+              <div class="detail-item"><i class="fas fa-chalkboard-teacher"></i><span><strong>المعلم:</strong> الأستاذ محمود الغافري - معلم أول لغة عربية</span></div>
+              <div class="detail-item"><i class="far fa-clock"></i><span><strong>الوقت:</strong> 6:00 مساءً - 7:00 مساءً</span></div>
+              <div class="detail-item"><i class="fas fa-book"></i><span><strong>المادة:</strong> اللغة العربية</span></div>
+              <div class="detail-item"><i class="fas fa-calendar-day"></i><span><strong>تاريخ الامتحان:</strong> الأحد 21 ديسمبر 2025</span></div>
             </div>
+            <p>مراجعة شاملة لجميع فروع مادة اللغة العربية مع التركيز على أهم النقاط التي ترد في الامتحان.</p>
+            <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> اشترك للحصول على الرابط
+            </a>
+          </div>
         </div>
-    </div>
 
-    <!-- Main Content -->
-    <div class="container main-content">
-        <!-- Exams Section -->
-        <section class="exams-section">
-            <div class="section-title">
-                <h3>جدول امتحانات صفوف النقل</h3>
+        <div class="session-card">
+          <div class="session-image">
+            <img src="https://i.top4top.io/p_3641r0ggm5.jpeg" alt="حصة مراجعة اللغة العربية للصف الثامن">
+            <div class="session-overlay"><div class="grade">الصف الثامن</div></div>
+          </div>
+          <div class="session-content">
+            <h3 class="session-title">مراجعة ليلة الامتحان - اللغة العربية</h3>
+            <div class="session-details">
+              <div class="detail-item"><i class="fas fa-user-tie"></i><span><strong>المعلم:</strong> الأستاذ خليل الكلباني - معلم لغة عربية</span></div>
+              <div class="detail-item"><i class="far fa-clock"></i><span><strong>الوقت:</strong> 8:00 مساءً - 9:00 مساءً</span></div>
+              <div class="detail-item"><i class="fas fa-book"></i><span><strong>المادة:</strong> اللغة العربية</span></div>
+              <div class="detail-item"><i class="fas fa-calendar-day"></i><span><strong>تاريخ الامتحان:</strong> الأحد 21 ديسمبر 2025</span></div>
             </div>
-            <p class="section-subtitle">اختر صفك الدراسي لعرض جدول الامتحانات الدقيق. المواد المميزة تتوفر لها حصص مراجعة في الأكاديمية</p>
-            
-            <div class="grade-selector">
-                <button class="grade-btn active" data-grade="grade5">الصف الخامس والسادس</button>
-                <button class="grade-btn" data-grade="grade7">الصف السابع والثامن</button>
-                <button class="grade-btn" data-grade="grade9">الصف التاسع</button>
-                <button class="grade-btn" data-grade="grade10">الصف العاشر</button>
-                <button class="grade-btn" data-grade="grade11">الصف الحادي عشر</button>
-            </div>
-            
-            <!-- الصف الخامس و السادس -->
-            <div class="exam-table-container active" id="grade5">
-                <div class="table-header">جدول امتحان الصف الخامس و السادس - الفصل الدراسي الأول - الدور الأول 2025/2026</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>اليوم</th>
-                            <th>التاريخ</th>
-                            <th>المادة</th>
-                            <th>زمن الإجابة</th>
-                            <th>الحصة المجانية</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="today-row">
-                            <td><strong>الأحد</strong></td>
-                            <td><strong>2025/12/21</strong></td>
-                            <td><strong>اللغة العربية</strong></td>
-                            <td><strong>ساعتان</strong></td>
-                            <td><strong>8:00 - 10:00 صباحاً</strong></td>
-                        </tr>
-                        <tr>
-                            <td>الاثنين</td>
-                            <td>2025/12/22</td>
-                            <td>العلوم</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الثلاثاء</td>
-                            <td>2025/12/23</td>
-                            <td>اللغة الإنجليزية</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأربعاء</td>
-                            <td>2025/12/24</td>
-                            <td>الدراسات الإجتماعية</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الخميس</td>
-                            <td>2025/12/25</td>
-                            <td>التربية الإسلامية</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأحد</td>
-                            <td>2025/12/28</td>
-                            <td>الرياضيات</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <!-- الصف السابع و الثامن -->
-            <div class="exam-table-container" id="grade7">
-                <div class="table-header">جدول امتحان الصف السابع و الثامن - الفصل الدراسي الأول - الدور الأول 2025/2026</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>اليوم</th>
-                            <th>التاريخ</th>
-                            <th>المادة</th>
-                            <th>زمن الإجابة</th>
-                            <th>الحصة المجانية</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="today-row">
-                            <td><strong>الأحد</strong></td>
-                            <td><strong>2025/12/21</strong></td>
-                            <td><strong>اللغة العربية</strong></td>
-                            <td><strong>ساعتان</strong></td>
-                            <td><strong>8:00 - 10:00 صباحاً</strong></td>
-                        </tr>
-                        <tr>
-                            <td>الاثنين</td>
-                            <td>2025/12/22</td>
-                            <td>العلوم</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الثلاثاء</td>
-                            <td>2025/12/23</td>
-                            <td>اللغة الإنجليزية</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأربعاء</td>
-                            <td>2025/12/24</td>
-                            <td>الدراسات الإجتماعية</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الخميس</td>
-                            <td>2025/12/25</td>
-                            <td>التربية الإسلامية</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأحد</td>
-                            <td>2025/12/28</td>
-                            <td>الرياضيات</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- الصف التاسع -->
-            <div class="exam-table-container" id="grade9">
-                <div class="table-header">جدول امتحان الصف التاسع - الفصل الدراسي الأول - الدور الأول 2025/2026</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>اليوم</th>
-                            <th>التاريخ</th>
-                            <th>المادة</th>
-                            <th>زمن الإجابة</th>
-                            <th>الحصة المجانية</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="today-row">
-                            <td><strong>الأحد</strong></td>
-                            <td><strong>2025/12/21</strong></td>
-                            <td><strong>اللغة العربية</strong></td>
-                            <td><strong>ساعتان</strong></td>
-                            <td><strong>8:00 - 10:00 صباحاً</strong></td>
-                        </tr>
-                        <tr>
-                            <td>الاثنين</td>
-                            <td>2025/12/22</td>
-                            <td>التربية الإسلامية</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                        <tr class="review-available">
-                            <td>الثلاثاء</td>
-                            <td>2025/12/23</td>
-                            <td>الكيمياء</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأربعاء</td>
-                            <td>2025/12/24</td>
-                            <td>اللغة الإنجليزية</td>
-                            <td>ساعتان</td>
-                            <td>9:00 - 11:00 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الخميس</td>
-                            <td>2025/12/25</td>
-                            <td>الفيزياء</td>
-                            <td>ساعة ونصف</td>
-                            <td>9:00 - 10:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأحد</td>
-                            <td>2025/12/28</td>
-                            <td>الرياضيات</td>
-                            <td>ساعة ونصف</td>
-                            <td>9:00 - 10:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الإثنين</td>
-                            <td>2025/12/29</td>
-                            <td>الدراسات الإجتماعية</td>
-                            <td>ساعة ونصف</td>
-                            <td>9:00 - 10:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الثلاثاء</td>
-                            <td>2025/12/30</td>
-                            <td>الأحياء</td>
-                            <td>ساعة ونصف</td>
-                            <td>8:00 - 9:30 صباحاً</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <!-- الصف العاشر -->
-            <div class="exam-table-container" id="grade10">
-                <div class="table-header">جدول امتحان الصف العاشر - الفصل الدراسي الأول - الدور الأول 2025/2026</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>اليوم</th>
-                            <th>التاريخ</th>
-                            <th>المادة</th>
-                            <th>زمن الإجابة</th>
-                            <th>الحصة المجانية</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="today-row">
-                            <td><strong>الأحد</strong></td>
-                            <td><strong>2025/12/21</strong></td>
-                            <td><strong>اللغة العربية</strong></td>
-                            <td><strong>3 ساعات</strong></td>
-                            <td><strong>8:00 - 11:00 صباحاً</strong></td>
-                        </tr>
-                        <tr>
-                            <td>الاثنين</td>
-                            <td>2025/12/22</td>
-                            <td>التربية الإسلامية</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                        <tr class="review-available">
-                            <td>الثلاثاء</td>
-                            <td>2025/12/23</td>
-                            <td>الكيمياء</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأربعاء</td>
-                            <td>2025/12/24</td>
-                            <td>اللغة الإنجليزية</td>
-                            <td>ساعتان ونصف</td>
-                            <td>9:00 - 11:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الخميس</td>
-                            <td>2025/12/25</td>
-                            <td>الفيزياء</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأحد</td>
-                            <td>2025/12/28</td>
-                            <td>الرياضيات</td>
-                            <td>ساعتان ونصف</td>
-                            <td>9:00 - 11:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الإثنين</td>
-                            <td>2025/12/29</td>
-                            <td>الدراسات الإجتماعية</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الثلاثاء</td>
-                            <td>2025/12/30</td>
-                            <td>الأحياء</td>
-                            <td>ساعتان</td>
-                            <td>8:00 - 10:00 صباحاً</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- الصف الحادي عشر -->
-            <div class="exam-table-container" id="grade11">
-                <div class="table-header">جدول امتحان الصف الحادي عشر - الفصل الدراسي الأول - الدور الأول 2025/2026</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>اليوم</th>
-                            <th>التاريخ</th>
-                            <th>المادة</th>
-                            <th>زمن الإجابة</th>
-                            <th>الحصة المجانية</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="today-row">
-                            <td><strong>الأحد</strong></td>
-                            <td><strong>2025/12/21</strong></td>
-                            <td><strong>الرياضيات الأساسية / الرياضيات المتقدمة</strong></td>
-                            <td><strong>ساعتان ونصف</strong></td>
-                            <td><strong>8:00 - 10:30 صباحاً</strong></td>
-                        </tr>
-                        <tr>
-                            <td>الاثنين</td>
-                            <td>2025/12/22</td>
-                            <td>اللغة الإنجليزية / الرياضة المدرسية / الفنون التشكيلية / المهارات الموسيقية</td>
-                            <td>ساعتان ونصف</td>
-                            <td>8:00 - 10:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الثلاثاء</td>
-                            <td>2025/12/23</td>
-                            <td>اللغة العربية</td>
-                            <td>3 ساعات</td>
-                            <td>8:00 - 11:00 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الأربعاء</td>
-                            <td>2025/12/24</td>
-                            <td>الفيزياء / التاريخ والحضارة الإسلامية</td>
-                            <td>ساعتان ونصف</td>
-                            <td>8:00 - 10:30 صباحاً</td>
-                        </tr>
-                        <tr>
-                            <td>الخميس</td>
-                            <td>2025/12/25</td>
-                            <td>التربية الإسلامية / اللغة الفرنسية / الألمانية / الصينية</td>
-                            <td>ساعتان ونصف</td>
-                            <td>9:00 - 11:30 صباحاً</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-        
-        <!-- Live Sessions -->
-        <section class="sessions-section" id="sessions">
-            <div class="section-title">
-                <h3>الحصص المجانية لليلة الامتحان</h3>
-            </div>
-            <p class="section-subtitle">انضم لحصص المراجعة المجانية ليلة الامتحان (قبل يوم واحد من الاختبار). رابط الحصة يصل عبر قناة الواتساب قبل 15 دقيقة من البدء</p>
-            
-            <div class="days-navigation">
-                <button class="day-btn active" data-day="sunday">الأحد 21/12</button>
-                <button class="day-btn" data-day="monday">الاثنين 22/12</button>
-                <button class="day-btn" data-day="tuesday">الثلاثاء 23/12</button>
-                <button class="day-btn" data-day="wednesday">الأربعاء 24/12</button>
-                <button class="day-btn" data-day="thursday">الخميس 25/12</button>
-            </div>
-            
-            <!-- حصص الأحد 21/12 -->
-            <div class="sessions-grid" id="sunday-sessions">
-                <!-- حصة الصف الخامس -->
-                <div class="session-card">
-                    <div class="session-image">
-                        <img src="https://g.top4top.io/p_36419hzz13.jpeg" alt="حصة مراجعة اللغة العربية للصف الخامس">
-                        <div class="session-overlay">
-                            <div class="grade">الصف الخامس</div>
-                        </div>
-                    </div>
-                    <div class="session-content">
-                        <h3 class="session-title">مراجعة ليلة الامتحان - اللغة العربية</h3>
-                        <div class="session-details">
-                            <div class="detail-item">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                                <span><strong>المعلم:</strong> الأستاذ محمود الغافري - معلم أول لغة عربية</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="far fa-clock"></i>
-                                <span><strong>الوقت:</strong> 6:00 مساءً - 7:00 مساءً</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-book"></i>
-                                <span><strong>المادة:</strong> اللغة العربية</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-day"></i>
-                                <span><strong>تاريخ الامتحان:</strong> الأحد 21 ديسمبر 2025</span>
-                            </div>
-                        </div>
-                        <p>مراجعة شاملة لجميع فروع مادة اللغة العربية مع التركيز على أهم النقاط التي ترد في الامتحان.</p>
-                        <div class="session-actions">
-                            <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                                اشترك للحصول على الرابط
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- حصة الصف الثامن -->
-                <div class="session-card">
-                    <div class="session-image">
-                        <img src="https://i.top4top.io/p_3641r0ggm5.jpeg" alt="حصة مراجعة اللغة العربية للصف الثامن">
-                        <div class="session-overlay">
-                            <div class="grade">الصف الثامن</div>
-                        </div>
-                    </div>
-                    <div class="session-content">
-                        <h3 class="session-title">مراجعة ليلة الامتحان - اللغة العربية</h3>
-                        <div class="session-details">
-                            <div class="detail-item">
-                                <i class="fas fa-user-tie"></i>
-                                <span><strong>المعلم:</strong> الأستاذ خليل الكلباني - معلم لغة عربية</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="far fa-clock"></i>
-                                <span><strong>الوقت:</strong> 8:00 مساءً - 9:00 مساءً</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-book"></i>
-                                <span><strong>المادة:</strong> اللغة العربية</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-day"></i>
-                                <span><strong>تاريخ الامتحان:</strong> الأحد 21 ديسمبر 2025</span>
-                            </div>
-                        </div>
-                        <p>مراجعة مركزة تشمل النصوص الأدبية والقواعد النحوية والإملائية وأسئلة الفهم والتحليل.</p>
-                        <div class="session-actions">
-                            <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                                اشترك للحصول على الرابط
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- حصة الصف التاسع -->
-                <div class="session-card">
-                    <div class="session-image">
-                        <img src="https://h.top4top.io/p_36417a7tf4.jpeg" alt="حصة مراجعة اللغة العربية للصف التاسع">
-                        <div class="session-overlay">
-                            <div class="grade">الصف التاسع</div>
-                        </div>
-                    </div>
-                    <div class="session-content">
-                        <h3 class="session-title">مراجعة ليلة الامتحان - اللغة العربية</h3>
-                        <div class="session-details">
-                            <div class="detail-item">
-                                <i class="fas fa-user-graduate"></i>
-                                <span><strong>المعلم:</strong> الأستاذ عبدالله الغافري - معلم لغة عربية</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="far fa-clock"></i>
-                                <span><strong>الوقت:</strong> 8:00 مساءً - 9:00 مساءً</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-book"></i>
-                                <span><strong>المادة:</strong> اللغة العربية</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-calendar-day"></i>
-                                <span><strong>تاريخ الامتحان:</strong> الأحد 21 ديسمبر 2025</span>
-                            </div>
-                        </div>
-                        <p>مراجعة متكاملة تركز على النصوص والمحفوظات والقواعد النحوية مع حل نماذج امتحانات سابقة.</p>
-                        <div class="session-actions">
-                            <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                                اشترك للحصول على الرابط
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- حصص باقي الأيام (مخفي حالياً) -->
-            <div class="sessions-grid" id="monday-sessions" style="display: none;">
-                <div class="no-sessions">
-                    <i class="far fa-calendar-plus"></i>
-                    <h3>حصص يوم الاثنين قيد الإعداد</h3>
-                    <p>حصص يوم الاثنين 22 ديسمبر ستظهر هنا قبل موعدها بيوم واحد. تابع قناة الواتساب للإشعارات.</p>
-                    <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank" style="width: auto; margin-top: 20px;">
-                        <i class="fab fa-whatsapp"></i>
-                        اشترك في القناة للإشعارات
-                    </a>
-                </div>
-            </div>
-            
-            <div class="sessions-grid" id="tuesday-sessions" style="display: none;">
-                <div class="no-sessions">
-                    <i class="far fa-calendar-plus"></i>
-                    <h3>حصص يوم الثلاثاء قيد الإعداد</h3>
-                    <p>حصص يوم الثلاثاء 23 ديسمبر ستظهر هنا قبل موعدها بيوم واحد. تابع قناة الواتساب للإشعارات.</p>
-                    <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank" style="width: auto; margin-top: 20px;">
-                        <i class="fab fa-whatsapp"></i>
-                        اشترك في القناة للإشعارات
-                    </a>
-                </div>
-            </div>
-            
-            <div class="sessions-grid" id="wednesday-sessions" style="display: none;">
-                <div class="no-sessions">
-                    <i class="far fa-calendar-plus"></i>
-                    <h3>حصص يوم الأربعاء قيد الإعداد</h3>
-                    <p>حصص يوم الأربعاء 24 ديسمبر ستظهر هنا قبل موعدها بيوم واحد. تابع قناة الواتساب للإشعارات.</p>
-                    <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank" style="width: auto; margin-top: 20px;">
-                        <i class="fab fa-whatsapp"></i>
-                        اشترك في القناة للإشعارات
-                    </a>
-                </div>
-            </div>
-            
-            <div class="sessions-grid" id="thursday-sessions" style="display: none;">
-                <div class="no-sessions">
-                    <i class="far fa-calendar-plus"></i>
-                    <h3>حصص يوم الخميس قيد الإعداد</h3>
-                    <p>حصص يوم الخميس 25 ديسمبر ستظهر هنا قبل موعدها بيوم واحد. تابع قناة الواتساب للإشعارات.</p>
-                    <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank" style="width: auto; margin-top: 20px;">
-                        <i class="fab fa-whatsapp"></i>
-                        اشترك في القناة للإشعارات
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Social Section -->
-        <section class="social-section">
-            <div class="container">
-                <div class="section-title">
-                    <h3>تواصل معنا</h3>
-                </div>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">تابعنا على منصات التواصل للحصول على روابط الحصص قبل 15 دقيقة من بدايتها وجميع التحديثات</p>
-                
-                <div class="social-cards">
-                    <div class="social-card">
-                        <div class="social-icon">
-                            <i class="fab fa-whatsapp" style="color: #25D366;"></i>
-                        </div>
-                        <h4>قناة الواتساب الرسمية</h4>
-                        <p>اشترك للحصول على روابط الحصص قبل 15 دقيقة من بدايتها وجميع الإعلانات المهمة</p>
-                        <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="social-link" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            اشترك الآن
-                        </a>
-                    </div>
-                    
-                    <div class="social-card">
-                        <div class="social-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h4>مجتمع الطلاب</h4>
-                        <p>انضم لمجتمع الطلاب للنقاشات والاستفسارات التعليمية وتبادل الخبرات</p>
-                        <a href="https://chat.whatsapp.com/GA6Hd68Y9sv2iCbXoI78QM" class="social-link" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            انضم للمجتمع
-                        </a>
-                    </div>
-                    
-                    <div class="social-card">
-                        <div class="social-icon">
-                            <i class="fab fa-instagram" style="color: #E4405F;"></i>
-                        </div>
-                        <h4>إنستجرام</h4>
-                        <p>تابع آخر الأخبار والإعلانات والمواد التعليمية والملخصات على إنستجرام</p>
-                        <a href="https://www.instagram.com/mulhimacademyedu" class="social-link" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                            تابعنا
-                        </a>
-                    </div>
-                    
-                    <div class="social-card">
-                        <div class="social-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h4>الدعم الفني</h4>
-                        <p>للتواصل المباشر مع فريق الدعم والأسئلة الفنية واستفسارات الحصص</p>
-                        <a href="https://wa.me/96874120010" class="social-link" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            تواصل معنا
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>عن أكاديمية ملهم</h4>
-                    <p>منصة تعليمية تقدم مراجعات مجانية ليلة الامتحان لطلاب صفوف النقل، نسعى لمساعدة الطلاب في التحضير الأمثل للاختبارات وتحقيق التفوق الأكاديمي.</p>
-                    <p>نؤمن بأن التعليم حق للجميع، لذلك نقدم خدماتنا مجانًا لجميع الطلاب.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>معلومات التواصل</h4>
-                    <div class="contact-info">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div>
-                            <p><strong>واتساب الدعم:</strong></p>
-                            <p>74120010 (968+)</p>
-                        </div>
-                    </div>
-                    <div class="contact-info">
-                        <div class="contact-icon">
-                            <i class="far fa-clock"></i>
-                        </div>
-                        <div>
-                            <p><strong>أوقات العمل:</strong></p>
-                            <p>4:00 مساءً - 10:00 مساءً</p>
-                        </div>
-                    </div>
-                    <div class="contact-info">
-                        <div class="contact-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <div>
-                            <p><strong>مواعيد الحصص:</strong></p>
-                            <p>قبل يوم واحد من الامتحان</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>رؤيتنا</h4>
-                    <p>نسعى لزيادة عدد الحصص المجانية لتشمل جميع المراحل وجميع المواد إن شاء الله، ومساعدة أكبر عدد ممكن من الطلاب لتحقيق التفوق الأكاديمي.</p>
-                    <p>نعمل على توسعة خدماتنا لتصل إلى جميع طلاب السلطنة.</p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>© 2025 أكاديمية ملهم التعليمية. جميع الحقوق محفوظة.</p>
-                <p>تم تصميم هذا الموقع لتسهيل وصول الطلاب لمراجعات ليلة الامتحان المجانية.</p>
-                <p>الموقع يتم تحديثه يوميًا حسب جداول الامتحانات الرسمية.</p>
-            </div>
+            <p>مراجعة مركزة تشمل النصوص الأدبية والقواعد النحوية والإملائية وأسئلة الفهم والتحليل.</p>
+            <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> اشترك للحصول على الرابط
+            </a>
+          </div>
         </div>
-    </footer>
 
-    <script>
-        // بيانات التاريخ العربي
-        const arabicDays = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
-        const arabicMonths = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
-        
-        // تحديث التاريخ الحالي
-        function updateCurrentDate() {
-            const now = new Date();
-            const day = arabicDays[now.getDay()];
-            const date = now.getDate();
-            const month = arabicMonths[now.getMonth()];
-            const year = now.getFullYear();
-            
-            document.getElementById('currentDate').innerHTML = `
-                <i class="far fa-calendar-alt"></i>
-                ${day} ${date} ${month} ${year}
-            `;
-            
-            // تحديث نص اليوم
-            document.getElementById('todayText').textContent = `${day} ${date} ${month} ${year} - ليلة امتحان اللغة العربية`;
-            
-            // تحديث مواد اليوم
-            const todaySubjects = document.getElementById('todaySubjects');
-            todaySubjects.innerHTML = `
-                <div class="subject-badge">اللغة العربية - الصف الخامس</div>
-                <div class="subject-badge">اللغة العربية - الصف السادس</div>
-                <div class="subject-badge">اللغة العربية - الصف السابع</div>
-                <div class="subject-badge">اللغة العربية - الصف الثامن</div>
-                <div class="subject-badge">اللغة العربية - الصف التاسع</div>
-                <div class="subject-badge">اللغة العربية - الصف العاشر</div>
-                <div class="subject-badge">الرياضيات الأساسية - الصف الحادي عشر</div>
-            `;
-        }
-        
-        // تبديل جداول الصفوف
-        function setupGradeSwitcher() {
-            const gradeButtons = document.querySelectorAll('.grade-btn');
-            const examTables = document.querySelectorAll('.exam-table-container');
-            
-            gradeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // إزالة النشاط من جميع الأزرار
-                    gradeButtons.forEach(btn => btn.classList.remove('active'));
-                    // إضافة النشاط للزر المحدد
-                    this.classList.add('active');
-                    
-                    // إخفاء جميع الجداول
-                    examTables.forEach(table => table.classList.remove('active'));
-                    
-                    // إظهار الجدول المحدد
-                    const gradeId = this.getAttribute('data-grade');
-                    document.getElementById(gradeId).classList.add('active');
-                });
-            });
-        }
-        
-        // تبديل أيام الحصص
-        function setupDaySwitcher() {
-            const dayButtons = document.querySelectorAll('.day-btn');
-            
-            dayButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // إزالة النشاط من جميع الأزرار
-                    dayButtons.forEach(btn => btn.classList.remove('active'));
-                    // إضافة النشاط للزر المحدد
-                    this.classList.add('active');
-                    
-                    // إخفاء جميع جداول الحصص
-                    const allSessionGrids = document.querySelectorAll('.sessions-grid');
-                    allSessionGrids.forEach(grid => {
-                        grid.style.display = 'none';
-                    });
-                    
-                    // إظهار جدول الحصص المحدد
-                    const dayId = this.getAttribute('data-day');
-                    const targetGrid = document.getElementById(dayId + '-sessions');
-                    if (targetGrid) {
-                        targetGrid.style.display = 'grid';
-                    }
-                });
-            });
-        }
-        
-        // تمييز صف اليوم في الجداول
-        function highlightTodayRows() {
-            const today = new Date();
-            const todayFormatted = `${today.getFullYear()}/${String(today.getMonth() + 1).padStart(2, '0')}/${String(today.getDate()).padStart(2, '0')}`;
-            
-            // البحث عن صفوف اليوم في جميع الجداول
-            document.querySelectorAll('tbody tr').forEach(row => {
-                const dateCell = row.querySelector('td:nth-child(2)');
-                if (dateCell && dateCell.textContent.includes(todayFormatted)) {
-                    row.classList.add('today-row');
-                }
-            });
-        }
-        
-        // تهيئة الموقع عند التحميل
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCurrentDate();
-            setupGradeSwitcher();
-            setupDaySwitcher();
-            highlightTodayRows();
-            
-            // تحديث التاريخ كل دقيقة (للتأكد من دقة الوقت)
-            setInterval(updateCurrentDate, 60000);
-            
-            // تأثيرات إضافية
-            document.querySelectorAll('.session-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-            
-            // تحسين تجربة المستخدم على الهواتف
-            if (window.innerWidth <= 768) {
-                document.querySelectorAll('table').forEach(table => {
-                    table.style.fontSize = '0.9rem';
-                });
-            }
+        <div class="session-card">
+          <div class="session-image">
+            <img src="https://h.top4top.io/p_36417a7tf4.jpeg" alt="حصة مراجعة اللغة العربية للصف التاسع">
+            <div class="session-overlay"><div class="grade">الصف التاسع</div></div>
+          </div>
+          <div class="session-content">
+            <h3 class="session-title">مراجعة ليلة الامتحان - اللغة العربية</h3>
+            <div class="session-details">
+              <div class="detail-item"><i class="fas fa-user-graduate"></i><span><strong>المعلم:</strong> الأستاذ عبدالله الغافري - معلم لغة عربية</span></div>
+              <div class="detail-item"><i class="far fa-clock"></i><span><strong>الوقت:</strong> 8:00 مساءً - 9:00 مساءً</span></div>
+              <div class="detail-item"><i class="fas fa-book"></i><span><strong>المادة:</strong> اللغة العربية</span></div>
+              <div class="detail-item"><i class="fas fa-calendar-day"></i><span><strong>تاريخ الامتحان:</strong> الأحد 21 ديسمبر 2025</span></div>
+            </div>
+            <p>مراجعة متكاملة تركز على النصوص والمحفوظات والقواعد النحوية مع حل نماذج امتحانات سابقة.</p>
+            <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank">
+              <i class="fab fa-whatsapp"></i> اشترك للحصول على الرابط
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other days placeholders (كما لديك) -->
+      <div class="sessions-grid" id="monday-sessions" style="display:none;">
+        <div class="no-sessions">
+          <i class="far fa-calendar-plus"></i>
+          <h3>حصص يوم الاثنين قيد الإعداد</h3>
+          <p>ستظهر هنا قبل موعدها بيوم واحد. تابع قناة الواتساب للإشعارات.</p>
+          <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank" style="width:auto; margin-top:18px;">
+            <i class="fab fa-whatsapp"></i> اشترك في القناة للإشعارات
+          </a>
+        </div>
+      </div>
+
+      <div class="sessions-grid" id="tuesday-sessions" style="display:none;">
+        <div class="no-sessions">
+          <i class="far fa-calendar-plus"></i>
+          <h3>حصص يوم الثلاثاء قيد الإعداد</h3>
+          <p>ستظهر هنا قبل موعدها بيوم واحد. تابع قناة الواتساب للإشعارات.</p>
+          <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank" style="width:auto; margin-top:18px;">
+            <i class="fab fa-whatsapp"></i> اشترك في القناة للإشعارات
+          </a>
+        </div>
+      </div>
+
+      <div class="sessions-grid" id="wednesday-sessions" style="display:none;">
+        <div class="no-sessions">
+          <i class="far fa-calendar-plus"></i>
+          <h3>حصص يوم الأربعاء قيد الإعداد</h3>
+          <p>ستظهر هنا قبل موعدها بيوم واحد. تابع قناة الواتساب للإشعارات.</p>
+          <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank" style="width:auto; margin-top:18px;">
+            <i class="fab fa-whatsapp"></i> اشترك في القناة للإشعارات
+          </a>
+        </div>
+      </div>
+
+      <div class="sessions-grid" id="thursday-sessions" style="display:none;">
+        <div class="no-sessions">
+          <i class="far fa-calendar-plus"></i>
+          <h3>حصص يوم الخميس قيد الإعداد</h3>
+          <p>ستظهر هنا قبل موعدها بيوم واحد. تابع قناة الواتساب للإشعارات.</p>
+          <a href="https://whatsapp.com/channel/0029VbBWytJJkK78ReDCSC3w" class="whatsapp-btn" target="_blank" style="width:auto; margin-top:18px;">
+            <i class="fab fa-whatsapp"></i> اشترك في القناة للإشعارات
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container" style="opacity:.95;">
+      <div style="text-align:center; padding-top: 1.2rem;">
+        <p style="font-weight:900;">© 2025 أكاديمية ملهم التعليمية — تحديث يومي حسب الجداول الرسمية.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Arabic date helpers
+    const arabicDays = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+    const arabicMonths = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+
+    function formatYMD(d){
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,'0');
+      const da = String(d.getDate()).padStart(2,'0');
+      return `${y}/${m}/${da}`;
+    }
+
+    function updateCurrentDate(){
+      const now = new Date();
+      const day = arabicDays[now.getDay()];
+      const date = now.getDate();
+      const month = arabicMonths[now.getMonth()];
+      const year = now.getFullYear();
+
+      document.getElementById('currentDate').innerHTML = `<i class="far fa-calendar-alt"></i> ${day} ${date} ${month} ${year}`;
+
+      // ✅ أنت قلت: الامتحان يبدأ غدًا الأحد 21 ديسمبر، واليوم مراجعة ليلة الاختبار
+      // فبنخلي النص يركز على "امتحان الغد"
+      const tomorrow = new Date(now);
+      tomorrow.setDate(now.getDate() + 1);
+
+      const tDay = arabicDays[tomorrow.getDay()];
+      const tDate = tomorrow.getDate();
+      const tMonth = arabicMonths[tomorrow.getMonth()];
+      const tYear = tomorrow.getFullYear();
+
+      document.getElementById('todayText').textContent =
+        `اليوم ${day} ${date} ${month} ${year} — مراجعة ليلة الاختبار | امتحان الغد: ${tDay} ${tDate} ${tMonth} ${tYear}`;
+
+      // مواد اليوم (ثابتة بحسب بياناتك الحالية)
+      document.getElementById('todaySubjects').innerHTML = `
+        <div class="subject-badge">عربي - الخامس</div>
+        <div class="subject-badge">عربي - السادس</div>
+        <div class="subject-badge">عربي - السابع</div>
+        <div class="subject-badge">عربي - الثامن</div>
+        <div class="subject-badge">عربي - التاسع</div>
+        <div class="subject-badge">عربي - العاشر</div>
+        <div class="subject-badge">رياضيات - الحادي عشر</div>
+      `;
+    }
+
+    function setupGradeSwitcher(){
+      const gradeButtons = document.querySelectorAll('.grade-btn');
+      const examTables = document.querySelectorAll('.exam-table-container');
+
+      gradeButtons.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          gradeButtons.forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+
+          examTables.forEach(t=>t.classList.remove('active'));
+          document.getElementById(btn.dataset.grade).classList.add('active');
+
+          // تحسين UX: يوديه للجدول مباشرة
+          document.getElementById(btn.dataset.grade).scrollIntoView({behavior:'smooth', block:'start'});
         });
-        
-        // تأثير التمرير السلس
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+      });
+    }
+
+    function setupDaySwitcher(){
+      const dayButtons = document.querySelectorAll('.day-btn');
+      dayButtons.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          dayButtons.forEach(b=>b.classList.remove('active'));
+          btn.classList.add('active');
+
+          document.querySelectorAll('.sessions-grid').forEach(grid=>grid.style.display='none');
+
+          const target = document.getElementById(btn.dataset.day + '-sessions');
+          if(target) target.style.display = 'grid';
         });
-    </script>
+      });
+    }
+
+    // ✅ يميز صف "اليوم" تلقائيًا بدون ما تكتب today-row داخل HTML
+    function highlightTodayRows(){
+      const today = new Date();
+      const todayYMD = formatYMD(today);
+
+      document.querySelectorAll('.exam-table-container table tbody tr').forEach(row=>{
+        row.classList.remove('today-row'); // تنظيف
+        const dateCell = row.querySelector('td[data-label="التاريخ"]');
+        if(dateCell && dateCell.textContent.trim() === todayYMD){
+          row.classList.add('today-row');
+
+          const dayCell = row.querySelector('td[data-label="اليوم"]');
+          if(dayCell && !dayCell.querySelector('.today-badge')){
+            dayCell.insertAdjacentHTML('beforeend', ` <span class="today-badge"><i class="fa-solid fa-star"></i> اليوم</span>`);
+          }
+        }
+      });
+    }
+
+    // Table search (per table)
+    function setupTableSearch(){
+      document.querySelectorAll('input[data-table-search]').forEach(input=>{
+        input.addEventListener('input', ()=>{
+          const tableId = input.getAttribute('data-table-search');
+          const table = document.getElementById(tableId);
+          if(!table) return;
+
+          const q = input.value.trim().toLowerCase();
+          table.querySelectorAll('tbody tr').forEach(tr=>{
+            const text = tr.innerText.toLowerCase();
+            tr.style.display = text.includes(q) ? '' : 'none';
+          });
+        });
+      });
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const targetId = a.getAttribute('href');
+        if(targetId === '#') return;
+        e.preventDefault();
+        const el = document.querySelector(targetId);
+        if(el){
+          window.scrollTo({top: el.offsetTop - 90, behavior:'smooth'});
+        }
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      updateCurrentDate();
+      setupGradeSwitcher();
+      setupDaySwitcher();
+      setupTableSearch();
+      highlightTodayRows();
+      setInterval(updateCurrentDate, 60000);
+    });
+  </script>
 </body>
 </html>
