@@ -182,7 +182,7 @@
             font-size: 1.7rem;
         }
 
-        /* Main Navigation Menu - تم إصلاح القائمة المنسدلة */
+        /* Main Navigation Menu */
         .main-nav {
             display: flex;
             justify-content: center;
@@ -232,74 +232,9 @@
             background: var(--gradient-secondary);
         }
 
-        .dropdown-container {
-            position: relative;
-            display: inline-block;
-        }
-
         .dropdown-btn {
             background: var(--gradient-gold);
             width: 100%;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 300px;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-            z-index: 100;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            top: 100%;
-            right: 0;
-            margin-top: 10px;
-            border: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .dropdown-container:hover .dropdown-content {
-            display: block;
-            animation: fadeIn 0.2s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .dropdown-item {
-            color: var(--text-color);
-            padding: 20px 28px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: var(--transition);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            cursor: pointer;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: right;
-        }
-
-        .dropdown-item:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-item:hover {
-            background-color: rgba(0, 86, 166, 0.08);
-            color: var(--primary-color);
-            padding-right: 32px;
-        }
-
-        .dropdown-item i {
-            color: var(--primary-color);
-            width: 24px;
-            text-align: center;
-            font-size: 1.2rem;
         }
 
         /* Classroom Display Mode */
@@ -631,7 +566,7 @@
         }
 
         /* Modal Styles */
-        .instructions-modal, .contact-modal {
+        .instructions-modal, .contact-modal, .options-modal {
             display: none;
             position: fixed;
             z-index: 1000;
@@ -657,6 +592,10 @@
             border: 1px solid rgba(0,0,0,0.1);
             max-height: 85vh;
             overflow-y: auto;
+        }
+
+        .options-modal-content {
+            max-width: 600px;
         }
 
         @keyframes modalSlideIn {
@@ -697,6 +636,47 @@
             padding-bottom: 25px;
             border-bottom: 3px solid var(--primary-color);
             font-family: 'Tajawal', sans-serif;
+        }
+
+        .modal-content .modal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-option-btn {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 25px 30px;
+            background: var(--gradient-light);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: right;
+            width: 100%;
+            border-right: 5px solid var(--primary-color);
+        }
+
+        .modal-option-btn:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateX(-10px);
+            border-right: 5px solid var(--gold-color);
+        }
+
+        .modal-option-btn i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .modal-option-btn:hover i {
+            color: var(--gold-color);
         }
 
         .modal-content ol {
@@ -812,10 +792,21 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .footer-contact a:hover {
             color: white;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-icon {
+            color: #25D366;
+            font-size: 1.8rem;
         }
 
         /* Responsive Styles */
@@ -850,25 +841,6 @@
                 max-width: 450px;
             }
             
-            .dropdown-content {
-                position: fixed;
-                top: auto;
-                bottom: 0;
-                right: 0;
-                left: 0;
-                margin-top: 0;
-                border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
-                width: 100%;
-                max-width: 100%;
-                min-width: 100%;
-                animation: slideUp 0.3s ease-out;
-            }
-            
-            @keyframes slideUp {
-                from { transform: translateY(100%); }
-                to { transform: translateY(0); }
-            }
-            
             .exam-details {
                 grid-template-columns: 1fr;
             }
@@ -880,6 +852,11 @@
             .countdown-timer {
                 font-size: 4rem;
                 padding: 30px 50px;
+            }
+            
+            .modal-option-btn {
+                padding: 20px 25px;
+                font-size: 1.2rem;
             }
         }
 
@@ -957,6 +934,12 @@
                 font-size: 3.2rem;
                 padding: 25px 40px;
             }
+            
+            .modal-option-btn {
+                padding: 18px 22px;
+                font-size: 1.1rem;
+                gap: 20px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1028,6 +1011,16 @@
                 padding: 12px 24px;
                 font-size: 0.95rem;
             }
+            
+            .modal-option-btn {
+                padding: 16px 20px;
+                font-size: 1rem;
+                gap: 15px;
+            }
+            
+            .modal-option-btn i {
+                font-size: 1.5rem;
+            }
         }
 
         /* Print Styles */
@@ -1068,14 +1061,6 @@
         <header>
             <div class="header-overlay"></div>
             <div class="header-content">
-                <div class="header-top">
-                    <!-- معلومات الدائرة مركزية -->
-                    <div class="department-info">
-                        <div class="department-name">دائرة القياس والتقويم</div>
-                        <div class="department-location">محافظة الظاهرة</div>
-                    </div>
-                </div>
-                
                 <div class="header-title">
                     <h1>نظام إدارة جداول امتحانات الدبلوم العام</h1>
                     <div class="header-subtitle">دائرة القياس والتقويم - محافظة الظاهرة</div>
@@ -1094,39 +1079,18 @@
                     </div>
                 </div>
                 
-                <!-- Main Navigation Menu - تم إصلاحه -->
+                <!-- Main Navigation Menu -->
                 <div class="main-nav">
                     <button class="nav-btn instructions-btn" id="instructionsBtn">
                         <i class="fas fa-info-circle"></i>
                         تعليمات الاختبار
                     </button>
                     
-                    <!-- قائمة الخيارات المنسدلة - تم إصلاحها -->
-                    <div class="dropdown-container">
-                        <button class="nav-btn dropdown-btn">
-                            <i class="fas fa-cogs"></i>
-                            الخيارات والإعدادات
-                            <i class="fas fa-chevron-down" style="margin-right: auto; margin-left: 10px;"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <button class="dropdown-item" id="classroomOption">
-                                <i class="fas fa-tv"></i>
-                                وضع العرض الصفية
-                            </button>
-                            <button class="dropdown-item" id="contactOption">
-                                <i class="fas fa-envelope"></i>
-                                معلومات التواصل
-                            </button>
-                            <button class="dropdown-item" id="notificationsOption">
-                                <i class="fas fa-bell"></i>
-                                تفعيل الإشعارات
-                            </button>
-                            <button class="dropdown-item" id="printOption">
-                                <i class="fas fa-print"></i>
-                                طباعة الجدول
-                            </button>
-                        </div>
-                    </div>
+                    <!-- زر الخيارات والإعدادات - يفتح نافذة منبثقة -->
+                    <button class="nav-btn dropdown-btn" id="optionsBtn">
+                        <i class="fas fa-cogs"></i>
+                        الخيارات والإعدادات
+                    </button>
                 </div>
             </div>
         </header>
@@ -1327,13 +1291,13 @@
         </div>
 
         <footer>
-            <p>تم تطوير النظام بواسطة <strong>أكاديمية ملهم التعليمية</strong> بالتعاون مع <strong>دائرة القياس والتقويم - محافظة الظاهرة</strong></p>
+            <p>تم تطوير النظام بواسطة <strong>أكاديمية ملهم التعليمية</strong></p>
             <p>جميع الحقوق محفوظة &copy; 2025</p>
             <div class="footer-contact">
                 <p>للاستفسارات التقنية حول النظام:</p>
-                <a href="tel:0096874120010">
-                    <i class="fas fa-phone"></i>
-                    0096874120010
+                <a href="https://wa.me/96895665009" target="_blank">
+                    <i class="fab fa-whatsapp whatsapp-icon"></i>
+                    التواصل عبر واتساب: 95665009
                 </a>
             </div>
         </footer>
@@ -1386,8 +1350,8 @@
                     <span><strong>الغرض من النظام:</strong> إدارة جداول امتحانات الدبلوم العام</span>
                 </div>
                 <div>
-                    <i class="fas fa-phone"></i>
-                    <span><strong>رقم التواصل التقني:</strong> 0096874120010</span>
+                    <i class="fab fa-whatsapp whatsapp-icon"></i>
+                    <span><strong>رقم التواصل عبر واتساب:</strong> 95665009</span>
                 </div>
                 <div>
                     <i class="fas fa-envelope"></i>
@@ -1410,20 +1374,56 @@
         </div>
     </div>
 
+    <!-- الخيارات والإعدادات Modal -->
+    <div id="optionsModal" class="options-modal">
+        <div class="modal-content options-modal-content">
+            <span class="close">&times;</span>
+            <h2>الخيارات والإعدادات</h2>
+            
+            <div class="modal-options">
+                <button class="modal-option-btn" id="modalClassroomOption">
+                    <i class="fas fa-tv"></i>
+                    وضع العرض الصفية
+                </button>
+                
+                <button class="modal-option-btn" id="modalContactOption">
+                    <i class="fas fa-envelope"></i>
+                    معلومات التواصل
+                </button>
+                
+                <button class="modal-option-btn" id="modalNotificationsOption">
+                    <i class="fas fa-bell"></i>
+                    تفعيل الإشعارات
+                </button>
+                
+                <button class="modal-option-btn" id="modalPrintOption">
+                    <i class="fas fa-print"></i>
+                    طباعة الجدول
+                </button>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; color: var(--text-light); font-size: 1.1rem;">
+                <i class="fas fa-info-circle"></i> اختر الخيار المطلوب من القائمة أعلاه
+            </p>
+        </div>
+    </div>
+
     <script>
         // DOM Elements
         const instructionsModal = document.getElementById("instructionsModal");
         const instructionsBtn = document.getElementById("instructionsBtn");
         const contactModal = document.getElementById("contactModal");
+        const optionsModal = document.getElementById("optionsModal");
+        const optionsBtn = document.getElementById("optionsBtn");
         const backToNormalBtn = document.getElementById("backToNormalBtn");
         const body = document.body;
         const closeButtons = document.getElementsByClassName("close");
         
-        // Dropdown options - تم إصلاحها
-        const classroomOption = document.getElementById("classroomOption");
-        const contactOption = document.getElementById("contactOption");
-        const notificationsOption = document.getElementById("notificationsOption");
-        const printOption = document.getElementById("printOption");
+        // Modal options
+        const modalClassroomOption = document.getElementById("modalClassroomOption");
+        const modalContactOption = document.getElementById("modalContactOption");
+        const modalNotificationsOption = document.getElementById("modalNotificationsOption");
+        const modalPrintOption = document.getElementById("modalPrintOption");
 
         // Event Listeners
         instructionsBtn.onclick = function() {
@@ -1431,28 +1431,34 @@
             document.body.style.overflow = "hidden";
         }
 
-        contactOption.onclick = function(e) {
-            e.preventDefault();
-            contactModal.style.display = "block";
+        optionsBtn.onclick = function() {
+            optionsModal.style.display = "block";
             document.body.style.overflow = "hidden";
         }
 
-        classroomOption.onclick = function(e) {
+        // خيارات النافذة المنبثقة
+        modalClassroomOption.onclick = function(e) {
             e.preventDefault();
             body.classList.add("classroom-mode");
             updateClassroomDisplay();
+            optionsModal.style.display = "none";
+            document.body.style.overflow = "auto";
         }
 
-        backToNormalBtn.onclick = function() {
-            body.classList.remove("classroom-mode");
+        modalContactOption.onclick = function(e) {
+            e.preventDefault();
+            optionsModal.style.display = "none";
+            contactModal.style.display = "block";
         }
 
-        printOption.onclick = function(e) {
+        modalPrintOption.onclick = function(e) {
             e.preventDefault();
             window.print();
+            optionsModal.style.display = "none";
+            document.body.style.overflow = "auto";
         }
 
-        notificationsOption.onclick = function(e) {
+        modalNotificationsOption.onclick = function(e) {
             e.preventDefault();
             if ("Notification" in window) {
                 if (Notification.permission === "default") {
@@ -1471,20 +1477,29 @@
             } else {
                 alert("المتصفح لا يدعم الإشعارات.");
             }
+            optionsModal.style.display = "none";
+            document.body.style.overflow = "auto";
         }
 
+        backToNormalBtn.onclick = function() {
+            body.classList.remove("classroom-mode");
+        }
+
+        // إغلاق النوافذ المنبثقة
         for (let i = 0; i < closeButtons.length; i++) {
             closeButtons[i].onclick = function() {
                 instructionsModal.style.display = "none";
                 contactModal.style.display = "none";
+                optionsModal.style.display = "none";
                 document.body.style.overflow = "auto";
             }
         }
 
         window.onclick = function(event) {
-            if (event.target == instructionsModal || event.target == contactModal) {
+            if (event.target == instructionsModal || event.target == contactModal || event.target == optionsModal) {
                 instructionsModal.style.display = "none";
                 contactModal.style.display = "none";
+                optionsModal.style.display = "none";
                 document.body.style.overflow = "auto";
             }
         }
