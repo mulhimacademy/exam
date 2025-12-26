@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جدول امتحانات دبلوم التعليم العام 2025/2026 - أكاديمية ملهم التعليمية</title>
+    <title>نظام إدارة جداول الامتحانات - دائرة القياس والتقويم | محافظة الظاهرة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700;800&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://l.top4top.io/p_36474f6qe1.jpeg">
     <style>
         :root {
-            --primary-color: #1a5d1a;
-            --secondary-color: #d4af37;
-            --accent-color: #c53030;
-            --success-color: #2e7d32;
-            --warning-color: #ff9800;
-            --info-color: #1976d2;
-            --light-color: #f8f9fa;
-            --dark-color: #0d3b0d;
-            --text-color: #2c3e50;
-            --text-light: #5d6d7e;
+            --primary-color: #0056a6;
+            --secondary-color: #2a9d8f;
+            --accent-color: #e63946;
+            --gold-color: #d4af37;
+            --dark-blue: #003566;
+            --light-blue: #a8dadc;
+            --neutral-light: #f1faee;
+            --neutral-dark: #1d3557;
+            --text-color: #2d3748;
+            --text-light: #4a5568;
             --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --border-radius: 15px;
-            --border-radius-sm: 10px;
-            --gradient-primary: linear-gradient(135deg, #1a5d1a 0%, #0d3b0d 100%);
-            --gradient-secondary: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
-            --gradient-accent: linear-gradient(135deg, #c53030 0%, #a02020 100%);
-            --gradient-light: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --gradient-primary: linear-gradient(135deg, rgba(0, 86, 166, 0.95) 0%, rgba(0, 53, 102, 0.95) 100%);
+            --gradient-secondary: linear-gradient(135deg, #2a9d8f 0%, #1d7a6f 100%);
+            --gradient-accent: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+            --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            --gradient-light: linear-gradient(135deg, #f1faee 0%, #e6f2e6 100%);
         }
 
         * {
@@ -37,241 +38,273 @@
         }
 
         body {
-            font-family: 'Almarai', 'Noto Naskh Arabic', serif;
-            background: linear-gradient(135deg, #f5f9f5 0%, #e8f4e8 100%);
+            font-family: 'Tajawal', 'Noto Naskh Arabic', sans-serif;
+            background-color: #f8fafc;
             color: var(--text-color);
-            line-height: 1.8;
+            line-height: 1.7;
             overflow-x: hidden;
-            font-weight: 500;
+            font-weight: 400;
             min-height: 100vh;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle at 20% 80%, rgba(26, 93, 26, 0.05) 0%, transparent 20%),
-                              radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
-                              radial-gradient(circle at 40% 40%, rgba(197, 48, 48, 0.03) 0%, transparent 30%);
-            z-index: -1;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header Styles */
+        /* Header Styles - تم إعادة تصميمه بالكامل */
         header {
-            background: var(--gradient-primary);
+            background: url('https://l.top4top.io/p_36474f6qe1.jpeg') center/cover;
             color: var(--white);
-            padding: 20px 0 15px;
+            padding: 30px 0 25px;
             text-align: center;
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
             margin-bottom: 40px;
             position: relative;
             box-shadow: var(--shadow);
             overflow: hidden;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .header-bg {
+        .header-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.08;
+            background: var(--gradient-primary);
+            opacity: 0.92;
             z-index: 1;
-            animation: bgPan 30s infinite alternate linear;
-        }
-
-        @keyframes bgPan {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
         }
 
         .header-content {
             position: relative;
             z-index: 2;
-            padding: 0 15px;
+            padding: 0 20px;
+            width: 100%;
+            max-width: 1000px;
         }
 
-        .logo-container {
+        .header-top {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            gap: 20px;
+            margin-bottom: 40px;
+            padding: 0 20px;
         }
 
-        .logo {
+        .vision-logo {
             height: 80px;
             width: auto;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-            animation: logoFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+        .department-info {
+            text-align: left;
+            color: var(--white);
         }
 
-        .header-text {
+        .department-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--gold-color);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .department-location {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .header-title {
+            margin-bottom: 25px;
             text-align: center;
         }
 
         h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            text-shadow: 0 3px 10px rgba(0,0,0,0.4);
             color: var(--white);
-            margin-bottom: 5px;
-            font-family: 'Almarai', sans-serif;
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.3;
+            margin-bottom: 10px;
         }
 
-        .school-name {
-            font-size: 1.8rem;
-            margin: 5px 0 10px;
-            color: var(--secondary-color);
-            text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        .header-subtitle {
+            font-size: 2rem;
+            margin: 10px 0;
+            color: var(--gold-color);
             font-weight: 700;
-            font-family: 'Almarai', sans-serif;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
 
         .header-meta {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             opacity: 0.95;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-            margin-bottom: 15px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.9);
-            font-family: 'Almarai', sans-serif;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 20px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 14px 32px;
             border-radius: 50px;
             display: inline-block;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.25);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         .header-time-date {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 50px;
             background: rgba(255, 255, 255, 0.15);
-            padding: 15px 25px;
-            border-radius: 50px;
-            margin: 20px auto 0;
-            max-width: 600px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            padding: 22px 40px;
+            border-radius: var(--border-radius);
+            margin: 25px auto 0;
+            max-width: 800px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.25);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             flex-wrap: wrap;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .header-time, .header-date {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .header-time i, .header-date i {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
+            color: var(--gold-color);
+            font-size: 1.7rem;
         }
 
-        /* Control Buttons Container */
-        .header-controls {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-            padding: 0 15px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+        /* Main Navigation Menu */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            padding: 0 20px;
+            flex-wrap: wrap;
         }
 
-        /* Control Button Styles */
-        .control-btn {
+        .nav-btn {
             color: var(--white);
             border: none;
-            padding: 16px 20px;
+            padding: 18px 32px;
             border-radius: var(--border-radius);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
+            gap: 15px;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 2;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
-            font-family: 'Almarai', sans-serif;
-            min-height: 60px;
+            font-family: 'Tajawal', sans-serif;
+            min-width: 220px;
+            justify-content: center;
         }
 
-        .control-btn::before {
+        .nav-btn::after {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
+            background: linear-gradient(rgba(255,255,255,0.15), transparent);
+            opacity: 0;
+            transition: var(--transition);
         }
 
-        .control-btn:hover::before {
-            left: 100%;
+        .nav-btn:hover::after {
+            opacity: 1;
         }
 
         .instructions-btn {
-            background: var(--gradient-accent);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .contact-btn {
-            background: var(--gradient-primary);
-            border: 2px solid rgba(255,255,255,0.3);
+            background: var(--gradient-secondary);
         }
 
         .classroom-btn {
-            background: var(--gradient-secondary);
-            border: 2px solid rgba(255,255,255,0.3);
+            background: var(--gradient-gold);
         }
 
-        .notifications-btn {
-            background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
-            border: 2px solid rgba(255,255,255,0.3);
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
         }
 
-        .print-btn {
-            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
-            border: 2px solid rgba(255,255,255,0.3);
+        .dropdown-btn {
+            background: var(--gradient-accent);
+            width: 100%;
         }
 
-        .control-btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 280px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            z-index: 100;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            top: 100%;
+            right: 0;
+            margin-top: 10px;
+            border: 1px solid rgba(0,0,0,0.08);
         }
 
-        .control-btn i {
-            font-size: 1.3rem;
+        .dropdown-container:hover .dropdown-content {
+            display: block;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-item {
+            color: var(--text-color);
+            padding: 20px 28px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(0, 86, 166, 0.08);
+            color: var(--primary-color);
+            padding-right: 32px;
+        }
+
+        .dropdown-item i {
+            color: var(--primary-color);
+            width: 24px;
+            text-align: center;
+            font-size: 1.2rem;
         }
 
         /* Classroom Display Mode */
@@ -288,15 +321,16 @@
         body.classroom-mode header {
             border-radius: 0;
             margin-bottom: 0;
-            padding: 15px 0;
+            padding: 25px 0;
+            min-height: 250px;
         }
 
         .classroom-display {
             display: none;
-            background: linear-gradient(135deg, rgba(13, 59, 13, 0.95) 0%, rgba(26, 93, 26, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(0, 53, 102, 0.95) 0%, rgba(0, 86, 166, 0.95) 100%);
             color: white;
-            padding: 30px;
-            min-height: calc(100vh - 120px);
+            padding: 50px;
+            min-height: calc(100vh - 250px);
             backdrop-filter: blur(10px);
         }
 
@@ -311,9 +345,9 @@
 
         .classroom-header {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid var(--secondary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--gold-color);
             position: relative;
         }
 
@@ -323,105 +357,85 @@
             bottom: -3px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 150px;
             height: 3px;
-            background: var(--gradient-secondary);
+            background: var(--gradient-gold);
             border-radius: 3px;
         }
 
         .classroom-header h2 {
             font-size: 3.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            color: var(--gold-color);
+            margin-bottom: 20px;
             font-weight: 800;
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .classroom-header p {
             font-size: 2rem;
-            opacity: 0.9;
+            opacity: 0.95;
             font-weight: 600;
         }
 
         .exam-details {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
         .exam-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
-            border-radius: var(--border-radius);
-            padding: 35px;
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .exam-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-secondary);
         }
 
         .exam-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
         }
 
         .exam-card h3 {
             font-size: 2.2rem;
-            margin-bottom: 25px;
-            color: var(--secondary-color);
+            margin-bottom: 30px;
+            color: var(--gold-color);
             border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-            padding-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            padding-bottom: 20px;
         }
 
         .exam-info {
             font-size: 1.8rem;
-            margin-bottom: 18px;
+            margin-bottom: 22px;
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 10px 0;
+            gap: 25px;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .exam-info i {
-            color: var(--secondary-color);
+            color: var(--gold-color);
             font-size: 2rem;
             width: 40px;
-            text-align: center;
         }
 
         .classroom-countdown {
             text-align: center;
-            margin-top: 40px;
-            padding: 30px;
+            margin-top: 60px;
+            padding: 40px;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .classroom-countdown h3 {
             font-size: 2.5rem;
-            margin-bottom: 25px;
-            color: var(--secondary-color);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 35px;
+            color: var(--gold-color);
         }
 
         .countdown-timer {
@@ -429,31 +443,13 @@
             font-weight: 800;
             color: white;
             background: rgba(0, 0, 0, 0.3);
-            padding: 30px 50px;
-            border-radius: var(--border-radius);
+            padding: 35px 60px;
+            border-radius: var(--border-radius-lg);
             display: inline-block;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border: 3px solid var(--secondary-color);
-            font-family: 'Almarai', sans-serif;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 4px solid var(--gold-color);
+            font-family: 'Tajawal', sans-serif;
             animation: pulse 2s infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .countdown-timer::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shine 3s infinite linear;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         @keyframes pulse {
@@ -463,47 +459,37 @@
 
         .countdown-label {
             font-size: 1.8rem;
-            margin-top: 20px;
+            margin-top: 25px;
             opacity: 0.9;
             font-weight: 600;
         }
 
         .classroom-instructions {
             background: rgba(0, 0, 0, 0.2);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin-top: 40px;
+            border-radius: var(--border-radius-lg);
+            padding: 35px;
+            margin-top: 60px;
             border-left: 5px solid var(--accent-color);
             backdrop-filter: blur(10px);
         }
 
         .classroom-instructions h4 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--gold-color);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .classroom-instructions ul {
-            font-size: 1.5rem;
-            padding-right: 25px;
+            font-size: 1.6rem;
+            padding-right: 30px;
         }
 
         .classroom-instructions li {
-            margin-bottom: 12px;
-            padding-right: 15px;
-            position: relative;
-        }
-
-        .classroom-instructions li::before {
-            content: '•';
-            color: var(--secondary-color);
-            font-size: 2rem;
-            position: absolute;
-            right: -20px;
-            top: -2px;
+            margin-bottom: 15px;
+            padding-right: 20px;
         }
 
         .back-to-normal {
@@ -513,31 +499,30 @@
             background: var(--gradient-accent);
             color: white;
             border: none;
-            padding: 14px 28px;
+            padding: 16px 32px;
             border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             z-index: 1000;
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .back-to-normal:hover {
-            background: linear-gradient(135deg, #b71c1c 0%, #8b0000 100%);
             transform: translateX(-5px) scale(1.05);
         }
 
         /* Exam Table Styles */
         .exam-table-container {
             overflow-x: auto;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             background: var(--white);
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow);
-            padding: 20px;
+            padding: 30px;
             position: relative;
             border: 1px solid rgba(0,0,0,0.05);
         }
@@ -545,25 +530,24 @@
         .exam-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 700px;
+            min-width: 850px;
         }
 
         .exam-table th {
             background: var(--gradient-primary);
             color: var(--white);
-            padding: 22px;
+            padding: 25px;
             text-align: center;
             font-weight: 800;
             position: sticky;
             top: 0;
             font-size: 1.3rem;
             border-bottom: 3px solid rgba(255,255,255,0.3);
-            font-family: 'Almarai', sans-serif;
-            letter-spacing: 0.5px;
+            font-family: 'Tajawal', sans-serif;
         }
 
         .exam-table td {
-            padding: 20px;
+            padding: 22px;
             text-align: center;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             transition: var(--transition);
@@ -572,8 +556,7 @@
         }
 
         .exam-table tr:not(.holiday):hover td {
-            background: linear-gradient(90deg, rgba(26, 93, 26, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
-            transform: scale(1.01);
+            background-color: rgba(0, 86, 166, 0.04);
         }
 
         .exam-table tr:last-child td {
@@ -584,31 +567,31 @@
             font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-            padding: 10px 18px;
-            border-radius: var(--border-radius-sm);
-            min-width: 200px;
+            gap: 12px;
+            font-size: 1.15rem;
+            padding: 12px 22px;
+            border-radius: 30px;
+            min-width: 240px;
             justify-content: center;
         }
 
         .countdown.upcoming {
-            background: linear-gradient(135deg, rgba(46, 125, 50, 0.15) 0%, rgba(76, 175, 80, 0.15) 100%);
-            color: var(--success-color);
-            border: 1px solid rgba(46, 125, 50, 0.3);
+            background-color: rgba(42, 157, 143, 0.12);
+            color: var(--secondary-color);
+            border: 1px solid rgba(42, 157, 143, 0.3);
         }
 
         .countdown.active {
-            background: linear-gradient(135deg, rgba(255, 152, 0, 0.2) 0%, rgba(255, 193, 7, 0.2) 100%);
-            color: var(--warning-color);
+            background-color: rgba(230, 57, 70, 0.12);
+            color: var(--accent-color);
             animation: pulse 1.5s infinite;
-            border: 1px solid rgba(255, 152, 0, 0.3);
+            border: 1px solid rgba(230, 57, 70, 0.3);
         }
 
         .countdown.finished {
-            background: linear-gradient(135deg, rgba(117, 117, 117, 0.1) 0%, rgba(158, 158, 158, 0.1) 100%);
-            color: var(--text-light);
-            border: 1px solid rgba(117, 117, 117, 0.2);
+            background-color: rgba(100, 116, 139, 0.1);
+            color: #64748b;
+            border: 1px solid rgba(100, 116, 139, 0.2);
         }
 
         /* Status icons */
@@ -617,30 +600,25 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            margin-left: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-left: 10px;
         }
 
         .status-upcoming {
-            background: var(--gradient-primary);
+            background-color: var(--secondary-color);
         }
 
         .status-active {
-            background: var(--gradient-secondary);
+            background-color: var(--accent-color);
             animation: pulse 1.5s infinite;
         }
 
         .status-finished {
-            background: linear-gradient(135deg, #757575 0%, #9e9e9e 100%);
-        }
-
-        .status-holiday {
-            background: var(--gradient-accent);
+            background-color: #94a3b8;
         }
 
         /* Holiday Styles */
         .holiday {
-            background: linear-gradient(135deg, rgba(197, 48, 48, 0.1) 0%, rgba(244, 67, 54, 0.1) 100%);
+            background-color: rgba(230, 57, 70, 0.06);
             color: var(--accent-color);
             border-left: 5px solid var(--accent-color);
         }
@@ -652,69 +630,56 @@
 
         /* Active Exam Styles */
         .exam-active {
-            background: linear-gradient(90deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%) !important;
+            background-color: rgba(230, 57, 70, 0.05) !important;
             position: relative;
-            border-left: 5px solid var(--warning-color);
+            border-left: 5px solid var(--accent-color);
         }
 
         /* Modal Styles */
         .instructions-modal, .contact-modal {
             display: none;
             position: fixed;
-            z-index: 100;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
         }
 
         .modal-content {
             background: var(--white);
             margin: 5% auto;
-            padding: 40px;
-            border-radius: var(--border-radius);
+            padding: 45px;
+            border-radius: var(--border-radius-lg);
             width: 90%;
-            max-width: 800px;
+            max-width: 850px;
             position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            animation: modalSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            animation: modalSlideIn 0.3s ease-out;
             border: 1px solid rgba(0,0,0,0.1);
             max-height: 85vh;
             overflow-y: auto;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         }
 
         @keyframes modalSlideIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(-50px) scale(0.95); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0) scale(1); 
-            }
+            from { opacity: 0; transform: translateY(-30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .close {
             position: absolute;
-            left: 30px;
-            top: 25px;
+            left: 35px;
+            top: 30px;
             color: var(--text-light);
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             font-weight: bold;
             cursor: pointer;
             transition: var(--transition);
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -724,103 +689,60 @@
 
         .close:hover {
             color: var(--accent-color);
-            background: rgba(197, 48, 48, 0.1);
-            transform: rotate(90deg) scale(1.1);
+            background: rgba(230, 57, 70, 0.1);
+            transform: rotate(90deg);
         }
 
         .modal-content h2 {
-            color: var(--dark-color);
-            margin-bottom: 35px;
+            color: var(--dark-blue);
+            margin-bottom: 40px;
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             font-weight: 800;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
             border-bottom: 3px solid var(--primary-color);
-            font-family: 'Almarai', sans-serif;
-            position: relative;
-        }
-
-        .modal-content h2::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--gradient-secondary);
-            border-radius: 3px;
+            font-family: 'Tajawal', sans-serif;
         }
 
         .modal-content ol {
-            padding-right: 30px;
-            margin-bottom: 35px;
+            padding-right: 35px;
+            margin-bottom: 40px;
         }
 
         .modal-content li {
             margin-bottom: 20px;
             padding-right: 25px;
             font-size: 1.2rem;
-            line-height: 1.9;
-            position: relative;
-            transition: var(--transition);
-            padding: 15px;
-            border-radius: var(--border-radius-sm);
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .modal-content li:hover {
-            background: rgba(26, 93, 26, 0.05);
-            transform: translateX(-5px);
-        }
-
-        .modal-content li::before {
-            content: counter(list-item) ".";
-            position: absolute;
-            right: -25px;
-            top: 15px;
-            font-weight: 800;
-            color: var(--primary-color);
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            line-height: 1.8;
         }
 
         .modal-content li strong {
             font-weight: 700;
-            color: var(--dark-color);
-            background: rgba(212, 175, 55, 0.15);
-            padding: 2px 6px;
-            border-radius: 4px;
+            color: var(--dark-blue);
         }
 
         .modal-content p {
             text-align: center;
             font-style: italic;
             color: var(--primary-color);
-            margin-top: 35px;
+            margin-top: 40px;
             font-size: 1.3rem;
             font-weight: 600;
             line-height: 1.8;
-            padding: 20px;
-            background: rgba(26, 93, 26, 0.05);
-            border-radius: var(--border-radius-sm);
-            border-right: 4px solid var(--secondary-color);
         }
 
         .contact-info {
-            margin-top: 35px;
+            margin-top: 40px;
         }
 
         .contact-info div {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: rgba(26, 93, 26, 0.08);
-            border-radius: var(--border-radius-sm);
+            gap: 25px;
+            margin-bottom: 25px;
+            padding: 22px;
+            background: rgba(0, 86, 166, 0.06);
+            border-radius: var(--border-radius);
             font-size: 1.2rem;
             font-weight: 500;
             border-right: 5px solid var(--primary-color);
@@ -828,9 +750,8 @@
         }
 
         .contact-info div:hover {
-            background: rgba(26, 93, 26, 0.12);
+            background: rgba(0, 86, 166, 0.1);
             transform: translateX(-8px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .contact-info i {
@@ -843,11 +764,11 @@
         /* Footer Styles */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 45px 20px;
             background: var(--gradient-primary);
             color: var(--white);
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-            margin-top: 50px;
+            border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+            margin-top: 70px;
             font-size: 1.2rem;
             font-weight: 500;
             position: relative;
@@ -862,7 +783,7 @@
             width: 100%;
             height: 100%;
             background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1350&q=80') center/cover;
-            opacity: 0.05;
+            opacity: 0.04;
             z-index: 1;
         }
 
@@ -879,127 +800,137 @@
 
         footer strong {
             font-weight: 700;
-            color: var(--secondary-color);
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gold-color);
         }
 
         .footer-contact {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .footer-contact a {
-            color: var(--secondary-color);
+            color: var(--gold-color);
             text-decoration: none;
             font-weight: 700;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .footer-contact a:hover {
             color: white;
-            transform: translateY(-2px);
         }
 
         /* Responsive Styles */
-        @media (max-width: 1200px) {
+        @media (max-width: 992px) {
+            .header-top {
+                flex-direction: column;
+                gap: 25px;
+                margin-bottom: 30px;
+            }
+            
+            .department-info {
+                text-align: center;
+            }
+            
+            .vision-logo {
+                height: 70px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.7rem;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                max-width: 450px;
+            }
+            
             .exam-details {
                 grid-template-columns: 1fr;
             }
             
             .classroom-header h2 {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
             
             .countdown-timer {
                 font-size: 4rem;
-                padding: 25px 40px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .header-controls {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .logo-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .logo {
-                height: 70px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .school-name {
-                font-size: 1.5rem;
-            }
-            
-            .header-meta {
-                font-size: 1rem;
-            }
-            
-            .classroom-header h2 {
-                font-size: 2.5rem;
-            }
-            
-            .exam-info {
-                font-size: 1.5rem;
-            }
-            
-            .countdown-timer {
-                font-size: 3.5rem;
-                padding: 20px 35px;
+                padding: 30px 50px;
             }
         }
 
         @media (max-width: 768px) {
-            .header-controls {
-                grid-template-columns: 1fr;
-                gap: 12px;
+            header {
+                min-height: 400px;
+                padding: 20px 0;
+            }
+            
+            .vision-logo {
+                height: 60px;
+            }
+            
+            .department-name {
+                font-size: 1.2rem;
+            }
+            
+            .department-location {
+                font-size: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .header-meta {
+                font-size: 1.1rem;
+                padding: 12px 24px;
             }
             
             .header-time-date {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
                 padding: 20px;
-                font-size: 1.1rem;
-                max-width: 90%;
+                font-size: 1.15rem;
             }
             
-            .control-btn {
-                padding: 14px 18px;
-                font-size: 1rem;
+            .nav-btn {
+                padding: 16px 24px;
+                font-size: 1.1rem;
+            }
+            
+            .dropdown-content {
+                min-width: 100%;
             }
             
             .exam-table th {
-                padding: 18px 15px;
+                padding: 20px 18px;
                 font-size: 1.2rem;
             }
             
             .exam-table td {
-                padding: 16px 15px;
+                padding: 18px 16px;
                 font-size: 1.1rem;
             }
             
             .modal-content {
                 margin: 10% auto;
-                padding: 30px 25px;
-            }
-            
-            .modal-content li {
-                font-size: 1.1rem;
-                margin-bottom: 15px;
+                padding: 35px 30px;
             }
             
             .classroom-header h2 {
@@ -1007,56 +938,52 @@
             }
             
             .classroom-header p {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
             }
             
             .exam-card {
-                padding: 25px;
+                padding: 30px;
             }
             
             .exam-info {
-                font-size: 1.3rem;
-            }
-            
-            .countdown-timer {
-                font-size: 2.8rem;
-                padding: 18px 30px;
-            }
-            
-            .classroom-instructions h4 {
                 font-size: 1.5rem;
             }
             
-            .classroom-instructions ul {
-                font-size: 1.3rem;
+            .countdown-timer {
+                font-size: 3.2rem;
+                padding: 25px 40px;
             }
         }
 
         @media (max-width: 576px) {
-            .logo {
-                height: 60px;
+            .container {
+                padding: 0 16px;
+            }
+            
+            header {
+                min-height: 450px;
+            }
+            
+            .vision-logo {
+                height: 50px;
             }
             
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             
-            .school-name {
+            .header-subtitle {
                 font-size: 1.2rem;
             }
             
             .header-meta {
-                font-size: 0.9rem;
-                padding: 6px 15px;
+                font-size: 1rem;
+                padding: 10px 20px;
             }
             
             .header-time-date {
-                font-size: 0.95rem;
-                padding: 15px;
-            }
-            
-            .control-btn {
-                font-size: 0.95rem;
+                padding: 18px;
+                font-size: 1.05rem;
             }
             
             .exam-table {
@@ -1065,143 +992,40 @@
             
             .exam-table th {
                 font-size: 1.1rem;
-                padding: 16px 12px;
+                padding: 18px 14px;
             }
             
             .exam-table td {
                 font-size: 1rem;
-                padding: 14px 12px;
+                padding: 16px 14px;
             }
             
             .modal-content {
                 margin: 15% auto;
-                padding: 25px 20px;
+                padding: 30px 25px;
             }
             
             .modal-content h2 {
-                font-size: 1.6rem;
-                margin-bottom: 25px;
-            }
-            
-            .modal-content li {
-                font-size: 1rem;
-            }
-            
-            footer {
-                padding: 25px 15px;
-                font-size: 1rem;
-            }
-            
-            .classroom-header h2 {
                 font-size: 1.8rem;
             }
             
-            .classroom-header p {
-                font-size: 1.4rem;
-            }
-            
-            .exam-info {
-                font-size: 1.2rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-            
-            .countdown-timer {
-                font-size: 2.2rem;
-                padding: 15px 25px;
+            footer {
+                padding: 35px 20px;
+                font-size: 1.1rem;
             }
             
             .back-to-normal {
-                top: 10px;
-                left: 10px;
-                padding: 10px 18px;
-                font-size: 0.9rem;
+                top: 15px;
+                left: 15px;
+                padding: 12px 24px;
+                font-size: 0.95rem;
             }
-        }
-
-        /* Animation for table rows */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .exam-table tbody tr {
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .exam-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
-        .exam-table tbody tr:nth-child(2) { animation-delay: 0.2s; }
-        .exam-table tbody tr:nth-child(3) { animation-delay: 0.3s; }
-        .exam-table tbody tr:nth-child(4) { animation-delay: 0.4s; }
-        .exam-table tbody tr:nth-child(5) { animation-delay: 0.5s; }
-        .exam-table tbody tr:nth-child(6) { animation-delay: 0.6s; }
-        .exam-table tbody tr:nth-child(7) { animation-delay: 0.7s; }
-        .exam-table tbody tr:nth-child(8) { animation-delay: 0.8s; }
-        .exam-table tbody tr:nth-child(9) { animation-delay: 0.9s; }
-        .exam-table tbody tr:nth-child(10) { animation-delay: 1.0s; }
-
-        /* Important Text Styles */
-        .important-text {
-            font-weight: 800;
-            color: var(--dark-color);
-            background: rgba(212, 175, 55, 0.2);
-            padding: 3px 8px;
-            border-radius: 5px;
-            border-right: 3px solid var(--secondary-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(255, 235, 59, 0.15) 100%);
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-weight: 600;
-            color: var(--dark-color);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            display: inline-block;
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .loading .spinner {
-            width: 80px;
-            height: 80px;
-            border: 5px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: var(--secondary-color);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loading p {
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
         }
 
         /* Print Styles */
         @media print {
-            .header-controls,
-            .control-btn,
+            .main-nav,
+            .back-to-normal,
             footer .footer-contact {
                 display: none;
             }
@@ -1212,43 +1036,47 @@
                 padding: 0;
             }
             
-            .exam-table {
-                min-width: 100%;
-            }
-            
             .exam-table th {
-                background: var(--dark-color) !important;
+                background: var(--dark-blue) !important;
                 color: white !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
             
-            .countdown {
-                border: 1px solid #ddd !important;
+            header {
+                background: var(--dark-blue) !important;
+                min-height: auto;
+            }
+            
+            .header-overlay {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loadingScreen">
-        <div class="spinner"></div>
-        <p>جاري تحميل جدول الامتحانات...</p>
-    </div>
-
     <div class="container">
+        <!-- Header مع التصميم الجديد -->
         <header>
-            <div class="header-bg"></div>
+            <div class="header-overlay"></div>
             <div class="header-content">
-                <div class="logo-container">
-                    <img src="https://l.top4top.io/p_36474f6qe1.jpeg" alt="شعار أكاديمية ملهم التعليمية" class="logo">
-                    <div class="header-text">
-                        <h1>جدول امتحانات دبلوم التعليم العام</h1>
-                        <div class="school-name">أكاديمية ملهم التعليمية</div>
+                <div class="header-top">
+                    <!-- شعار رؤية عمان على اليسار -->
+                    <img src="https://k.top4top.io/p_3647xjyp71.jpg" alt="شعار رؤية عمان 2040" class="vision-logo">
+                    
+                    <!-- معلومات الدائرة على اليمين -->
+                    <div class="department-info">
+                        <div class="department-name">دائرة القياس والتقويم</div>
+                        <div class="department-location">محافظة الظاهرة</div>
                     </div>
                 </div>
                 
-                <div class="header-meta">الفصل الدراسي الأول - الدور الأول 2025/2026 م</div>
+                <div class="header-title">
+                    <h1>نظام إدارة جداول امتحانات الدبلوم العام</h1>
+                    <div class="header-subtitle">دائرة القياس والتقويم - محافظة الظاهرة</div>
+                </div>
+                
+                <div class="header-meta">الفصل الدراسي الأول - الدور الأول 2025/2026</div>
                 
                 <div class="header-time-date">
                     <div class="header-time" id="currentTime">
@@ -1261,27 +1089,39 @@
                     </div>
                 </div>
                 
-                <div class="header-controls">
-                    <button class="control-btn instructions-btn" id="instructionsBtn">
+                <!-- Main Navigation Menu -->
+                <div class="main-nav">
+                    <button class="nav-btn instructions-btn" id="instructionsBtn">
                         <i class="fas fa-info-circle"></i>
                         تعليمات الاختبار
                     </button>
-                    <button class="control-btn contact-btn" id="contactBtn">
-                        <i class="fas fa-envelope"></i>
-                        معلومات التواصل
-                    </button>
-                    <button class="control-btn classroom-btn" id="classroomBtn">
+                    
+                    <button class="nav-btn classroom-btn" id="classroomBtn">
                         <i class="fas fa-tv"></i>
                         وضع العرض الصفية
                     </button>
-                    <button class="control-btn notifications-btn" id="notificationsBtn">
-                        <i class="fas fa-bell"></i>
-                        تفعيل الإشعارات
-                    </button>
-                    <button class="control-btn print-btn" id="printBtn">
-                        <i class="fas fa-print"></i>
-                        طباعة الجدول
-                    </button>
+                    
+                    <div class="dropdown-container">
+                        <button class="nav-btn dropdown-btn">
+                            <i class="fas fa-cogs"></i>
+                            الخيارات والإعدادات
+                            <i class="fas fa-chevron-down" style="margin-right: auto; margin-left: 10px;"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item" id="contactOption">
+                                <i class="fas fa-envelope"></i>
+                                معلومات التواصل
+                            </a>
+                            <a href="#" class="dropdown-item" id="notificationsOption">
+                                <i class="fas fa-bell"></i>
+                                تفعيل الإشعارات
+                            </a>
+                            <a href="#" class="dropdown-item" id="printOption">
+                                <i class="fas fa-print"></i>
+                                طباعة الجدول
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -1482,10 +1322,10 @@
         </div>
 
         <footer>
-            <p>تم إنشاء الجدول بواسطة <strong>أكاديمية ملهم التعليمية</strong> - جميع الحقوق محفوظة &copy; 2025</p>
-            <p>نظام إدارة جداول الامتحانات للدبلوم العام</p>
+            <p>تم تطوير النظام بواسطة <strong>أكاديمية ملهم التعليمية</strong> بالتعاون مع <strong>دائرة القياس والتقويم - محافظة الظاهرة</strong></p>
+            <p>جميع الحقوق محفوظة &copy; 2025</p>
             <div class="footer-contact">
-                <p>للاستفسارات التقنية أو حول الموقع:</p>
+                <p>للاستفسارات التقنية حول النظام:</p>
                 <a href="tel:0096874120010">
                     <i class="fas fa-phone"></i>
                     0096874120010
@@ -1498,7 +1338,7 @@
     <div id="instructionsModal" class="instructions-modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>تعليمات الاختبار</h2>
+            <h2>تعليمات الاختبار الرسمية</h2>
             <ol>
                 <li><strong>الزي الرسمي:</strong> يُرجى من جميع المتقدمين الالتزام بالزي العُماني الرسمي: <span class="important-text">الدشداشة البيضاء والمصر والكمة</span></li>
                 <li><strong>الأدوات اللازمة:</strong> إحضار جميع الأدوات اللازمة لأداء امتحان المادة: <span class="important-text">الأقلام، المسطرة، الممحاة، الآلة الحاسبة المسموح بها في الامتحان</span></li>
@@ -1511,7 +1351,7 @@
                 <li><strong>الآلات الحاسبة:</strong> استخدام الآلات الحاسبة العلمية بشرط: <span class="important-text">ألا تكون قابلة للبرمجة والتخزين والتي تتصف بشاشات عريضة والتي لها القدرة على رسم المنحنيات البيانية</span></li>
                 <li><strong>أقلام الكتابة:</strong> على الممتحن استخدام الأقلام الجافة: <span class="important-text">الأزرق والأسود</span> في الإجابة ويفضل استخدام <span class="important-text">قلم رصاص</span> في الإجابة على الأسئلة الموضوعية</li>
                 <li><strong>موعد الحضور:</strong> يجب على الطلبة الحضور إلى المركز قبل <span class="important-text">نصف ساعة</span> على الأقل من بدء الامتحان، والتواجد في قاعة الاختبار قبل بدء الامتحان بـ <span class="important-text">10 دقائق</span></li>
-                <li><strong>التأخير عن الامتحان:</strong> لا يُسمح بالدخول إلى قاعة الامتحان بعد مرور <span class="important-text">15 دقائق</span> من بدء الوقت، إلا بإذن من رئيس المركز في حالات استثنائية مبررة.</li>
+                <li><strong>التأخير عن الامتحان:</strong> لا يُسمح بالدخول إلى قاعة الامتحان بعد مرور <span class="important-text">15 دقيقة</span> من بدء الوقت، إلا بإذن من رئيس المركز في حالات استثنائية مبررة.</li>
                 <li><strong>الغش:</strong> يُمنع الغش أو محاولة الغش أو التعاون غير المشروع أثناء الامتحان، وتُطبق اللوائح العقابية بحق كل من يثبت تورطه في ذلك.</li>
                 <li><strong>مصادرة الأدوات:</strong> يحق لرئيس المركز ومشرفي القاعات مصادرة أي أدوات مخالفة أو مشبوهة، وتسليمها إلى لجنة الامتحانات وفق الإجراءات المعتمدة.</li>
                 <li><strong>الحالات الطارئة:</strong> في الحالات الطارئة، يحق لرئيس المركز التنسيق مع <span class="important-text">شرطة عمان السلطانية</span> لاتخاذ ما يلزم لضمان أمن وسلامة المركز.</li>
@@ -1530,15 +1370,19 @@
             <div class="contact-info">
                 <div>
                     <i class="fas fa-university"></i>
-                    <span><strong>الأكاديمية:</strong> أكاديمية ملهم التعليمية</span>
+                    <span><strong>الجهة المطورة:</strong> أكاديمية ملهم التعليمية</span>
+                </div>
+                <div>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span><strong>الجهة المشرفة:</strong> دائرة القياس والتقويم - محافظة الظاهرة</span>
                 </div>
                 <div>
                     <i class="fas fa-info-circle"></i>
-                    <span><strong>الغرض:</strong> نظام إدارة جداول امتحانات الدبلوم العام</span>
+                    <span><strong>الغرض من النظام:</strong> إدارة جداول امتحانات الدبلوم العام</span>
                 </div>
                 <div>
                     <i class="fas fa-phone"></i>
-                    <span><strong>رقم التواصل:</strong> 0096874120010</span>
+                    <span><strong>رقم التواصل التقني:</strong> 0096874120010</span>
                 </div>
                 <div>
                     <i class="fas fa-envelope"></i>
@@ -1548,49 +1392,42 @@
                     <i class="fas fa-clock"></i>
                     <span><strong>ساعات الدعم الفني:</strong> من الأحد إلى الخميس، 8:00 صباحاً - 3:00 مساءً</span>
                 </div>
-                <div>
-                    <i class="fas fa-headset"></i>
-                    <span><strong>نوع الدعم:</strong> استفسارات فنية حول النظام والموقع الإلكتروني</span>
-                </div>
             </div>
             
-            <p style="margin-top: 30px; background: rgba(26, 93, 26, 0.08); padding: 20px; border-radius: 10px;">
-                <strong>ملاحظة هامة:</strong> هذا النظام تم تطويره خصيصاً لخدمة المراكز الامتحانية في سلطنة عُمان. 
+            <p style="margin-top: 30px; background: rgba(0, 86, 166, 0.06); padding: 20px; border-radius: 10px; border-right: 4px solid var(--secondary-color);">
+                <strong>ملاحظة هامة:</strong> هذا النظام تم تطويره خصيصاً لخدمة المراكز الامتحانية التابعة لدائرة القياس والتقويم بمحافظة الظاهرة. 
                 بالنسبة للاستفسارات الخاصة بالامتحانات أو الجداول، يرجى التواصل مع المركز الامتحاني المعني مباشرة.
             </p>
             
-            <p style="text-align: center; font-size: 1.4rem; color: var(--primary-color); margin-top: 30px;">
-                <i class="fas fa-hands-helping"></i> نعمل معاً لنجاح العملية التعليمية
+            <p style="text-align: center; font-size: 1.3rem; color: var(--primary-color); margin-top: 30px;">
+                <i class="fas fa-hands-helping"></i> نعمل معاً لتحقيق رؤية عُمان 2040 في تطوير التعليم
             </p>
         </div>
     </div>
 
     <script>
-        // Loading screen
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loadingScreen').style.display = 'none';
-            }, 1000);
-        });
-
-        // تعليمات الاختبار - عرض وإخفاء النافذة
+        // DOM Elements
         const instructionsModal = document.getElementById("instructionsModal");
         const instructionsBtn = document.getElementById("instructionsBtn");
         const contactModal = document.getElementById("contactModal");
-        const contactBtn = document.getElementById("contactBtn");
-        const closeButtons = document.getElementsByClassName("close");
         const classroomBtn = document.getElementById("classroomBtn");
         const backToNormalBtn = document.getElementById("backToNormalBtn");
-        const printBtn = document.getElementById("printBtn");
-        const notificationsBtn = document.getElementById("notificationsBtn");
         const body = document.body;
+        const closeButtons = document.getElementsByClassName("close");
+        
+        // Dropdown options
+        const contactOption = document.getElementById("contactOption");
+        const notificationsOption = document.getElementById("notificationsOption");
+        const printOption = document.getElementById("printOption");
 
+        // Event Listeners
         instructionsBtn.onclick = function() {
             instructionsModal.style.display = "block";
             document.body.style.overflow = "hidden";
         }
 
-        contactBtn.onclick = function() {
+        contactOption.onclick = function(e) {
+            e.preventDefault();
             contactModal.style.display = "block";
             document.body.style.overflow = "hidden";
         }
@@ -1598,44 +1435,35 @@
         classroomBtn.onclick = function() {
             body.classList.add("classroom-mode");
             updateClassroomDisplay();
-            // إخفاء شاشة التحميل لوضع العرض الصفية
-            document.getElementById('loadingScreen').style.display = 'none';
         }
 
         backToNormalBtn.onclick = function() {
             body.classList.remove("classroom-mode");
         }
 
-        printBtn.onclick = function() {
+        printOption.onclick = function(e) {
+            e.preventDefault();
             window.print();
         }
 
-        notificationsBtn.onclick = function() {
+        notificationsOption.onclick = function(e) {
+            e.preventDefault();
             if ("Notification" in window) {
                 if (Notification.permission === "default") {
                     Notification.requestPermission().then(permission => {
                         if (permission === "granted") {
                             showNotification("تم تفعيل الإشعارات بنجاح!", "ستتلقى تنبيهات قبل الامتحانات.");
-                            notificationsBtn.innerHTML = '<i class="fas fa-bell-slash"></i> إلغاء الإشعارات';
-                            notificationsBtn.style.background = "linear-gradient(135deg, #757575 0%, #616161 100%)";
+                            alert("تم تفعيل الإشعارات بنجاح! ستتلقى تنبيهات قبل الامتحانات.");
                         }
                     });
                 } else if (Notification.permission === "granted") {
                     showNotification("الإشعارات مفعلة بالفعل", "ستتلقى تنبيهات قبل الامتحانات.");
+                    alert("الإشعارات مفعلة بالفعل. ستتلقى تنبيهات قبل الامتحانات.");
                 } else {
                     alert("تم رفض الإذن لإرسال الإشعارات. يرجى تعديل إعدادات المتصفح.");
                 }
             } else {
                 alert("المتصفح لا يدعم الإشعارات.");
-            }
-        }
-
-        function showNotification(title, body) {
-            if (Notification.permission === "granted") {
-                new Notification(title, {
-                    body: body,
-                    icon: 'https://l.top4top.io/p_36474f6qe1.jpeg'
-                });
             }
         }
 
@@ -1701,20 +1529,17 @@
         function updateCountdowns() {
             const now = new Date();
             let activeExamId = null;
-            let examInProgress = false;
 
             exams.forEach(exam => {
                 const countdownElement = document.getElementById(`countdown${exam.id}`);
                 const countdownText = countdownElement.querySelector('.countdown-text');
                 const examRow = document.getElementById(`exam${exam.id}`);
                 
-                // إزالة الفعالية من جميع الصفوف أولاً
                 examRow.classList.remove("exam-active");
                 countdownElement.classList.remove("upcoming", "active", "finished");
                 countdownElement.classList.add("upcoming");
 
                 if (now < exam.start) {
-                    // قبل موعد الامتحان
                     const diff = exam.start - now;
                     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -1724,24 +1549,22 @@
                     countdownElement.classList.remove("upcoming");
                     countdownElement.classList.add("upcoming");
                     
-                    // إرسال إشعار قبل الامتحان بيوم وساعة
+                    // إرسال إشعارات
                     if (Notification.permission === "granted") {
                         const oneDayBefore = new Date(exam.start.getTime() - 24 * 60 * 60 * 1000);
                         const oneHourBefore = new Date(exam.start.getTime() - 60 * 60 * 1000);
                         
                         if (now >= oneDayBefore && now < new Date(oneDayBefore.getTime() + 1000)) {
-                            showNotification(`تذكير: امتحان ${exam.subject} غداً`, `امتحان ${exam.subject} يوم ${exam.day} الموافق ${exam.date} الساعة ${exam.time}`);
+                            showNotification(`تذكير: امتحان ${exam.subject} غداً`, `امتحان ${exam.subject} يوم ${exam.day} الموافق ${exam.date}`);
                         }
                         
                         if (now >= oneHourBefore && now < new Date(oneHourBefore.getTime() + 1000)) {
-                            showNotification(`تبقى ساعة: امتحان ${exam.subject}`, `يبدأ امتحان ${exam.subject} بعد ساعة واحدة`);
+                            showNotification(`تبقى ساعة: امتحان ${exam.subject}`, `يبدأ بعد ساعة واحدة - ${exam.time}`);
                         }
                     }
                 } 
                 else if (now >= exam.start && now <= exam.end) {
-                    // أثناء الامتحان
                     activeExamId = exam.id;
-                    examInProgress = true;
                     const diff = exam.end - now;
                     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -1753,14 +1576,12 @@
                     countdownElement.classList.add("active");
                 } 
                 else {
-                    // بعد انتهاء الامتحان
                     countdownText.textContent = 'تم الانتهاء';
                     countdownElement.classList.remove("upcoming");
                     countdownElement.classList.add("finished");
                 }
             });
 
-            // تحديث العرض الصفية إذا كان مفعلاً
             if (body.classList.contains("classroom-mode")) {
                 updateClassroomDisplay();
             }
@@ -1772,7 +1593,6 @@
             let currentExam = null;
             let nextExam = null;
 
-            // البحث عن الامتحان النشط الحالي
             for (let exam of exams) {
                 if (now >= exam.start && now <= exam.end) {
                     currentExam = exam;
@@ -1780,7 +1600,6 @@
                 }
             }
 
-            // إذا لم يكن هناك امتحان نشط، نبحث عن أقرب امتحان قادم
             if (!currentExam) {
                 for (let exam of exams) {
                     if (now < exam.start) {
@@ -1790,7 +1609,6 @@
                 }
             }
 
-            // البحث عن الامتحان التالي بعد الحالي
             if (currentExam) {
                 const currentIndex = exams.findIndex(exam => exam.id === currentExam.id);
                 if (currentIndex < exams.length - 1) {
@@ -1798,7 +1616,6 @@
                 }
             }
 
-            // تحديث واجهة العرض الصفية
             if (currentExam) {
                 document.getElementById("classroomExamTitle").textContent = currentExam.subject;
                 document.getElementById("classroomExamDate").textContent = `${currentExam.day}، ${currentExam.date}`;
@@ -1807,10 +1624,8 @@
                 document.getElementById("classroomExamDay").textContent = `اليوم: ${currentExam.day}`;
                 document.getElementById("classroomExamDuration").textContent = "المدة: 3 ساعات";
 
-                // تحديث العد التنازلي
                 updateClassroomCountdown(currentExam);
 
-                // تحديث معلومات الامتحان التالي
                 if (nextExam) {
                     document.getElementById("nextExamSubject").textContent = nextExam.subject;
                     document.getElementById("nextExamDate").textContent = `${nextExam.day}، ${nextExam.date}`;
@@ -1838,7 +1653,6 @@
             const labelElement = document.getElementById("classroomCountdownLabel");
 
             if (now < exam.start) {
-                // قبل الامتحان
                 const diff = exam.start - now;
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -1846,11 +1660,10 @@
                 
                 timerElement.textContent = `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
                 labelElement.textContent = "ساعة : دقيقة : ثانية";
-                timerElement.style.borderColor = "var(--secondary-color)";
+                timerElement.style.borderColor = "var(--gold-color)";
                 timerElement.style.color = "white";
             } 
             else if (now >= exam.start && now <= exam.end) {
-                // أثناء الامتحان
                 const diff = exam.end - now;
                 const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -1858,79 +1671,56 @@
                 
                 timerElement.textContent = `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
                 labelElement.textContent = "وقت متبقي للانتهاء";
-                timerElement.style.borderColor = "#ff9800";
-                timerElement.style.color = "#ff9800";
+                timerElement.style.borderColor = "#e63946";
+                timerElement.style.color = "#e63946";
             } 
             else {
-                // بعد الامتحان
                 timerElement.textContent = "00 : 00 : 00";
                 labelElement.textContent = "انتهى وقت الامتحان";
-                timerElement.style.borderColor = "#f44336";
-                timerElement.style.color = "#f44336";
+                timerElement.style.borderColor = "#c1121f";
+                timerElement.style.color = "#c1121f";
             }
         }
 
-        // تحديث الساعة والتاريخ كل ثانية
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-
-        // تحديث العد التنازلي كل ثانية
-        updateCountdowns();
-        setInterval(updateCountdowns, 1000);
-
-        // تحديث العرض الصفية كل ثانية إذا كان مفعلاً
-        setInterval(() => {
-            if (body.classList.contains("classroom-mode")) {
-                updateClassroomDisplay();
-            }
-        }, 1000);
-
-        // إضافة تأثيرات عند التحميل
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                // تعيين التواريخ الصحيحة للامتحانات
-                exams.forEach(exam => {
-                    const dateParts = exam.date.split('/');
-                    if (dateParts.length === 3) {
-                        const day = parseInt(dateParts[0]);
-                        const month = parseInt(dateParts[1]) - 1;
-                        const year = parseInt(dateParts[2]);
-                        
-                        exam.start = new Date(year, month, day, 8, 0, 0);
-                        exam.end = new Date(year, month, day, 11, 0, 0);
-                    }
+        // دالة لعرض الإشعارات
+        function showNotification(title, body) {
+            if (Notification.permission === "granted") {
+                new Notification(title, {
+                    body: body,
+                    icon: 'https://l.top4top.io/p_36474f6qe1.jpeg'
                 });
-                
-                updateCountdowns();
-                
-                // إضافة تأثيرات دخول
-                document.querySelector('header').style.opacity = '1';
-                document.querySelector('.exam-table-container').style.opacity = '1';
-                document.querySelector('.exam-table-container').style.transform = 'translateY(0)';
-            }, 100);
-        });
+            }
+        }
 
-        // إضافة تأثيرات حركية للعناصر
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        // تهيئة التواريخ
+        function initializeDates() {
+            exams.forEach(exam => {
+                const dateParts = exam.date.split('/');
+                if (dateParts.length === 3) {
+                    const day = parseInt(dateParts[0]);
+                    const month = parseInt(dateParts[1]) - 1;
+                    const year = parseInt(dateParts[2]);
+                    
+                    exam.start = new Date(year, month, day, 8, 0, 0);
+                    exam.end = new Date(year, month, day, 11, 0, 0);
                 }
             });
-        }, observerOptions);
+        }
 
-        // مراقبة العناصر لإضافة تأثيرات
-        document.querySelectorAll('.exam-table tbody tr').forEach((row, index) => {
-            row.style.opacity = '0';
-            row.style.transform = 'translateY(20px)';
-            row.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
-            observer.observe(row);
+        // التهيئة والتفعيل
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDates();
+            updateDateTime();
+            updateCountdowns();
+            
+            setInterval(updateDateTime, 1000);
+            setInterval(updateCountdowns, 1000);
+            
+            setInterval(() => {
+                if (body.classList.contains("classroom-mode")) {
+                    updateClassroomDisplay();
+                }
+            }, 1000);
         });
     </script>
 </body>
