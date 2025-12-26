@@ -61,12 +61,10 @@
             width: 100%;
         }
 
-        /* Header Styles - مع إصلاح عرض خلفية ملهم */
+        /* Header Styles */
         header {
             background: 
-                /* طبقة تدرج لوني شفاف فوق الخلفية */
                 linear-gradient(135deg, rgba(0, 86, 166, 0.85) 0%, rgba(0, 53, 102, 0.85) 100%),
-                /* خلفية شعار ملهم */
                 url('https://l.top4top.io/p_36474f6qe1.jpeg') center center / cover no-repeat;
             color: var(--white);
             padding: 30px 0 25px;
@@ -82,22 +80,14 @@
             justify-content: center;
         }
 
-        /* تحسين عرض الخلفية للهواتف */
         @media (max-width: 768px) {
             header {
-                background: 
-                    linear-gradient(135deg, rgba(0, 86, 166, 0.88) 0%, rgba(0, 53, 102, 0.88) 100%),
-                    url('https://l.top4top.io/p_36474f6qe1.jpeg') center center / cover no-repeat;
                 min-height: 420px;
                 padding: 20px 0;
-                /* إضافة خاصية لتحسين الأداء على الهواتف */
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
                 background-size: cover;
-                /* منع التكرار */
-                background-repeat: no-repeat;
-                /* تثبيت الخلفية */
                 background-attachment: scroll;
             }
         }
@@ -106,30 +96,6 @@
             header {
                 min-height: 450px;
                 padding: 15px 0;
-                background: 
-                    linear-gradient(135deg, rgba(0, 86, 166, 0.9) 0%, rgba(0, 53, 102, 0.9) 100%),
-                    url('https://l.top4top.io/p_36474f6qe1.jpeg') center center / cover no-repeat;
-            }
-        }
-
-        /* حل بديل للهواتف التي لا تعرض الخلفية */
-        .header-backup-bg {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(135deg, rgba(0, 86, 166, 0.85) 0%, rgba(0, 53, 102, 0.85) 100%),
-                url('https://l.top4top.io/p_36474f6qe1.jpeg') center center / cover no-repeat;
-            z-index: 0;
-        }
-
-        /* إظهار النسخة الاحتياطية إذا فشلت الخلفية الأصلية */
-        @media (max-width: 768px) {
-            .header-backup-bg {
-                display: block;
             }
         }
 
@@ -306,287 +272,7 @@
             background: var(--gradient-gold);
         }
 
-        /* Classroom Display Mode */
-        body.classroom-mode {
-            background: var(--gradient-primary);
-            padding: 0;
-        }
-
-        body.classroom-mode .container {
-            max-width: 100%;
-            padding: 0;
-        }
-
-        body.classroom-mode header {
-            border-radius: 0;
-            margin-bottom: 0;
-            padding: 20px 0;
-            min-height: 220px;
-        }
-
-        .classroom-display {
-            display: none;
-            background: linear-gradient(135deg, rgba(0, 53, 102, 0.95) 0%, rgba(0, 86, 166, 0.95) 100%);
-            color: white;
-            padding: 30px 20px;
-            min-height: calc(100vh - 220px);
-            backdrop-filter: blur(10px);
-        }
-
-        @media (max-width: 768px) {
-            .classroom-display {
-                padding: 25px 15px;
-            }
-        }
-
-        body.classroom-mode .classroom-display {
-            display: block;
-        }
-
-        body.classroom-mode .exam-table-container,
-        body.classroom-mode footer {
-            display: none;
-        }
-
-        .classroom-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid var(--gold-color);
-            position: relative;
-        }
-
-        @media (max-width: 768px) {
-            .classroom-header {
-                margin-bottom: 30px;
-            }
-        }
-
-        .classroom-header::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
-            background: var(--gradient-gold);
-            border-radius: 3px;
-        }
-
-        .classroom-header h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            color: var(--gold-color);
-            margin-bottom: 15px;
-            font-weight: 800;
-            line-height: 1.2;
-            padding: 0 10px;
-        }
-
-        .classroom-header p {
-            font-size: clamp(1.4rem, 3.5vw, 2rem);
-            opacity: 0.95;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .exam-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 480px) {
-            .exam-details {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-
-        .exam-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: var(--border-radius-lg);
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-
-        @media (max-width: 768px) {
-            .exam-card {
-                padding: 20px;
-            }
-        }
-
-        .exam-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        .exam-card h3 {
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-            margin-bottom: 20px;
-            color: var(--gold-color);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-            padding-bottom: 15px;
-        }
-
-        .exam-info {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 480px) {
-            .exam-info {
-                gap: 15px;
-                font-size: 1.3rem;
-            }
-        }
-
-        .exam-info i {
-            color: var(--gold-color);
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            width: 35px;
-            flex-shrink: 0;
-        }
-
-        .classroom-countdown {
-            text-align: center;
-            margin-top: 40px;
-            padding: 25px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: var(--border-radius-lg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .classroom-countdown {
-                padding: 20px;
-                margin-top: 30px;
-            }
-        }
-
-        .classroom-countdown h3 {
-            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-            margin-bottom: 25px;
-            color: var(--gold-color);
-        }
-
-        .countdown-timer {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            color: white;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px 30px;
-            border-radius: var(--border-radius-lg);
-            display: inline-block;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border: 4px solid var(--gold-color);
-            font-family: 'Tajawal', sans-serif;
-            animation: pulse 2s infinite;
-            line-height: 1.2;
-            margin: 0 auto;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        @media (max-width: 768px) {
-            .countdown-timer {
-                padding: 15px 20px;
-                max-width: 100%;
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-
-        .countdown-label {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-top: 20px;
-            opacity: 0.9;
-            font-weight: 600;
-        }
-
-        .classroom-instructions {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: var(--border-radius-lg);
-            padding: 25px;
-            margin-top: 40px;
-            border-left: 5px solid var(--accent-color);
-            backdrop-filter: blur(10px);
-        }
-
-        @media (max-width: 768px) {
-            .classroom-instructions {
-                padding: 20px;
-                margin-top: 30px;
-            }
-        }
-
-        .classroom-instructions h4 {
-            font-size: clamp(1.4rem, 3vw, 2rem);
-            margin-bottom: 20px;
-            color: var(--gold-color);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .classroom-instructions ul {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-            padding-right: 20px;
-        }
-
-        .classroom-instructions li {
-            margin-bottom: 12px;
-            padding-right: 15px;
-            line-height: 1.5;
-        }
-
-        .back-to-normal {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background: var(--gradient-accent);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 1000;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .back-to-normal {
-                top: 10px;
-                left: 10px;
-                padding: 10px 15px;
-                font-size: 0.85rem;
-            }
-        }
-
-        .back-to-normal:hover {
-            transform: translateX(-5px) scale(1.05);
-        }
-
-        /* Exam Table Styles */
+        /* Exam Table Container - محسّن للهواتف */
         .exam-table-container {
             overflow-x: auto;
             margin-bottom: 40px;
@@ -597,12 +283,30 @@
             position: relative;
             border: 1px solid rgba(0,0,0,0.05);
             -webkit-overflow-scrolling: touch;
+            width: 100%;
         }
 
         @media (max-width: 768px) {
             .exam-table-container {
                 padding: 15px;
                 margin-bottom: 30px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                max-width: 100%;
+            }
+            
+            .exam-table-container::-webkit-scrollbar {
+                height: 8px;
+            }
+            
+            .exam-table-container::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            
+            .exam-table-container::-webkit-scrollbar-thumb {
+                background: var(--primary-color);
+                border-radius: 10px;
             }
         }
 
@@ -614,7 +318,15 @@
 
         @media (max-width: 768px) {
             .exam-table {
+                min-width: 750px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .exam-table {
                 min-width: 700px;
+                font-size: 0.85rem;
             }
         }
 
@@ -663,6 +375,7 @@
             border-bottom: none;
         }
 
+        /* Countdown styles - محسّن للدقة */
         .countdown {
             font-weight: 700;
             display: inline-flex;
@@ -675,6 +388,7 @@
             min-width: 200px;
             width: 100%;
             flex-wrap: wrap;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -682,6 +396,8 @@
                 min-width: 180px;
                 padding: 8px 12px;
                 font-size: 0.9rem;
+                flex-direction: column;
+                gap: 5px;
             }
         }
 
@@ -702,6 +418,13 @@
             background-color: rgba(100, 116, 139, 0.1);
             color: #64748b;
             border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+
+        .countdown-text {
+            direction: ltr;
+            text-align: center;
+            font-family: 'Tajawal', monospace;
+            letter-spacing: 1px;
         }
 
         /* Status icons */
@@ -1017,14 +740,12 @@
             flex-shrink: 0;
         }
 
-        /* Footer Styles - مع خلفية شعار ملهم */
+        /* Footer Styles - مع إصلاح رقم الواتساب */
         footer {
             text-align: center;
             padding: 35px 20px;
             background: 
-                /* طبقة تدرج لوني شفاف فوق الخلفية */
                 linear-gradient(135deg, rgba(0, 86, 166, 0.92) 0%, rgba(0, 53, 102, 0.92) 100%),
-                /* خلفية شعار ملهم */
                 url('https://l.top4top.io/p_36474f6qe1.jpeg') center center / cover no-repeat;
             color: var(--white);
             border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
@@ -1093,7 +814,12 @@
             }
         }
 
-        .footer-contact a {
+        .footer-contact p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-link {
             color: var(--gold-color);
             text-decoration: none;
             font-weight: 700;
@@ -1103,7 +829,7 @@
             justify-content: center;
             gap: 10px;
             background: rgba(255, 255, 255, 0.15);
-            padding: 12px 20px;
+            padding: 12px 24px;
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.25);
             margin-top: 10px;
@@ -1116,21 +842,28 @@
         }
 
         @media (max-width: 768px) {
-            .footer-contact a {
-                padding: 10px 16px;
-                font-size: 0.95rem;
+            .whatsapp-link {
+                padding: 10px 20px;
+                font-size: 1rem;
             }
         }
 
-        .footer-contact a:hover {
+        .whatsapp-link:hover {
             color: white;
             background: rgba(255, 255, 255, 0.25);
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .whatsapp-icon {
             color: #25D366;
             font-size: clamp(1.4rem, 3vw, 1.8rem);
+        }
+
+        .whatsapp-number {
+            direction: ltr;
+            font-family: 'Tajawal', monospace;
+            letter-spacing: 1px;
         }
 
         /* تحسينات عامة للتجاوب */
@@ -1243,9 +976,9 @@
                 font-size: 1rem;
             }
             
-            .footer-contact a {
-                padding: 8px 14px;
-                font-size: 0.9rem;
+            .whatsapp-link {
+                padding: 8px 16px;
+                font-size: 0.95rem;
             }
         }
 
@@ -1363,7 +1096,7 @@
                 transform: translateX(-8px);
             }
             
-            .footer-contact a:hover {
+            .whatsapp-link:hover {
                 transform: translateY(-3px);
             }
             
@@ -1378,10 +1111,6 @@
                 transform: scale(0.95);
             }
             
-            .exam-card:active {
-                transform: translateY(-3px);
-            }
-            
             .modal-option-btn:active {
                 transform: translateX(-5px) scale(0.98);
             }
@@ -1390,11 +1119,8 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header مع خلفية شعار ملهم -->
+        <!-- Header -->
         <header>
-            <!-- طبقة احتياطية للخلفية -->
-            <div class="header-backup-bg"></div>
-            
             <div class="header-content">
                 <div class="header-title">
                     <h1>نظام إدارة جداول امتحانات الدبلوم العام</h1>
@@ -1421,7 +1147,6 @@
                         تعليمات الاختبار
                     </button>
                     
-                    <!-- زر الخيارات والإعدادات - يفتح نافذة منبثقة -->
                     <button class="nav-btn dropdown-btn" id="optionsBtn">
                         <i class="fas fa-cogs"></i>
                         الخيارات والإعدادات
@@ -1429,83 +1154,6 @@
                 </div>
             </div>
         </header>
-
-        <!-- باقي الكود... -->
-        <!-- Classroom Display (Hidden by default) -->
-        <div class="classroom-display" id="classroomDisplay">
-            <button class="back-to-normal" id="backToNormalBtn">
-                <i class="fas fa-arrow-left"></i>
-                العودة للوضع العادي
-            </button>
-            
-            <div class="classroom-header">
-                <h2 id="classroomExamTitle">اللغة العربية</h2>
-                <p id="classroomExamDate">الأربعاء، 31 ديسمبر 2025</p>
-            </div>
-            
-            <div class="exam-details">
-                <div class="exam-card">
-                    <h3>تفاصيل الامتحان</h3>
-                    <div class="exam-info">
-                        <i class="fas fa-book"></i>
-                        <span id="classroomExamSubject">المادة: اللغة العربية</span>
-                    </div>
-                    <div class="exam-info">
-                        <i class="fas fa-clock"></i>
-                        <span id="classroomExamTime">الوقت: 8:00 صباحًا - 11:00 صباحًا</span>
-                    </div>
-                    <div class="exam-info">
-                        <i class="fas fa-calendar-day"></i>
-                        <span id="classroomExamDay">اليوم: الأربعاء</span>
-                    </div>
-                    <div class="exam-info">
-                        <i class="fas fa-hourglass-half"></i>
-                        <span id="classroomExamDuration">المدة: 3 ساعات</span>
-                    </div>
-                </div>
-                
-                <div class="exam-card">
-                    <h3>الامتحان التالي</h3>
-                    <div class="exam-info">
-                        <i class="fas fa-book"></i>
-                        <span id="nextExamSubject">التربية الإسلامية</span>
-                    </div>
-                    <div class="exam-info">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span id="nextExamDate">الخميس، 1 يناير 2026</span>
-                    </div>
-                    <div class="exam-info">
-                        <i class="fas fa-clock"></i>
-                        <span id="nextExamTime">8:00 صباحًا - 11:00 صباحًا</span>
-                    </div>
-                    <div class="exam-info">
-                        <i class="fas fa-hourglass-start"></i>
-                        <span id="nextExamCountdown">يبدأ بعد: -- يوم -- س -- د -- ث</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="classroom-countdown">
-                <h3>الوقت المتبقي للامتحان</h3>
-                <div class="countdown-timer" id="classroomCountdownTimer">
-                    -- : -- : --
-                </div>
-                <div class="countdown-label" id="classroomCountdownLabel">
-                    ساعة : دقيقة : ثانية
-                </div>
-            </div>
-            
-            <div class="classroom-instructions">
-                <h4><i class="fas fa-exclamation-triangle"></i> تعليمات هامة</h4>
-                <ul>
-                    <li>يجب الحضور قبل بداية الامتحان بنصف ساعة على الأقل</li>
-                    <li>إحضار بطاقة الهوية وجميع الأدوات اللازمة</li>
-                    <li>الالتزام بالزي العماني الرسمي</li>
-                    <li>يُمنع إدخال الهواتف والأجهزة الإلكترونية</li>
-                    <li>التواجد في القاعة قبل بدء الامتحان بـ 10 دقائق</li>
-                </ul>
-            </div>
-        </div>
 
         <!-- Normal Exam Table -->
         <div class="exam-table-container">
@@ -1626,21 +1274,21 @@
             </table>
         </div>
 
-        <!-- Footer مع خلفية شعار ملهم -->
+        <!-- Footer مع رقم الواتساب الصحيح -->
         <footer>
             <p>تم تطوير النظام بواسطة <strong>أكاديمية ملهم التعليمية</strong></p>
             <p>جميع الحقوق محفوظة &copy; 2025</p>
             <div class="footer-contact">
                 <p>للاستفسارات التقنية حول النظام:</p>
-                <a href="https://wa.me/96895665009" target="_blank">
+                <a href="https://wa.me/96895665009" target="_blank" class="whatsapp-link">
                     <i class="fab fa-whatsapp whatsapp-icon"></i>
-                    التواصل عبر واتساب: 95665009
+                    <span>التواصل عبر واتساب: <span class="whatsapp-number">95665009</span></span>
                 </a>
             </div>
         </footer>
     </div>
 
-    <!-- تعليمات الاختبار Modal -->
+    <!-- Modals -->
     <div id="instructionsModal" class="instructions-modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -1667,12 +1315,10 @@
         </div>
     </div>
 
-    <!-- معلومات التواصل Modal -->
     <div id="contactModal" class="contact-modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>معلومات التواصل والاستفسارات</h2>
-            
             <div class="contact-info">
                 <div>
                     <i class="fas fa-university"></i>
@@ -1683,65 +1329,27 @@
                     <span><strong>الجهة المشرفة:</strong> دائرة القياس والتقويم - محافظة الظاهرة</span>
                 </div>
                 <div>
-                    <i class="fas fa-info-circle"></i>
-                    <span><strong>الغرض من النظام:</strong> إدارة جداول امتحانات الدبلوم العام</span>
-                </div>
-                <div>
                     <i class="fab fa-whatsapp whatsapp-icon"></i>
                     <span><strong>رقم التواصل عبر واتساب:</strong> 95665009</span>
                 </div>
-                <div>
-                    <i class="fas fa-envelope"></i>
-                    <span><strong>البريد الإلكتروني:</strong> info@mulhim.edu.om</span>
-                </div>
-                <div>
-                    <i class="fas fa-clock"></i>
-                    <span><strong>ساعات الدعم الفني:</strong> من الأحد إلى الخميس، 8:00 صباحاً - 3:00 مساءً</span>
-                </div>
             </div>
-            
-            <p style="margin-top: 30px; background: rgba(0, 86, 166, 0.06); padding: 20px; border-radius: 10px; border-right: 4px solid var(--secondary-color);">
-                <strong>ملاحظة هامة:</strong> هذا النظام تم تطويره خصيصاً لخدمة المراكز الامتحانية التابعة لدائرة القياس والتقويم بمحافظة الظاهرة. 
-                بالنسبة للاستفسارات الخاصة بالامتحانات أو الجداول، يرجى التواصل مع المركز الامتحاني المعني مباشرة.
-            </p>
-            
-            <p style="text-align: center; font-size: 1.3rem; color: var(--primary-color); margin-top: 30px;">
-                <i class="fas fa-hands-helping"></i> نعمل معاً لتحقيق رؤية عُمان 2040 في تطوير التعليم
-            </p>
         </div>
     </div>
 
-    <!-- الخيارات والإعدادات Modal -->
     <div id="optionsModal" class="options-modal">
         <div class="modal-content options-modal-content">
             <span class="close">&times;</span>
             <h2>الخيارات والإعدادات</h2>
-            
             <div class="modal-options">
-                <button class="modal-option-btn" id="modalClassroomOption">
-                    <i class="fas fa-tv"></i>
-                    وضع العرض الصفية
-                </button>
-                
                 <button class="modal-option-btn" id="modalContactOption">
                     <i class="fas fa-envelope"></i>
                     معلومات التواصل
                 </button>
-                
-                <button class="modal-option-btn" id="modalNotificationsOption">
-                    <i class="fas fa-bell"></i>
-                    تفعيل الإشعارات
-                </button>
-                
                 <button class="modal-option-btn" id="modalPrintOption">
                     <i class="fas fa-print"></i>
                     طباعة الجدول
                 </button>
             </div>
-            
-            <p style="text-align: center; margin-top: 30px; color: var(--text-light); font-size: 1.1rem;">
-                <i class="fas fa-info-circle"></i> اختر الخيار المطلوب من القائمة أعلاه
-            </p>
         </div>
     </div>
 
@@ -1752,102 +1360,163 @@
         const contactModal = document.getElementById("contactModal");
         const optionsModal = document.getElementById("optionsModal");
         const optionsBtn = document.getElementById("optionsBtn");
-        const backToNormalBtn = document.getElementById("backToNormalBtn");
-        const body = document.body;
-        const closeButtons = document.getElementsByClassName("close");
-        
-        // Modal options
-        const modalClassroomOption = document.getElementById("modalClassroomOption");
         const modalContactOption = document.getElementById("modalContactOption");
-        const modalNotificationsOption = document.getElementById("modalNotificationsOption");
         const modalPrintOption = document.getElementById("modalPrintOption");
+        const closeButtons = document.getElementsByClassName("close");
+
+        // بيانات الامتحانات الدقيقة
+        const exams = [
+            { 
+                id: 1, 
+                day: "الأربعاء", 
+                date: "31/12/2025", 
+                subject: "اللغة العربية", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2025, 11, 31, 8, 0, 0), 
+                end: new Date(2025, 11, 31, 11, 0, 0) 
+            },
+            { 
+                id: 2, 
+                day: "الخميس", 
+                date: "1/1/2026", 
+                subject: "التربية الإسلامية", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 1, 8, 0, 0), 
+                end: new Date(2026, 0, 1, 11, 0, 0) 
+            },
+            { 
+                id: 3, 
+                day: "الأحد", 
+                date: "4/1/2026", 
+                subject: "الرياضيات الأساسية / الرياضيات المتقدمة", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 4, 8, 0, 0), 
+                end: new Date(2026, 0, 4, 11, 0, 0) 
+            },
+            { 
+                id: 4, 
+                day: "الاثنين", 
+                date: "5/1/2026", 
+                subject: "التاريخ (العالم من حولي)", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 5, 8, 0, 0), 
+                end: new Date(2026, 0, 5, 11, 0, 0) 
+            },
+            { 
+                id: 5, 
+                day: "الثلاثاء", 
+                date: "6/1/2026", 
+                subject: "الكيمياء", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 6, 8, 0, 0), 
+                end: new Date(2026, 0, 6, 11, 0, 0) 
+            },
+            { 
+                id: 6, 
+                day: "الأربعاء", 
+                date: "7/1/2026", 
+                subject: "الكيمياء", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 7, 8, 0, 0), 
+                end: new Date(2026, 0, 7, 11, 0, 0) 
+            },
+            { 
+                id: 7, 
+                day: "الخميس", 
+                date: "8/1/2026", 
+                subject: "الأحياء", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 8, 8, 0, 0), 
+                end: new Date(2026, 0, 8, 11, 0, 0) 
+            },
+            { 
+                id: 8, 
+                day: "الإثنين", 
+                date: "12/1/2026", 
+                subject: "الفيزياء", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 12, 8, 0, 0), 
+                end: new Date(2026, 0, 12, 11, 0, 0) 
+            },
+            { 
+                id: 9, 
+                day: "الثلاثاء", 
+                date: "13/1/2026", 
+                subject: "العلوم والبيئة", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 13, 8, 0, 0), 
+                end: new Date(2026, 0, 13, 11, 0, 0) 
+            },
+            { 
+                id: 10, 
+                day: "الأربعاء", 
+                date: "14/1/2026", 
+                subject: "اللغة الإنجليزية", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 14, 8, 0, 0), 
+                end: new Date(2026, 0, 14, 11, 0, 0) 
+            },
+            { 
+                id: 11, 
+                day: "الخميس", 
+                date: "15/1/2026", 
+                subject: "الدراسات الاجتماعية (هذا وطني)", 
+                time: "8:00 صباحًا - 11:00 صباحًا", 
+                start: new Date(2026, 0, 15, 8, 0, 0), 
+                end: new Date(2026, 0, 15, 11, 0, 0) 
+            }
+        ];
 
         // Event Listeners
-        instructionsBtn.onclick = function() {
+        instructionsBtn.onclick = () => {
             instructionsModal.style.display = "block";
             document.body.style.overflow = "hidden";
-        }
+        };
 
-        optionsBtn.onclick = function() {
+        optionsBtn.onclick = () => {
             optionsModal.style.display = "block";
             document.body.style.overflow = "hidden";
-        }
+        };
 
-        // خيارات النافذة المنبثقة
-        modalClassroomOption.onclick = function(e) {
-            e.preventDefault();
-            body.classList.add("classroom-mode");
-            updateClassroomDisplay();
-            optionsModal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        modalContactOption.onclick = function(e) {
+        modalContactOption.onclick = (e) => {
             e.preventDefault();
             optionsModal.style.display = "none";
             contactModal.style.display = "block";
-        }
+        };
 
-        modalPrintOption.onclick = function(e) {
+        modalPrintOption.onclick = (e) => {
             e.preventDefault();
             window.print();
             optionsModal.style.display = "none";
             document.body.style.overflow = "auto";
-        }
+        };
 
-        modalNotificationsOption.onclick = function(e) {
-            e.preventDefault();
-            if ("Notification" in window) {
-                if (Notification.permission === "default") {
-                    Notification.requestPermission().then(permission => {
-                        if (permission === "granted") {
-                            showNotification("تم تفعيل الإشعارات بنجاح!", "ستتلقى تنبيهات قبل الامتحانات.");
-                            alert("تم تفعيل الإشعارات بنجاح! ستتلقى تنبيهات قبل الامتحانات.");
-                        }
-                    });
-                } else if (Notification.permission === "granted") {
-                    showNotification("الإشعارات مفعلة بالفعل", "ستتلقى تنبيهات قبل الامتحانات.");
-                    alert("الإشعارات مفعلة بالفعل. ستتلقى تنبيهات قبل الامتحانات.");
-                } else {
-                    alert("تم رفض الإذن لإرسال الإشعارات. يرجى تعديل إعدادات المتصفح.");
-                }
-            } else {
-                alert("المتصفح لا يدعم الإشعارات.");
-            }
-            optionsModal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        backToNormalBtn.onclick = function() {
-            body.classList.remove("classroom-mode");
-        }
-
-        // إغلاق النوافذ المنبثقة
+        // إغلاق النوافذ
         for (let i = 0; i < closeButtons.length; i++) {
-            closeButtons[i].onclick = function() {
+            closeButtons[i].onclick = () => {
                 instructionsModal.style.display = "none";
                 contactModal.style.display = "none";
                 optionsModal.style.display = "none";
                 document.body.style.overflow = "auto";
-            }
+            };
         }
 
-        window.onclick = function(event) {
+        window.onclick = (event) => {
             if (event.target == instructionsModal || event.target == contactModal || event.target == optionsModal) {
                 instructionsModal.style.display = "none";
                 contactModal.style.display = "none";
                 optionsModal.style.display = "none";
                 document.body.style.overflow = "auto";
             }
-        }
+        };
 
-        // دالة لتحديث الساعة والتاريخ
+        // دالة تحديث الوقت والتاريخ
         function updateDateTime() {
             const now = new Date();
             const timeElement = document.getElementById("currentTime").querySelector("span");
             const dateElement = document.getElementById("currentDate").querySelector("span");
             
-            // تنسيق الوقت بنظام 12 ساعة
+            // الوقت
             let hours = now.getHours();
             const ampm = hours >= 12 ? 'م' : 'ص';
             hours = hours % 12;
@@ -1856,7 +1525,7 @@
             const seconds = now.getSeconds().toString().padStart(2, '0');
             timeElement.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
             
-            // تنسيق التاريخ
+            // التاريخ
             const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
             const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
             
@@ -1868,26 +1537,10 @@
             dateElement.textContent = `${dayName}، ${day} ${month} ${year}`;
         }
 
-        // بيانات الامتحانات
-        const exams = [
-            { id: 1, day: "الأربعاء", date: "31/12/2025", subject: "اللغة العربية", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2025, 11, 31, 8, 0, 0), end: new Date(2025, 11, 31, 11, 0, 0) },
-            { id: 2, day: "الخميس", date: "1/1/2026", subject: "التربية الإسلامية", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 1, 8, 0, 0), end: new Date(2026, 0, 1, 11, 0, 0) },
-            { id: 3, day: "الأحد", date: "4/1/2026", subject: "الرياضيات الأساسية / الرياضيات المتقدمة", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 4, 8, 0, 0), end: new Date(2026, 0, 4, 11, 0, 0) },
-            { id: 4, day: "الاثنين", date: "5/1/2026", subject: "التاريخ (العالم من حولي)", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 5, 8, 0, 0), end: new Date(2026, 0, 5, 11, 0, 0) },
-            { id: 5, day: "الثلاثاء", date: "6/1/2026", subject: "الكيمياء", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 6, 8, 0, 0), end: new Date(2026, 0, 6, 11, 0, 0) },
-            { id: 6, day: "الأربعاء", date: "7/1/2026", subject: "الكيمياء", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 7, 8, 0, 0), end: new Date(2026, 0, 7, 11, 0, 0) },
-            { id: 7, day: "الخميس", date: "8/1/2026", subject: "الأحياء", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 8, 8, 0, 0), end: new Date(2026, 0, 8, 11, 0, 0) },
-            { id: 8, day: "الإثنين", date: "12/1/2026", subject: "الفيزياء", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 12, 8, 0, 0), end: new Date(2026, 0, 12, 11, 0, 0) },
-            { id: 9, day: "الثلاثاء", date: "13/1/2026", subject: "العلوم والبيئة", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 13, 8, 0, 0), end: new Date(2026, 0, 13, 11, 0, 0) },
-            { id: 10, day: "الأربعاء", date: "14/1/2026", subject: "اللغة الإنجليزية", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 14, 8, 0, 0), end: new Date(2026, 0, 14, 11, 0, 0) },
-            { id: 11, day: "الخميس", date: "15/1/2026", subject: "الدراسات الاجتماعية (هذا وطني)", time: "8:00 صباحًا - 11:00 صباحًا", start: new Date(2026, 0, 15, 8, 0, 0), end: new Date(2026, 0, 15, 11, 0, 0) }
-        ];
-
-        // العد التنازلي للامتحانات
+        // دالة العد التنازلي الدقيقة
         function updateCountdowns() {
             const now = new Date();
-            let activeExamId = null;
-
+            
             exams.forEach(exam => {
                 const countdownElement = document.getElementById(`countdown${exam.id}`);
                 const countdownText = countdownElement.querySelector('.countdown-text');
@@ -1895,34 +1548,19 @@
                 
                 examRow.classList.remove("exam-active");
                 countdownElement.classList.remove("upcoming", "active", "finished");
-                countdownElement.classList.add("upcoming");
-
+                
                 if (now < exam.start) {
+                    // قبل الامتحان
                     const diff = exam.start - now;
                     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                     
                     countdownText.textContent = `يبدأ بعد: ${days} يوم ${hours} س ${minutes} د`;
-                    countdownElement.classList.remove("upcoming");
                     countdownElement.classList.add("upcoming");
-                    
-                    // إرسال إشعارات
-                    if (Notification.permission === "granted") {
-                        const oneDayBefore = new Date(exam.start.getTime() - 24 * 60 * 60 * 1000);
-                        const oneHourBefore = new Date(exam.start.getTime() - 60 * 60 * 1000);
-                        
-                        if (now >= oneDayBefore && now < new Date(oneDayBefore.getTime() + 1000)) {
-                            showNotification(`تذكير: امتحان ${exam.subject} غداً`, `امتحان ${exam.subject} يوم ${exam.day} الموافق ${exam.date}`);
-                        }
-                        
-                        if (now >= oneHourBefore && now < new Date(oneHourBefore.getTime() + 1000)) {
-                            showNotification(`تبقى ساعة: امتحان ${exam.subject}`, `يبدأ بعد ساعة واحدة - ${exam.time}`);
-                        }
-                    }
                 } 
                 else if (now >= exam.start && now <= exam.end) {
-                    activeExamId = exam.id;
+                    // أثناء الامتحان
                     const diff = exam.end - now;
                     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -1930,124 +1568,14 @@
                     
                     countdownText.textContent = `الوقت المتبقي: ${hours} س ${minutes} د ${seconds} ث`;
                     examRow.classList.add("exam-active");
-                    countdownElement.classList.remove("upcoming");
                     countdownElement.classList.add("active");
                 } 
                 else {
+                    // بعد الامتحان
                     countdownText.textContent = 'تم الانتهاء';
-                    countdownElement.classList.remove("upcoming");
                     countdownElement.classList.add("finished");
                 }
             });
-
-            if (body.classList.contains("classroom-mode")) {
-                updateClassroomDisplay();
-            }
-        }
-
-        // تحديث العرض الصفية
-        function updateClassroomDisplay() {
-            const now = new Date();
-            let currentExam = null;
-            let nextExam = null;
-
-            for (let exam of exams) {
-                if (now >= exam.start && now <= exam.end) {
-                    currentExam = exam;
-                    break;
-                }
-            }
-
-            if (!currentExam) {
-                for (let exam of exams) {
-                    if (now < exam.start) {
-                        currentExam = exam;
-                        break;
-                    }
-                }
-            }
-
-            if (currentExam) {
-                const currentIndex = exams.findIndex(exam => exam.id === currentExam.id);
-                if (currentIndex < exams.length - 1) {
-                    nextExam = exams[currentIndex + 1];
-                }
-            }
-
-            if (currentExam) {
-                document.getElementById("classroomExamTitle").textContent = currentExam.subject;
-                document.getElementById("classroomExamDate").textContent = `${currentExam.day}، ${currentExam.date}`;
-                document.getElementById("classroomExamSubject").textContent = `المادة: ${currentExam.subject}`;
-                document.getElementById("classroomExamTime").textContent = `الوقت: ${currentExam.time}`;
-                document.getElementById("classroomExamDay").textContent = `اليوم: ${currentExam.day}`;
-                document.getElementById("classroomExamDuration").textContent = "المدة: 3 ساعات";
-
-                updateClassroomCountdown(currentExam);
-
-                if (nextExam) {
-                    document.getElementById("nextExamSubject").textContent = nextExam.subject;
-                    document.getElementById("nextExamDate").textContent = `${nextExam.day}، ${nextExam.date}`;
-                    document.getElementById("nextExamTime").textContent = nextExam.time;
-                    
-                    const diff = nextExam.start - now;
-                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                    
-                    document.getElementById("nextExamCountdown").textContent = `يبدأ بعد: ${days} يوم ${hours} س ${minutes} د`;
-                } else {
-                    document.getElementById("nextExamSubject").textContent = "لا يوجد امتحانات قادمة";
-                    document.getElementById("nextExamDate").textContent = "--";
-                    document.getElementById("nextExamTime").textContent = "--";
-                    document.getElementById("nextExamCountdown").textContent = "--";
-                }
-            }
-        }
-
-        // تحديث العد التنازلي في العرض الصفية
-        function updateClassroomCountdown(exam) {
-            const now = new Date();
-            const timerElement = document.getElementById("classroomCountdownTimer");
-            const labelElement = document.getElementById("classroomCountdownLabel");
-
-            if (now < exam.start) {
-                const diff = exam.start - now;
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                timerElement.textContent = `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
-                labelElement.textContent = "ساعة : دقيقة : ثانية";
-                timerElement.style.borderColor = "var(--gold-color)";
-                timerElement.style.color = "white";
-            } 
-            else if (now >= exam.start && now <= exam.end) {
-                const diff = exam.end - now;
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                timerElement.textContent = `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
-                labelElement.textContent = "وقت متبقي للانتهاء";
-                timerElement.style.borderColor = "#e63946";
-                timerElement.style.color = "#e63946";
-            } 
-            else {
-                timerElement.textContent = "00 : 00 : 00";
-                labelElement.textContent = "انتهى وقت الامتحان";
-                timerElement.style.borderColor = "#c1121f";
-                timerElement.style.color = "#c1121f";
-            }
-        }
-
-        // دالة لعرض الإشعارات
-        function showNotification(title, body) {
-            if (Notification.permission === "granted") {
-                new Notification(title, {
-                    body: body,
-                    icon: 'https://l.top4top.io/p_36474f6qe1.jpeg'
-                });
-            }
         }
 
         // تهيئة التواريخ
@@ -2066,19 +1594,13 @@
         }
 
         // التهيئة والتفعيل
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             initializeDates();
             updateDateTime();
             updateCountdowns();
             
             setInterval(updateDateTime, 1000);
             setInterval(updateCountdowns, 1000);
-            
-            setInterval(() => {
-                if (body.classList.contains("classroom-mode")) {
-                    updateClassroomDisplay();
-                }
-            }, 1000);
         });
     </script>
 </body>
