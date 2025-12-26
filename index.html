@@ -91,33 +91,27 @@
 
         .header-top {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-bottom: 40px;
             padding: 0 20px;
         }
 
-        .vision-logo {
-            height: 80px;
-            width: auto;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-        }
-
         .department-info {
-            text-align: left;
+            text-align: center;
             color: var(--white);
         }
 
         .department-name {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: var(--gold-color);
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .department-location {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             opacity: 0.9;
             font-weight: 500;
         }
@@ -188,7 +182,7 @@
             font-size: 1.7rem;
         }
 
-        /* Main Navigation Menu */
+        /* Main Navigation Menu - تم إصلاح القائمة المنسدلة */
         .main-nav {
             display: flex;
             justify-content: center;
@@ -238,17 +232,13 @@
             background: var(--gradient-secondary);
         }
 
-        .classroom-btn {
-            background: var(--gradient-gold);
-        }
-
         .dropdown-container {
             position: relative;
             display: inline-block;
         }
 
         .dropdown-btn {
-            background: var(--gradient-accent);
+            background: var(--gradient-gold);
             width: 100%;
         }
 
@@ -256,8 +246,8 @@
             display: none;
             position: absolute;
             background-color: var(--white);
-            min-width: 280px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            min-width: 300px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
             z-index: 100;
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -288,6 +278,11 @@
             font-weight: 500;
             transition: var(--transition);
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: right;
         }
 
         .dropdown-item:last-child {
@@ -826,17 +821,15 @@
         /* Responsive Styles */
         @media (max-width: 992px) {
             .header-top {
-                flex-direction: column;
-                gap: 25px;
                 margin-bottom: 30px;
             }
             
-            .department-info {
-                text-align: center;
+            .department-name {
+                font-size: 1.5rem;
             }
             
-            .vision-logo {
-                height: 70px;
+            .department-location {
+                font-size: 1.1rem;
             }
             
             h1 {
@@ -855,6 +848,25 @@
             .nav-btn {
                 width: 100%;
                 max-width: 450px;
+            }
+            
+            .dropdown-content {
+                position: fixed;
+                top: auto;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                margin-top: 0;
+                border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%;
+                animation: slideUp 0.3s ease-out;
+            }
+            
+            @keyframes slideUp {
+                from { transform: translateY(100%); }
+                to { transform: translateY(0); }
             }
             
             .exam-details {
@@ -877,12 +889,8 @@
                 padding: 20px 0;
             }
             
-            .vision-logo {
-                height: 60px;
-            }
-            
             .department-name {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             
             .department-location {
@@ -912,10 +920,6 @@
             .nav-btn {
                 padding: 16px 24px;
                 font-size: 1.1rem;
-            }
-            
-            .dropdown-content {
-                min-width: 100%;
             }
             
             .exam-table th {
@@ -964,8 +968,12 @@
                 min-height: 450px;
             }
             
-            .vision-logo {
-                height: 50px;
+            .department-name {
+                font-size: 1.1rem;
+            }
+            
+            .department-location {
+                font-size: 0.9rem;
             }
             
             h1 {
@@ -1061,10 +1069,7 @@
             <div class="header-overlay"></div>
             <div class="header-content">
                 <div class="header-top">
-                    <!-- شعار رؤية عمان على اليسار -->
-                    <img src="https://k.top4top.io/p_3647xjyp71.jpg" alt="شعار رؤية عمان 2040" class="vision-logo">
-                    
-                    <!-- معلومات الدائرة على اليمين -->
+                    <!-- معلومات الدائرة مركزية -->
                     <div class="department-info">
                         <div class="department-name">دائرة القياس والتقويم</div>
                         <div class="department-location">محافظة الظاهرة</div>
@@ -1089,18 +1094,14 @@
                     </div>
                 </div>
                 
-                <!-- Main Navigation Menu -->
+                <!-- Main Navigation Menu - تم إصلاحه -->
                 <div class="main-nav">
                     <button class="nav-btn instructions-btn" id="instructionsBtn">
                         <i class="fas fa-info-circle"></i>
                         تعليمات الاختبار
                     </button>
                     
-                    <button class="nav-btn classroom-btn" id="classroomBtn">
-                        <i class="fas fa-tv"></i>
-                        وضع العرض الصفية
-                    </button>
-                    
+                    <!-- قائمة الخيارات المنسدلة - تم إصلاحها -->
                     <div class="dropdown-container">
                         <button class="nav-btn dropdown-btn">
                             <i class="fas fa-cogs"></i>
@@ -1108,18 +1109,22 @@
                             <i class="fas fa-chevron-down" style="margin-right: auto; margin-left: 10px;"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#" class="dropdown-item" id="contactOption">
+                            <button class="dropdown-item" id="classroomOption">
+                                <i class="fas fa-tv"></i>
+                                وضع العرض الصفية
+                            </button>
+                            <button class="dropdown-item" id="contactOption">
                                 <i class="fas fa-envelope"></i>
                                 معلومات التواصل
-                            </a>
-                            <a href="#" class="dropdown-item" id="notificationsOption">
+                            </button>
+                            <button class="dropdown-item" id="notificationsOption">
                                 <i class="fas fa-bell"></i>
                                 تفعيل الإشعارات
-                            </a>
-                            <a href="#" class="dropdown-item" id="printOption">
+                            </button>
+                            <button class="dropdown-item" id="printOption">
                                 <i class="fas fa-print"></i>
                                 طباعة الجدول
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1410,12 +1415,12 @@
         const instructionsModal = document.getElementById("instructionsModal");
         const instructionsBtn = document.getElementById("instructionsBtn");
         const contactModal = document.getElementById("contactModal");
-        const classroomBtn = document.getElementById("classroomBtn");
         const backToNormalBtn = document.getElementById("backToNormalBtn");
         const body = document.body;
         const closeButtons = document.getElementsByClassName("close");
         
-        // Dropdown options
+        // Dropdown options - تم إصلاحها
+        const classroomOption = document.getElementById("classroomOption");
         const contactOption = document.getElementById("contactOption");
         const notificationsOption = document.getElementById("notificationsOption");
         const printOption = document.getElementById("printOption");
@@ -1432,7 +1437,8 @@
             document.body.style.overflow = "hidden";
         }
 
-        classroomBtn.onclick = function() {
+        classroomOption.onclick = function(e) {
+            e.preventDefault();
             body.classList.add("classroom-mode");
             updateClassroomDisplay();
         }
