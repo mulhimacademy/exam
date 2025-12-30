@@ -555,7 +555,7 @@
 
         <div class="main-nav">
           <button class="nav-btn instructions-btn" id="instructionsBtn"><i class="fas fa-info-circle"></i>تعليمات الاختبار</button>
-          <button class="nav-btn dropdown-btn" id="optionsBtn"><i class="fas fa-cogs"></i>الخيارات والإعدادات</button>
+          <button class="nav-btn dropdown-btn" id="optionsBtn"><i class="fas fa-cogs"></i>بيانات الاختبار اليومية</button>
         </div>
       </div>
     </header>
@@ -764,17 +764,117 @@
     </footer>
   </div>
 
+  <!-- Modal تعليمات الاختبار -->
+  <div id="instructionsModal" class="modal" role="dialog" aria-labelledby="instructionsTitle" aria-modal="true">
+    <div class="modal-content">
+      <span class="close" aria-label="إغلاق النافذة">&times;</span>
+      <h2 id="instructionsTitle" style="text-align:center;color:var(--dark-blue);margin-bottom:20px;">تعليمات الاختبار الرسمية</h2>
+      
+      <div style="background:rgba(0,86,166,0.06);padding:16px;border-radius:12px;margin-bottom:20px;border-right:4px solid var(--primary-color);">
+        <h3 style="color:var(--primary-color);margin-bottom:10px;"><i class="fas fa-exclamation-circle"></i> معلومات هامة</h3>
+        <p style="color:var(--text-color);font-weight:500;">يرجى الاطلاع على التعليمات التالية بعناية والالتزام بها لضمان سير الاختبارات بسلاسة.</p>
+      </div>
+      
+      <div style="display:grid;gap:14px;max-height:65vh;overflow-y:auto;padding-right:8px;">
+        <div class="info-row">
+          <i class="fas fa-user-tie"></i>
+          <div>
+            <div class="label">الزي الرسمي</div>
+            <div class="value">الالتزام بالزي العُماني الرسمي: الدشداشة البيضاء والمصر والكمة</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-tools"></i>
+          <div>
+            <div class="label">الأدوات اللازمة</div>
+            <div class="value">إحضار جميع الأدوات اللازمة لأداء الامتحان: الأقلام، المسطرة، الممحاة، الآلة الحاسبة المسموح بها</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-mobile-alt"></i>
+          <div>
+            <div class="label">الأجهزة الإلكترونية</div>
+            <div class="value">يمنع منعًا باتًا إدخال الهواتف النقالة، الأجهزة الذكية، أدوات التصوير، الساعات الإلكترونية، أو أي أدوات غير مصرح بها</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-ban"></i>
+          <div>
+            <div class="label">الأدوات الحادة</div>
+            <div class="value">يحظر إدخال الأسلحة أو الأدوات الحادة أو ما يشابهها إلى داخل المركز أو القاعات الامتحانية</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-id-card"></i>
+          <div>
+            <div class="label">بطاقة الهوية</div>
+            <div class="value">على كل طالب إحضار بطاقة الهوية الشخصية أو جواز السفر أو رخصة القيادة</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-clock"></i>
+          <div>
+            <div class="label">موعد الحضور</div>
+            <div class="value">الحضور قبل نصف ساعة على الأقل من بدء الامتحان، والتواجد في القاعة قبل 10 دقائق</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-door-open"></i>
+          <div>
+            <div class="label">مغادرة القاعة</div>
+            <div class="value">لا يسمح بمغادرة قاعة الامتحان قبل انقضاء ثلاثة أرباع زمن الاختبار</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-calculator"></i>
+          <div>
+            <div class="label">الآلات الحاسبة</div>
+            <div class="value">يسمح بالآلات الحاسبة العلمية فقط التي لا تكون قابلة للبرمجة والتخزين</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-pen"></i>
+          <div>
+            <div class="label">أقلام الكتابة</div>
+            <div class="value">استخدام الأقلام الجافة الزرقاء والسوداء، ويفضل استخدام قلم رصاص في الأسئلة الموضوعية</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-user-clock"></i>
+          <div>
+            <div class="label">التأخير عن الامتحان</div>
+            <div class="value">لا يسمح بالدخول إلى القاعة بعد مرور 15 دقيقة من بدء الوقت إلا بإذن من رئيس المركز</div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top:20px;padding:14px;background:linear-gradient(135deg, rgba(212,175,55,0.12), rgba(42,157,143,0.08));border-radius:12px;border:1px solid rgba(212,175,55,0.25);">
+        <p style="text-align:center;font-weight:800;color:var(--dark-blue);margin:0;">
+          نرجوا لجميع الطلاب التوفيق والنجاح في امتحاناتهم، ونسأل الله أن يوفق الجميع لما فيه الخير والفلاح
+        </p>
+      </div>
+    </div>
+  </div>
 
-  <!-- Modals --> <div id="instructionsModal" class="instructions-modal" role="dialog" aria-labelledby="instructionsTitle" aria-modal="true"> <div class="modal-content"> <span class="close" aria-label="إغلاق النافذة">&times;</span> <h2 id="instructionsTitle">تعليمات الاختبار الرسمية</h2> <ol> <li><strong>الزي الرسمي:</strong> يُرجى من جميع المتقدمين الالتزام بالزي العُماني الرسمي: <span class="highlight">الدشداشة البيضاء والمصر والكمة</span></li> <li><strong>الأدوات اللازمة:</strong> إحضار جميع الأدوات اللازمة لأداء امتحان المادة: <span class="highlight">الأقلام، المسطرة، الممحاة، الآلة الحاسبة المسموح بها في الامتحان</span></li> <li><strong>الأجهزة الإلكترونية:</strong> يُمنع منعًا باتًا إدخال <span class="highlight">الهواتف النقالة، الأجهزة الذكية، أدوات التصوير، الساعات الإلكترونية</span>، أو أي أدوات غير مصرح بها إلى قاعة الامتحان.</li> <li><strong>الأدوات الحادة:</strong> يُحظر إدخال <span class="highlight">الأسلحة أو الأدوات الحادة</span> أو ما يشابهها إلى داخل المركز أو القاعات الامتحانية.</li> <li><strong>التعاون مع المشرفين:</strong> يلتزم الطلبة باتباع إجراءات التفتيش والتعليمات الأمنية داخل المركز، والتعاون التام مع المشرفين لضمان سير العملية الامتحانية بسلاسة.</li> <li><strong>بطاقة الهوية:</strong> على كل طالب إحضار <span class="highlight">بطاقة الهوية الشخصية أو جواز السفر أو رخصة القيادة</span>، ولن يُسمح بدخول قاعة الامتحان بدونها.</li> <li><strong>مغادرة القاعة:</strong> لا يُسمح بمغادرة قاعة الامتحان قبل انقضاء <span class="highlight">ثلاثة أرباع زمن الاختبار</span></li> <li><strong>الأدوات المسموحة:</strong> يُقتصر استخدام الأدوات على ما هو مصرح به لكل مادة فقط، ويُمنع استعمال أي وسيلة أو أداة إضافية لم تُدرج ضمن قائمة المسموحات.</li> <li><strong>الآلات الحاسبة:</strong> استخدام الآلات الحاسبة العلمية بشرط: <span class="highlight">ألا تكون قابلة للبرمجة والتخزين والتي تتصف بشاشات عريضة والتي لها القدرة على رسم المنحنيات البيانية</span></li> <li><strong>أقلام الكتابة:</strong> على الممتحن استخدام الأقلام الجافة: <span class="highlight">الأزرق والأسود</span> في الإجابة ويفضل استخدام <span class="highlight">قلم رصاص</span> في الإجابة على الأسئلة الموضوعية</li> <li><strong>موعد الحضور:</strong> يجب على الطلبة الحضور إلى المركز قبل <span class="highlight">نصف ساعة</span> على الأقل من بدء الامتحان، والتواجد في قاعة الاختبار قبل بدء الامتحان بـ <span class="highlight">10 دقائق</span></li> <li><strong>التأخير عن الامتحان:</strong> لا يُسمح بالدخول إلى قاعة الامتحان بعد مرور <span class="highlight">15 دقيقة</span> من بدء الوقت، إلا بإذن من رئيس المركز في حالات استثنائية مبررة.</li> <li><strong>الغش:</strong> يُمنع الغش أو محاولة الغش أو التعاون غير المشروع أثناء الامتحان، وتُطبق اللوائح العقابية بحق كل من يثبت تورطه في ذلك.</li> <li><strong>مصادرة الأدوات:</strong> يحق لرئيس المركز ومشرفي القاعات مصادرة أي أدوات مخالفة أو مشبوهة، وتسليمها إلى لجنة الامتحانات وفق الإجراءات المعتمدة.</li> <li><strong>الحالات الطارئة:</strong> في الحالات الطارئة، يحق لرئيس المركز التنسيق مع <span class="highlight">شرطة عمان السلطانية</span> لاتخاذ ما يلزم لضمان أمن وسلامة المركز.</li> <li><strong>العقوبات:</strong> تُطبق بحق المخالفين اللوائح المنظمة للامتحانات الصادرة بموجب القرارات الوزارية أرقام <span class="highlight">(37، 38، 39، 40)</span> والقرار رقم <span class="highlight">(588/2015)</span>.</li> </ol> <p>نرجوا لجميع الطلاب التوفيق والنجاح في امتحاناتهم، ونسأل الله أن يوفق الجميع لما فيه الخير والفلاح</p> </div> </div>
-
+  <!-- Modal الخيارات والإعدادات -->
   <div id="optionsModal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <span class="close" aria-label="إغلاق">&times;</span>
       <h2 style="text-align:center;color:var(--dark-blue);font-weight:900;margin:10px 0 18px;">الخيارات والإعدادات</h2>
 
       <div style="display:grid;gap:12px;">
-        <button class="nav-btn dropdown-btn" id="openDailyFromOptions" style="width:100%;"><i class="fas fa-calendar-day"></i>بيانات الاختبار اليومية</button>
-        <button class="nav-btn instructions-btn" onclick="window.print()" style="width:100%;"><i class="fas fa-print"></i>طباعة الجدول</button>
+        <button class="nav-btn instructions-btn" onclick="openDailyForBest()" style="width:100%;"><i class="fas fa-calendar-day"></i>بيانات الاختبار اليومية</button>
+        <button class="nav-btn dropdown-btn" onclick="window.print()" style="width:100%;"><i class="fas fa-print"></i>طباعة الجدول</button>
+        <button class="nav-btn" style="width:100%;background:var(--gradient-primary);" onclick="closeModal(optionsModal)"><i class="fas fa-times"></i>إغلاق</button>
       </div>
     </div>
   </div>
@@ -786,9 +886,9 @@
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
           <div>
             <div class="daily-title">امتحانات دبلوم التعليم العام الفصل الدراسي الأول - الدور الأول</div>
-            <div class="daily-sub">للعام الدراسي 1447 / 1448 - 2025 / 2026م</div>
+            <div class="daily-sub">دائرة القياس والتقويم - محافظة الظاهرة | للعام الدراسي 2025 / 2026م</div>
           </div>
-          <button class="close" onclick="closeModal(dailyExamModal)" aria-label="إغلاق" style="position:relative;float:none;">&times;</button>
+          <button class="close" onclick="closeModal(dailyExamModal)" aria-label="إغلاق" style="position:relative;float:none;background:rgba(255,255,255,0.2);color:white;">&times;</button>
         </div>
       </div>
 
@@ -806,14 +906,14 @@
 
         <div class="timer-panel">
           <div class="timer-head">
-            <h3><i class="fas fa-hourglass-half" style="color:var(--primary-color);"></i> مؤقت العد</h3>
+            <h3><i class="fas fa-hourglass-half" style="color:var(--primary-color);"></i> مؤقت العد التنازلي</h3>
             <div style="font-weight:900;color:var(--text-light);" id="timerHint">—</div>
           </div>
           <div class="timer-pill upcoming" id="dailyTimer">--</div>
 
           <div class="daily-actions">
             <button class="btn-next" id="btnNextExam"><i class="fas fa-forward"></i>الانتقال للامتحان القادم</button>
-            <button class="btn-close" onclick="closeModal(dailyExamModal)"><i class="fas fa-xmark"></i>إغلاق</button>
+            <button class="btn-close" onclick="closeModal(dailyExamModal)"><i class="fas fa-xmark"></i>إغلاق الشاشة</button>
           </div>
         </div>
       </div>
@@ -827,7 +927,6 @@
 
     const instructionsBtn = document.getElementById("instructionsBtn");
     const optionsBtn = document.getElementById("optionsBtn");
-    const openDailyFromOptions = document.getElementById("openDailyFromOptions");
 
     const closeEls = document.getElementsByClassName("close");
 
@@ -862,21 +961,19 @@
     function closeModal(modal) {
       modal.style.display = "none";
       document.body.style.overflow = "auto";
+      if (modal === dailyExamModal && window.__dailyInt) {
+        clearInterval(window.__dailyInt);
+      }
     }
 
     instructionsBtn.onclick = () => openModal(instructionsModal);
     optionsBtn.onclick = () => openModal(optionsModal);
 
-    openDailyFromOptions.onclick = () => {
-      closeModal(optionsModal);
-      openDailyForBest();
-    };
-
     for (let i = 0; i < closeEls.length; i++) {
-      closeEls[i].onclick = () => {
-        closeModal(instructionsModal);
-        closeModal(optionsModal);
-        closeModal(dailyExamModal);
+      closeEls[i].onclick = function() {
+        if (this.closest('#instructionsModal')) closeModal(instructionsModal);
+        if (this.closest('#optionsModal')) closeModal(optionsModal);
+        if (this.closest('#dailyExamModal')) closeModal(dailyExamModal);
       };
     }
 
@@ -913,9 +1010,14 @@
 
     function formatDiff(ms) {
       const total = Math.max(0, ms);
-      const hours = Math.floor(total / (1000 * 60 * 60));
+      const days = Math.floor(total / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((total % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((total % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((total % (1000 * 60)) / 1000);
+      
+      if (days > 0) {
+        return `${days} يوم ${hours} س ${minutes} د`;
+      }
       return `${hours} س ${minutes} د ${seconds} ث`;
     }
 
@@ -989,7 +1091,10 @@
     function openDailyForBest() {
       const now = new Date();
       const todayKey = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
-      const today = exams.find(ex => `${ex.start.getFullYear()}-${ex.start.getMonth()}-${ex.start.getDate()}` === todayKey);
+      const today = exams.find(ex => {
+        const examKey = `${ex.start.getFullYear()}-${ex.start.getMonth()}-${ex.start.getDate()}`;
+        return examKey === todayKey;
+      });
       const next = exams.find(ex => now < ex.end);
       openDaily(today || next || exams[0]);
     }
@@ -1041,6 +1146,14 @@
           <div>
             <div class="label">زمن الإجابة</div>
             <div class="value">${exam.duration}</div>
+          </div>
+        </div>
+        
+        <div class="info-row">
+          <i class="fas fa-info-circle"></i>
+          <div>
+            <div class="label">ملاحظات</div>
+            <div class="value">يرجى الحضور قبل بدء الامتحان بـ 30 دقيقة والتأكد من إحضار جميع المستلزمات اللازمة</div>
           </div>
         </div>
       `;
@@ -1095,11 +1208,16 @@
 
       // افتراضي: جهّز شارات الهاتف للبطاقات
       exams.forEach(ex => setRowBadgeAndClass(ex, "upcoming"));
+      
+      // افتح شاشة اليوم تلقائياً إذا كان هناك امتحان نشط
+      const now = new Date();
+      const activeExam = exams.find(ex => now >= ex.start && now <= ex.end);
+      if (activeExam) {
+        setTimeout(() => openDaily(activeExam), 1000);
+      }
     }
 
     document.addEventListener("DOMContentLoaded", init);
   </script>
 </body>
 </html>
-
-
