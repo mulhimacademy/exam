@@ -426,7 +426,7 @@
     
     /* ✅ تكبير العنوان ليكون بارزًا على الشاشة */
     .daily-main-title {
-      font-size: clamp(2rem, 5vw, 3rem) !important; /* تكبير حجم العنوان */
+      font-size: clamp(2rem, 5vw, 3rem) !important;
       font-weight: 900;
       margin-bottom: 8px;
       text-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
@@ -439,7 +439,7 @@
     }
     
     .daily-sub-title {
-      font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* تكبير العنوان الفرعي */
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
       font-weight: 700;
       margin-bottom: 12px;
       color: var(--gold-color);
@@ -461,8 +461,8 @@
     }
     
     .header-divider {
-      width: 120px; /* زيادة عرض الخط الفاصل */
-      height: 4px; /* زيادة سماكة الخط */
+      width: 120px;
+      height: 4px;
       background: var(--gold-color);
       margin: 15px auto;
       border-radius: 2px;
@@ -494,13 +494,14 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      width: 100%;
     }
     
     /* ✅ جعل العد التنازلي بجانب البيانات في نفس النسق */
     .exam-status-container {
       display: flex;
       justify-content: center;
-      align-items: stretch; /* لجعل العناصر نفس الارتفاع */
+      align-items: stretch;
       gap: 15px;
       margin-bottom: 25px;
       flex-wrap: wrap;
@@ -573,7 +574,7 @@
     }
     
     .exam-subject {
-      font-size: 2.2rem !important; /* تكبير حجم اسم المادة */
+      font-size: 2.2rem !important;
       font-weight: 900;
       color: var(--dark-blue);
       text-align: center;
@@ -589,6 +590,7 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
       margin-bottom: 25px;
+      width: 100%;
     }
     
     .exam-detail-item {
@@ -635,7 +637,7 @@
     }
     
     .detail-value {
-      font-size: 1.6rem !important; /* تكبير حجم القيم */
+      font-size: 1.6rem !important;
       font-weight: 900;
       color: var(--dark-blue);
       line-height: 1.3;
@@ -644,8 +646,9 @@
     
     /* ✅ العد التنازلي كجزء من بيانات الامتحان */
     .countdown-container {
-      grid-column: 1 / -1; /* يجعل العد التنازلي يأخذ العرض الكامل */
+      grid-column: 1 / -1;
       margin-top: 10px;
+      width: 100%;
     }
     
     .countdown-title {
@@ -667,7 +670,7 @@
     
     .countdown-display {
       font-family: 'Tajawal', monospace;
-      font-size: clamp(2rem, 4vw, 2.8rem) !important; /* تكبير كبير للعد التنازلي */
+      font-size: clamp(2rem, 4vw, 2.8rem) !important;
       font-weight: 900;
       padding: 25px 20px;
       border-radius: 16px;
@@ -684,6 +687,7 @@
       gap: 20px;
       min-height: 120px;
       text-align: center;
+      width: 100%;
     }
     
     .countdown-display.upcoming {
@@ -749,9 +753,6 @@
       transform: rotate(90deg);
     }
     
-    /* ✅ زر الإغلاق فقط (تم إزالته من الأسفل) */
-    /* تمت إزالة .daily-actions و .daily-btn */
-    
     /* تحسينات للهواتف */
     @media (max-width: 768px) {
       .daily-header {
@@ -760,7 +761,7 @@
       }
       
       .daily-main-title {
-        font-size: 1.8rem !important; /* تكبير على الهواتف */
+        font-size: 1.8rem !important;
       }
       
       .daily-sub-title {
@@ -805,7 +806,7 @@
       }
       
       .exam-subject {
-        font-size: 1.8rem !important; /* تكبير على الهواتف */
+        font-size: 1.8rem !important;
         margin-bottom: 20px;
       }
       
@@ -819,7 +820,7 @@
       }
       
       .detail-value {
-        font-size: 1.4rem !important; /* تكبير على الهواتف */
+        font-size: 1.4rem !important;
       }
       
       .countdown-title {
@@ -827,7 +828,7 @@
       }
       
       .countdown-display {
-        font-size: 1.8rem !important; /* تكبير على الهواتف */
+        font-size: 1.8rem !important;
         padding: 20px 15px;
         min-height: 90px;
       }
