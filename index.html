@@ -30,6 +30,7 @@
       --gradient-light: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
       --glass-bg: rgba(255, 255, 255, 0.12);
       --glass-border: rgba(255, 255, 255, 0.22);
+      --purple-gradient: linear-gradient(135deg, #9d4edd 0%, #7b2cbf 100%);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -205,6 +206,68 @@
       100% { box-shadow: 0 0 0 0 rgba(230,57,70,0); }
     }
 
+    /* زر الاستماع المحمي */
+    .listen-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: var(--purple-gradient);
+      border: none;
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(155, 76, 221, 0.3);
+      transition: var(--transition);
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .listen-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(155, 76, 221, 0.4);
+    }
+
+    .listen-btn:active {
+      transform: translateY(0);
+    }
+
+    /* نافذة كلمة المرور */
+    .password-input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 2px solid rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+      font-family: 'Tajawal', sans-serif;
+      margin: 15px 0;
+      direction: ltr;
+      letter-spacing: 2px;
+      background: rgba(255,255,255,0.9);
+    }
+
+    .password-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(0,86,166,0.2);
+    }
+
+    .password-error {
+      color: var(--accent-color);
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 700;
+      background: rgba(230,57,70,0.1);
+      padding: 10px;
+      border-radius: 8px;
+      display: none;
+    }
+
     footer {
       text-align: center;
       padding: 36px 14px;
@@ -341,6 +404,11 @@
         box-shadow: 0 10px 22px rgba(0,0,0,0.14);
       }
       .open-daily:active { transform: scale(0.98); }
+
+      .listen-btn {
+        padding: 12px 14px;
+        font-size: 1rem;
+      }
     }
 
     /* Modals */
@@ -1073,6 +1141,10 @@
                 <span class="countdown-text">--</span>
               </div>
               <button class="open-daily" onclick="openDailyForId(10)"><i class="fas fa-expand"></i>عرض شاشة اليوم</button>
+              <!-- زر الاستماع المحمي بكلمة مرور -->
+              <button class="listen-btn" onclick="openPasswordModal()">
+                <i class="fas fa-headphones"></i> الاستماع للاختبار
+              </button>
             </td>
           </tr>
 
@@ -1218,6 +1290,101 @@
     </div>
   </div>
 
+  <!-- ✅ نافذة كلمة المرور للاستماع -->
+  <div id="passwordModal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(passwordModal)">&times;</span>
+      <h2 style="text-align:center;color:var(--dark-blue);margin-bottom:20px;">
+        <i class="fas fa-lock"></i> الوصول المحمي للاستماع
+      </h2>
+      
+      <div style="background:linear-gradient(135deg, rgba(157,78,221,0.1) 0%, rgba(123,44,191,0.1) 100%);padding:25px;border-radius:16px;margin-bottom:20px;">
+        <p style="text-align:center;font-weight:700;color:var(--dark-blue);margin-bottom:15px;font-size:1.1rem;">
+          يرجى إدخال كلمة المرور للوصول إلى ملف الاستماع<br>
+          <span style="color:var(--accent-color);font-size:0.9rem;">(كلمة المرور: 7211)</span>
+        </p>
+        
+        <input type="password" class="password-input" id="passwordInput" placeholder="أدخل كلمة المرور هنا" maxlength="4" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+        
+        <div class="password-error" id="passwordError">
+          <i class="fas fa-exclamation-triangle"></i> كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.
+        </div>
+        
+        <button class="nav-btn" style="width:100%;background:var(--purple-gradient);margin-top:15px;" onclick="checkPassword()">
+          <i class="fas fa-unlock"></i> فتح ملف الاستماع
+        </button>
+      </div>
+      
+      <div style="padding:15px;background:rgba(0,86,166,0.05);border-radius:12px;border-right:4px solid var(--primary-color);">
+        <h3 style="color:var(--primary-color);margin-bottom:10px;">
+          <i class="fas fa-info-circle"></i> ملاحظات هامة
+        </h3>
+        <ul style="padding-right:20px;">
+          <li style="margin-bottom:8px;">كلمة المرور مكونة من 4 أرقام فقط.</li>
+          <li style="margin-bottom:8px;">يجب استخدام سماعات أذن للحصول على أفضل جودة صوت.</li>
+          <li style="margin-bottom:8px;">يجب أن تكون في مكان هادئ أثناء الاستماع.</li>
+          <li>لديك فرصة واحدة للاستماع لكل جزء أثناء الاختبار الفعلي.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ نافذة مشغل الصوت بعد التحقق من كلمة المرور -->
+  <div id="audioModal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(audioModal)">&times;</span>
+      <h2 style="text-align:center;color:var(--dark-blue);margin-bottom:20px;">
+        <i class="fas fa-headphones"></i> اختبار الاستماع - اللغة الإنجليزية
+      </h2>
+      
+      <div style="background:linear-gradient(135deg, rgba(42,157,143,0.1) 0%, rgba(0,86,166,0.1) 100%);padding:20px;border-radius:16px;margin-bottom:20px;">
+        <p style="text-align:center;font-weight:700;color:var(--dark-blue);margin-bottom:15px;font-size:1.2rem;">
+          اختبار الاستماع لمادة اللغة الإنجليزية<br>
+          <span style="color:var(--secondary-color);">13 يناير 2026 - 8:00 صباحًا</span>
+        </p>
+        
+        <div style="background:white;padding:15px;border-radius:12px;border:2px solid rgba(0,86,166,0.1);margin-bottom:15px;">
+          <audio controls style="width:100%;" id="englishAudio">
+            <source src="https://h.top4top.io/m_366441iq91.mpeg" type="audio/mpeg">
+            متصفحك لا يدعم تشغيل الصوت. يرجى استخدام متصفح حديث.
+          </audio>
+        </div>
+        
+        <div style="display:flex;justify-content:center;gap:10px;margin-top:15px;flex-wrap:wrap;">
+          <button onclick="playAudio()" style="background:var(--gradient-secondary);" class="nav-btn">
+            <i class="fas fa-play"></i> تشغيل
+          </button>
+          <button onclick="pauseAudio()" style="background:var(--gradient-gold);" class="nav-btn">
+            <i class="fas fa-pause"></i> إيقاف مؤقت
+          </button>
+          <button onclick="restartAudio()" style="background:var(--gradient-accent);" class="nav-btn">
+            <i class="fas fa-redo"></i> إعادة من البداية
+          </button>
+        </div>
+      </div>
+      
+      <div style="padding:15px;background:rgba(0,86,166,0.05);border-radius:12px;border-right:4px solid var(--primary-color);">
+        <h3 style="color:var(--primary-color);margin-bottom:10px;">
+          <i class="fas fa-graduation-cap"></i> تعليمات الاختبار
+        </h3>
+        <ul style="padding-right:20px;">
+          <li style="margin-bottom:8px;"><strong>الجزء الأول:</strong> محادثة قصيرة (5 دقائق)</li>
+          <li style="margin-bottom:8px;"><strong>الجزء الثاني:</strong> نص استماع مع أسئلة (10 دقائق)</li>
+          <li style="margin-bottom:8px;"><strong>الجزء الثالث:</strong> محادثة مطولة (7 دقائق)</li>
+          <li style="margin-bottom:8px;">كل جزء سيتم الإعلان عنه قبل بدئه.</li>
+          <li style="margin-bottom:8px;">لديك 30 ثانية لقراءة الأسئلة قبل كل جزء.</li>
+          <li>يجب تسجيل الإجابات في ورقة الإجابة مباشرة أثناء الاستماع.</li>
+        </ul>
+      </div>
+      
+      <div style="margin-top:15px;padding:12px;background:linear-gradient(135deg, rgba(212,175,55,0.12), rgba(42,157,143,0.08));border-radius:12px;text-align:center;">
+        <p style="font-weight:800;color:var(--dark-blue);margin:0;font-size:0.95rem;">
+          <i class="fas fa-lightbulb"></i> نصائح: ركز على الكلمات الرئيسية، لا تحاول فهم كل كلمة.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <!-- ✅ شاشة بيانات الاختبار اليومية Full Screen (التصميم الجديد مع العد التنازلي المدمج) -->
   <div id="dailyExamModal" class="modal daily-fullscreen" role="dialog" aria-modal="true">
     <div class="modal-content">
@@ -1298,6 +1465,8 @@
     const instructionsModal = document.getElementById("instructionsModal");
     const optionsModal = document.getElementById("optionsModal");
     const dailyExamModal = document.getElementById("dailyExamModal");
+    const passwordModal = document.getElementById("passwordModal");
+    const audioModal = document.getElementById("audioModal");
 
     const instructionsBtn = document.getElementById("instructionsBtn");
     const optionsBtn = document.getElementById("optionsBtn");
@@ -1315,6 +1484,13 @@
     const dailyStatusText = document.getElementById("dailyStatusText");
     const dailyCountdownHint = document.getElementById("dailyCountdownHint");
     const dailyCountdownDisplay = document.getElementById("dailyCountdownDisplay");
+
+    // عناصر كلمة المرور
+    const passwordInput = document.getElementById("passwordInput");
+    const passwordError = document.getElementById("passwordError");
+
+    // كلمة المرور الصحيحة
+    const CORRECT_PASSWORD = "7211";
 
     // بيانات الامتحانات
     const exams = [
@@ -1344,6 +1520,15 @@
       if (modal === dailyExamModal && window.__dailyInt) {
         clearInterval(window.__dailyInt);
       }
+      // إيقاف الصوت عند إغلاق نافذة الصوت
+      if (modal === audioModal) {
+        pauseAudio();
+      }
+      // إعادة تعيين حقل كلمة المرور
+      if (modal === passwordModal) {
+        passwordInput.value = "";
+        passwordError.style.display = "none";
+      }
     }
 
     instructionsBtn.onclick = () => openModal(instructionsModal);
@@ -1354,6 +1539,8 @@
         if (this.closest('#instructionsModal')) closeModal(instructionsModal);
         if (this.closest('#optionsModal')) closeModal(optionsModal);
         if (this.closest('#dailyExamModal')) closeModal(dailyExamModal);
+        if (this.closest('#passwordModal')) closeModal(passwordModal);
+        if (this.closest('#audioModal')) closeModal(audioModal);
       };
     }
 
@@ -1361,6 +1548,8 @@
       if (e.target === instructionsModal) closeModal(instructionsModal);
       if (e.target === optionsModal) closeModal(optionsModal);
       if (e.target === dailyExamModal) closeModal(dailyExamModal);
+      if (e.target === passwordModal) closeModal(passwordModal);
+      if (e.target === audioModal) closeModal(audioModal);
     };
 
     document.addEventListener("keydown", (e) => {
@@ -1368,8 +1557,65 @@
         closeModal(instructionsModal);
         closeModal(optionsModal);
         closeModal(dailyExamModal);
+        closeModal(passwordModal);
+        closeModal(audioModal);
+      }
+      // السماح بإدخال كلمة المرور عن طريق Enter
+      if (e.key === "Enter" && document.activeElement === passwordInput) {
+        checkPassword();
       }
     });
+
+    // ✅ فتح نافذة كلمة المرور
+    function openPasswordModal() {
+      openModal(passwordModal);
+      passwordInput.focus();
+    }
+
+    // ✅ التحقق من كلمة المرور
+    function checkPassword() {
+      const enteredPassword = passwordInput.value.trim();
+      
+      if (enteredPassword === CORRECT_PASSWORD) {
+        passwordError.style.display = "none";
+        closeModal(passwordModal);
+        setTimeout(() => {
+          openModal(audioModal);
+          // إعادة تعيين الصوت إلى البداية عند فتح النافذة
+          const audio = document.getElementById('englishAudio');
+          audio.currentTime = 0;
+        }, 300);
+      } else {
+        passwordError.style.display = "block";
+        passwordInput.value = "";
+        passwordInput.focus();
+        
+        // تأثير اهتزاز لحقل الإدخال
+        passwordInput.style.animation = "none";
+        setTimeout(() => {
+          passwordInput.style.animation = "shake 0.5s";
+        }, 10);
+      }
+    }
+
+    // ✅ دوال التحكم في الصوت
+    function playAudio() {
+      const audio = document.getElementById('englishAudio');
+      audio.play().catch(e => {
+        console.log("خطأ في تشغيل الصوت:", e);
+        alert("حدث خطأ في تشغيل الصوت. يرجى التأكد من اتصال الإنترنت.");
+      });
+    }
+
+    function pauseAudio() {
+      document.getElementById('englishAudio').pause();
+    }
+
+    function restartAudio() {
+      const audio = document.getElementById('englishAudio');
+      audio.currentTime = 0;
+      audio.play().catch(e => console.log("خطأ في إعادة التشغيل:", e));
+    }
 
     function updateDateTime() {
       const now = new Date();
@@ -1561,6 +1807,17 @@
       if (activeExam) {
         setTimeout(() => openDaily(activeExam), 1000);
       }
+      
+      // إضافة تأثير اهتزاز لكلمة المرور
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+          20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+      `;
+      document.head.appendChild(style);
     }
 
     document.addEventListener("DOMContentLoaded", init);
