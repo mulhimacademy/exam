@@ -341,33 +341,6 @@
             max-width: 90%;
         }
 
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: block;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--accent-light);
-            margin-top: 0.5rem;
-        }
-
         .hero-orb {
             position: relative;
             display: flex;
@@ -1193,10 +1166,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -1283,15 +1252,7 @@
                     
                     <p>تُعلن أكاديمية مُلهم التعليمية عن بدء التسجيل للفصل الدراسي الكامل بنظام التعليم الإلكتروني، ضمن بيئة تعليمية منظمة، ومحتوى مُعتمد، ومتابعة مستمرة تهدف إلى رفع مستوى التحصيل وبناء فهمٍ راسخ لدى الطلبة.</p>
                     
-               
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">--+</span>
-                            <span class="stat-label">معلم متميز</span>
-                   
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 3rem;">
                         <a href="#register" class="btn btn-primary">
                             <i class="fas fa-user-plus"></i>
                             سجل الآن للفصل الدراسي الكامل
@@ -2545,4 +2506,3 @@ ${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n
     </script>
 </body>
 </html>
-
