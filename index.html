@@ -2198,6 +2198,9 @@
             summaryDiv.innerHTML = summaryHTML;
         }
 
+        // رابط Google Apps Script الجديد
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby8czWZhJ8sJpFiqDwJxySh4EzT1VT--zfJCz4kDVMwWqPY4dSsGA-do96qbyGLcyk/exec';
+
         // دعم إرسال التسجيل إلى Google Sheets
         async function submitRegistration() {
             if (!validateStep()) {
@@ -2213,28 +2216,44 @@
             registrationData.registrationId = 'REG-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
             registrationData.timestamp = new Date().toLocaleString('ar-SA');
 
+            // إظهار تحميل
+            Swal.fire({
+                title: 'جاري إرسال البيانات...',
+                html: 'يرجى الانتظار أثناء حفظ بيانات التسجيل',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
             try {
                 // محاولة إرسال البيانات إلى Google Sheets
-                await submitToGoogleSheets();
+                const success = await submitToGoogleSheets();
                 
-                // إرسال رسالة واتساب
-                sendWhatsAppMessage();
-                
-                // عرض رسالة النجاح
-                showSuccessMessage();
-                
-                // حفظ البيانات محلياً كنسخة احتياطية
-                saveRegistrationLocally();
-                
-                // إعادة تعيين النموذج
-                setTimeout(() => {
-                    resetForm();
-                }, 5000);
+                if (success) {
+                    // إرسال رسالة واتساب
+                    sendWhatsAppMessage();
+                    
+                    // حفظ البيانات محلياً كنسخة احتياطية
+                    saveRegistrationLocally();
+                    
+                    // عرض رسالة النجاح
+                    showSuccessMessage();
+                    
+                    // إعادة تعيين النموذج
+                    setTimeout(() => {
+                        resetForm();
+                    }, 5000);
+                } else {
+                    throw new Error('فشل في إرسال البيانات');
+                }
                 
             } catch (error) {
                 console.error('Error in registration:', error);
                 
-                // إذا فشل الاتصال، استخدم النظام الاحتياطي
+                Swal.close();
+                
+                // استخدام النظام الاحتياطي
                 useFallbackSystem();
             }
         }
@@ -2242,29 +2261,41 @@
         // إرسال إلى Google Sheets
         async function submitToGoogleSheets() {
             try {
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbw-g8lNDOhQ5c8ZPp-q5n9JdxNBFgxGXawZ7lsTlXZWhvSfFfVc3X8QKh9LgYZk4lJ0/exec';
+                const gradeName = getGradeName(parseInt(registrationData.grade));
+                const educationTypeName = getEducationTypeName(registrationData.educationType);
+                const materialsList = registrationData.selectedMaterials.map(m => `${m.name} (${m.type})`).join(', ');
                 
-                const formData = new FormData();
-                formData.append('studentName', registrationData.studentName);
-                formData.append('phoneNumber', registrationData.phoneNumber);
-                formData.append('grade', getGradeName(parseInt(registrationData.grade)));
-                formData.append('educationType', getEducationTypeName(registrationData.educationType));
-                formData.append('materials', registrationData.selectedMaterials.map(m => `${m.name} (${m.type})`).join(', '));
-                formData.append('package', registrationData.package);
-                formData.append('totalAmount', registrationData.totalAmount);
-                formData.append('registrationId', registrationData.registrationId);
-                formData.append('timestamp', registrationData.timestamp);
+                // تحضير البيانات للإرسال
+                const data = {
+                    timestamp: registrationData.timestamp,
+                    registrationId: registrationData.registrationId,
+                    studentName: registrationData.studentName,
+                    phoneNumber: registrationData.phoneNumber,
+                    grade: gradeName,
+                    educationType: educationTypeName,
+                    materials: materialsList,
+                    package: registrationData.package,
+                    totalAmount: registrationData.totalAmount,
+                    status: 'معلق'
+                };
                 
-                const response = await fetch(scriptURL, {
+                // إرسال البيانات باستخدام POST
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
-                    body: formData,
-                    mode: 'no-cors' // تجنب مشاكل CORS
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
                 });
                 
-                return response;
+                // لا يمكننا التحقق من الاستجابة بسبب no-cors
+                // لكن نعتبره ناجحاً إذا لم يكن هناك خطأ
+                return true;
+                
             } catch (error) {
-                console.warn('Google Sheets submission failed, using fallback:', error);
-                throw error; // رمي الخطأ للتعامل معه في الدالة الرئيسية
+                console.warn('Google Sheets submission failed:', error);
+                return false;
             }
         }
 
@@ -2277,7 +2308,20 @@
             saveRegistrationLocally();
             
             // عرض رسالة ناجحة
-            showSuccessMessage();
+            Swal.fire({
+                icon: 'warning',
+                title: 'تم حفظ البيانات محلياً',
+                html: `
+                    <div style="text-align: right;">
+                        <p>⚠️ <strong>تم حفظ بياناتك محلياً</strong></p>
+                        <p>📞 سيتم التواصل معك قريباً عبر واتساب</p>
+                        <p>💳 يرجى تحويل المبلغ <strong>${registrationData.totalAmount} ريال</strong> على الرقم:</p>
+                        <h3 style="color: #22b8aa;">74120010</h3>
+                        <p>📲 سيتم إرسال تفاصيل التسجيل عبر واتساب</p>
+                    </div>
+                `,
+                confirmButtonText: 'حسناً'
+            });
             
             // إعادة تعيين النموذج
             setTimeout(() => {
