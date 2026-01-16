@@ -1285,17 +1285,13 @@
                     
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <span class="stat-number">+200</span>
+                            <span class="stat-number">+---</span>
                             <span class="stat-label">طالب مستفيد</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">15+</span>
+                            <span class="stat-number">--+</span>
                             <span class="stat-label">معلم متميز</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">95%</span>
-                            <span class="stat-label">رضا أولياء الأمور</span>
-                        </div>
+                   
                     </div>
                     
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
@@ -1711,7 +1707,7 @@
                         </li>
                         <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
                             <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i>
-                            سلطنة عمان، محافظة الداخلية
+                            سلطنة عمان، محافظة الظاهرة
                         </li>
                     </ul>
                 </div>
@@ -1733,7 +1729,7 @@
             
             <div style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
                 <p style="color: rgba(255, 255, 255, 0.6);">
-                    &copy; 2024 أكاديمية ملهم التعليمية. جميع الحقوق محفوظة.
+                    &copy; 2025 أكاديمية ملهم التعليمية. جميع الحقوق محفوظة.
                 </p>
                 <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; margin-top: 0.5rem;">
                     تصميم وتطوير: فريق أكاديمية ملهم التعليمية
@@ -1921,7 +1917,10 @@
                     isValid = registrationData.educationType !== '';
                     break;
                 case 3:
-                    isValid = registrationData.selectedMaterials.length > 0 && registrationData.package !== '';
+                    isValid = registrationData.selectedMaterials.length > 0;
+                    if (registrationData.educationType !== 'combo') {
+                        isValid = isValid && registrationData.package !== '';
+                    }
                     break;
             }
             
@@ -1958,6 +1957,14 @@
                 gradeOptions.forEach(opt => opt.classList.remove('selected'));
                 this.classList.add('selected');
                 registrationData.educationType = this.dataset.educationType;
+                
+                // إعادة تعيين البيانات عند تغيير نوع التعليم
+                if (currentStep >= 3) {
+                    registrationData.selectedMaterials = [];
+                    registrationData.package = '';
+                    document.getElementById('packageSelect').value = '';
+                }
+                
                 validateStep();
             });
         });
@@ -1982,21 +1989,12 @@
         function loadMaterials() {
             const grade = parseInt(registrationData.grade);
             const educationType = registrationData.educationType;
-            let gradeGroup = '';
-            
-            if (educationType === 'online') {
-                if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
-                else if (grade >= 9 && grade <= 11) gradeGroup = '9-11';
-                else if (grade === 12) gradeGroup = '12';
-            } else if (educationType === 'onsite') {
-                if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
-                else if (grade >= 9 && grade <= 12) gradeGroup = '9-12';
-            }
             
             // إظهار القسم المناسب
             document.getElementById('onlineMaterials').style.display = 'none';
             document.getElementById('onsiteMaterials').style.display = 'none';
             document.getElementById('comboMaterials').style.display = 'none';
+            document.getElementById('packageOptions').style.display = 'none';
             
             if (educationType === 'combo') {
                 // عرض خيارات للنظامين معًا
@@ -2007,6 +2005,16 @@
                 const container = document.getElementById(containerId);
                 container.style.display = 'grid';
                 container.innerHTML = '';
+                
+                let gradeGroup = '';
+                if (educationType === 'online') {
+                    if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                    else if (grade >= 9 && grade <= 11) gradeGroup = '9-11';
+                    else if (grade === 12) gradeGroup = '12';
+                } else if (educationType === 'onsite') {
+                    if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                    else if (grade >= 9 && grade <= 12) gradeGroup = '9-12';
+                }
                 
                 const materials = availableMaterials[educationType][gradeGroup] || [];
                 materials.forEach(material => {
@@ -2079,20 +2087,25 @@
                 
                 container.appendChild(materialDiv);
             });
-            
-            // إخفاء خيار الباقات للنظامين معًا
-            document.getElementById('packageOptions').style.display = 'none';
         }
 
         // تحديث المواد المختارة
         function updateSelectedMaterials() {
             const educationType = registrationData.educationType;
-            const selectedItems = document.querySelectorAll(`#${educationType}Materials .material-item.selected`);
             
-            registrationData.selectedMaterials = Array.from(selectedItems).map(item => ({
-                name: item.dataset.material,
-                type: item.dataset.type || educationType
-            }));
+            if (educationType === 'combo') {
+                const selectedItems = document.querySelectorAll('#comboMaterials .material-item.selected');
+                registrationData.selectedMaterials = Array.from(selectedItems).map(item => ({
+                    name: item.dataset.material,
+                    type: item.dataset.type
+                }));
+            } else {
+                const selectedItems = document.querySelectorAll(`#${educationType}Materials .material-item.selected`);
+                registrationData.selectedMaterials = Array.from(selectedItems).map(item => ({
+                    name: item.dataset.material,
+                    type: educationType
+                }));
+            }
             
             validateStep();
         }
@@ -2144,6 +2157,15 @@
                 </div>
             `;
             
+            if (educationType !== 'combo') {
+                summaryHTML += `
+                    <div class="summary-item">
+                        <span>الباقة المختارة:</span>
+                        <span>${registrationData.package}</span>
+                    </div>
+                `;
+            }
+            
             if (registrationData.selectedMaterials.length > 0) {
                 summaryHTML += '<div class="summary-item"><span>المواد المختارة:</span><span></span></div>';
                 
@@ -2157,9 +2179,9 @@
                         else if (grade === 12) gradeGroup = '12';
                         
                         if (registrationData.package.includes('باقة 4 مواد')) {
-                            price = onlinePrices[gradeGroup].package4 / 4;
+                            price = onlinePrices[gradeGroup].package4 / registrationData.selectedMaterials.length;
                         } else if (registrationData.package.includes('باقة جميع المواد')) {
-                            price = onlinePrices[gradeGroup].all / 6;
+                            price = onlinePrices[gradeGroup].all / registrationData.selectedMaterials.length;
                         } else {
                             price = onlinePrices[gradeGroup].single;
                         }
@@ -2169,9 +2191,25 @@
                         else if (grade >= 9 && grade <= 12) gradeGroup = '9-12';
                         
                         if (registrationData.package.includes('باقة 3 مواد')) {
-                            price = onsitePrices[gradeGroup].package3 / 3;
+                            price = onsitePrices[gradeGroup].package3 / registrationData.selectedMaterials.length;
                         } else {
                             price = onsitePrices[gradeGroup].single;
+                        }
+                    } else if (educationType === 'combo') {
+                        // حساب سعر النظامين معًا
+                        if (material.type === 'online') {
+                            let onlineGroup = '';
+                            if (grade >= 5 && grade <= 8) onlineGroup = '5-8';
+                            else if (grade >= 9 && grade <= 11) onlineGroup = '9-11';
+                            else if (grade === 12) onlineGroup = '12';
+                            
+                            price = onlinePrices[onlineGroup].single;
+                        } else if (material.type === 'onsite') {
+                            let onsiteGroup = '';
+                            if (grade >= 5 && grade <= 8) onsiteGroup = '5-8';
+                            else if (grade >= 9 && grade <= 12) onsiteGroup = '9-12';
+                            
+                            price = onsitePrices[onsiteGroup].single;
                         }
                     }
                     
@@ -2198,10 +2236,10 @@
             summaryDiv.innerHTML = summaryHTML;
         }
 
-        // رابط Google Apps Script الجديد
+        // رابط Google Apps Script
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby8czWZhJ8sJpFiqDwJxySh4EzT1VT--zfJCz4kDVMwWqPY4dSsGA-do96qbyGLcyk/exec';
 
-        // دعم إرسال التسجيل إلى Google Sheets
+        // إرسال التسجيل
         async function submitRegistration() {
             if (!validateStep()) {
                 Swal.fire({
@@ -2289,8 +2327,6 @@
                     body: JSON.stringify(data)
                 });
                 
-                // لا يمكننا التحقق من الاستجابة بسبب no-cors
-                // لكن نعتبره ناجحاً إذا لم يكن هناك خطأ
                 return true;
                 
             } catch (error) {
@@ -2348,8 +2384,6 @@
                 let registrationCount = parseInt(localStorage.getItem('mulhimRegistrationCount') || '0');
                 registrationCount++;
                 localStorage.setItem('mulhimRegistrationCount', registrationCount.toString());
-                
-                console.log('Registration saved locally:', registrationData);
             } catch (error) {
                 console.error('Error saving locally:', error);
             }
@@ -2370,8 +2404,7 @@
 📞 *رقم الهاتف:* ${registrationData.phoneNumber}
 🏫 *الصف الدراسي:* ${gradeName}
 🎓 *نوع التعليم:* ${educationTypeName}
-📦 *الباقة:* ${registrationData.package}
-
+${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n` : ''}
 📖 *المواد المختارة:*
 • ${materialsList}
 
@@ -2397,7 +2430,7 @@
                         <p>📞 <strong>رقم الهاتف:</strong> ${registrationData.phoneNumber}</p>
                         <p>🏫 <strong>الصف الدراسي:</strong> ${getGradeName(parseInt(registrationData.grade))}</p>
                         <p>🎓 <strong>نوع التعليم:</strong> ${getEducationTypeName(registrationData.educationType)}</p>
-                        <p>📦 <strong>الباقة:</strong> ${registrationData.package}</p>
+                        ${registrationData.package ? `<p>📦 <strong>الباقة:</strong> ${registrationData.package}</p>` : ''}
                         <p>💰 <strong>المبلغ الإجمالي:</strong> ${registrationData.totalAmount} ريال</p>
                         
                         <hr style="margin: 1.5rem 0; border-color: rgba(255,255,255,0.1);">
@@ -2455,6 +2488,9 @@
             
             document.getElementById('packageSelect').value = '';
             
+            // إخفاء خيارات الباقات
+            document.getElementById('packageOptions').style.display = 'none';
+            
             // العودة إلى الخطوة الأولى
             currentStep = 1;
             updateSteps();
@@ -2508,12 +2544,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
             updateSteps();
-            
-            // عرض عدد التسجيلات المحفوظة (للتطوير فقط)
-            const registrationCount = localStorage.getItem('mulhimRegistrationCount');
-            if (registrationCount && parseInt(registrationCount) > 0) {
-                console.log(`Total local registrations: ${registrationCount}`);
-            }
         });
     </script>
 </body>
