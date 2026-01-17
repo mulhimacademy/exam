@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>أكاديمية ملهم التعليمية - فتح باب التسجيل للفصل الدراسي الكامل</title>
-    <meta name="description" content="أكاديمية ملهم التعليمية تفتح باب التسجيل للفصل الدراسي الكامل - تعليم عن بعد وتعليم مباشر حضوري" />
+    <title>أكاديمية ملهم التعليمية - فتح باب التسجيل للفصل الدراسي الثاني 2025/2026</title>
+    <meta name="description" content="أكاديمية ملهم التعليمية تفتح باب التسجيل للفصل الدراسي الثاني 2025/2026 - تعليم عن بعد وتعليم مباشر حضوري للجنسين ذكور وإناث" />
     
     <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <style>
+        /* جميع الأنماط السابقة تبقى كما هي مع إضافة الأنماط الجديدة للعداد */
+        
         :root {
             --primary: #6a2df3;
             --primary-dark: #4b1fad;
@@ -90,7 +92,6 @@
             z-index: -1;
         }
 
-        /* النجوم المتحركة */
         .stars {
             position: fixed;
             top: 0;
@@ -113,7 +114,6 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* تأثير الجسيمات */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -127,7 +127,204 @@
             position: relative;
         }
 
-        /* ===== الهيدر الأسطوري ===== */
+        /* === إضافة أنماط العدادات والتخفيضات === */
+        
+        /* شريط التنبيه بالعداد */
+        .countdown-alert {
+            background: linear-gradient(135deg, #6a2df3, #ff8a3c);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            animation: pulse-alert 2s infinite;
+        }
+
+        @keyframes pulse-alert {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+
+        .countdown-alert .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-alert h3 {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 0.2rem;
+        }
+
+        .countdown-separator {
+            font-size: 1.5rem;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        /* بطاقة الخصم */
+        .discount-card {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #15162b;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-gold);
+            border: 2px solid #ffd700;
+        }
+
+        .discount-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            z-index: 0;
+        }
+
+        .discount-card-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .discount-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #15162b;
+        }
+
+        .discount-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .discount-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .discount-item h4 {
+            color: #6a2df3;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .discount-item p {
+            color: #15162b;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .discount-note {
+            font-size: 0.9rem;
+            color: rgba(21, 22, 43, 0.8);
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-sm);
+            border-right: 4px solid #22b8aa;
+        }
+
+        /* علامة الأسعار المخفضة */
+        .original-price {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9em;
+            margin-left: 0.5rem;
+        }
+
+        .discounted-price {
+            color: #ffd700;
+            font-weight: 800;
+            font-size: 1.2em;
+        }
+
+        .savings-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff4757, #ff3838);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+            animation: pulse-badge 1.5s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* إشارة التسجيل المبكر */
+        .early-bird-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #ff3838, #ff4757);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(255, 56, 56, 0.4);
+            transform: rotate(5deg);
+        }
+
+        /* ===== بقية الأنماط السابقة تبقى كما هي ===== */
+        
         header {
             position: fixed;
             top: 0;
@@ -651,6 +848,51 @@
             background: var(--teal-gradient);
             color: var(--deep-space);
             box-shadow: var(--shadow-glow);
+        }
+        
+        /* ===== بطاقة النوع المدمج مع الخصم ===== */
+        .combo-offer-card {
+            position: relative;
+            overflow: visible;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--gold-gradient);
+            color: var(--deep-space);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            z-index: 10;
+            box-shadow: var(--shadow-gold);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .combo-details {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+            border-right: 4px solid var(--accent);
+        }
+        
+        .discount-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(34, 184, 170, 0.1);
+            border-radius: var(--radius-sm);
+            border-right: 3px solid var(--accent);
         }
         
         .pricing-table {
@@ -1191,10 +1433,95 @@
             .stepper-line {
                 display: none;
             }
+            
+            /* تعديلات للعداد على الجوال */
+            .countdown-alert .content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .countdown-box {
+                min-width: 50px;
+                padding: 0.3rem 0.5rem;
+            }
+            
+            .countdown-value {
+                font-size: 1.5rem;
+            }
+            
+            .discount-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* رسائل تنبيه خاصة */
+        .alert-message {
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .alert-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-right: 4px solid #ffc107;
+            color: #ffc107;
+        }
+        
+        .alert-success {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            border-right: 4px solid #28a745;
+            color: #28a745;
+        }
+        
+        .alert-info {
+            background: rgba(23, 162, 184, 0.1);
+            border: 1px solid rgba(23, 162, 184, 0.3);
+            border-right: 4px solid #17a2b8;
+            color: #17a2b8;
         }
     </style>
 </head>
 <body>
+    <!-- شريط العد التنازلي للتسجيل المبكر -->
+    <div class="countdown-alert" id="countdownAlert">
+        <div class="container">
+            <div class="content">
+                <h3>⏰ عرض التسجيل المبكر ينتهي خلال:</h3>
+                <div class="countdown-timer">
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">أيام</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">ساعات</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">دقائق</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-box">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">ثواني</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-gift" style="color: #ffd700;"></i>
+                    <span>خصم 3 ريال على كل مادة أونلاين و 5 ريال على الباقات</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- النجوم المتحركة -->
     <div class="stars" id="stars"></div>
     
@@ -1223,10 +1550,10 @@
                 </div>
                 
                 <nav class="nav-links">
-                    <a href="#about" class="nav-link">عن الأكاديمية</a>
                     <a href="#online" class="nav-link">التعليم عن بعد</a>
                     <a href="#onsite" class="nav-link">التعليم المباشر</a>
                     <a href="#register" class="nav-link">تسجيل طالب</a>
+                    <a href="#faq" class="nav-link">الأسئلة الشائعة</a>
                     <a href="#register" class="nav-link nav-cta">سجل الآن</a>
                 </nav>
                 
@@ -1245,17 +1572,51 @@
                 <div data-aos="fade-right">
                     <div class="hero-badge">
                         <i class="fas fa-calendar-alt"></i>
-                        <span>فتح باب التسجيل للفصل الدراسي الكامل</span>
+                        <span>فتح باب التسجيل للفصل الدراسي الثاني 2025/2026</span>
                     </div>
                     
                     <h1>ملهم… أكاديمية تُقدّم وضوحًا في المحتوى، وعمقًا في الفهم، وحداثةً في الأسلوب..</h1>
                     
                     <p>تُعلن أكاديمية مُلهم عن بدء التسجيل للفصل الدراسي الثاني الكامل بنظام تعليمٍ مدمج يجمع بين التعليم الحضوري والتعليم الإلكتروني، ضمن بيئة تعليمية منظمة، ومحتوى معتمد، ومتابعة مستمرة تهدف إلى رفع مستوى التحصيل وبناء فهمٍ راسخ لدى الطلبة.</p>
                     
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 3rem;">
+                    <!-- إضافة إشارة للتسجيل للجنسين -->
+                    <div style="display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; padding: 1rem; background: rgba(255, 255, 255, 0.1); border-radius: var(--radius-sm); border-right: 4px solid var(--accent);">
+                        <i class="fas fa-venus-mars" style="color: var(--accent); font-size: 1.5rem;"></i>
+                        <div>
+                            <h4 style="color: white; margin-bottom: 0.3rem;">التسجيل متاح للجنسين</h4>
+                            <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; margin: 0;">ذكور وإناث - تعليم نوعي للجميع</p>
+                        </div>
+                    </div>
+                    
+                    <!-- بطاقة الخصم في الهيرو -->
+                    <div class="discount-card" style="margin: 2rem 0;">
+                        <div class="discount-card-content">
+                            <h3 class="discount-title">🎁 عرض التسجيل المبكر 🎁</h3>
+                            <p style="color: #15162b; font-size: 1.1rem; margin-bottom: 1rem;">
+                                <i class="fas fa-clock" style="color: #6a2df3; margin-left: 0.5rem;"></i>
+                                حتى تاريخ 25 يناير 2026
+                            </p>
+                            <div class="discount-details">
+                                <div class="discount-item">
+                                    <h4>خصم على المواد الفردية</h4>
+                                    <p>3 ريال تخفيض على كل مادة أونلاين</p>
+                                </div>
+                                <div class="discount-item">
+                                    <h4>خصم على الباقات</h4>
+                                    <p>5 ريال تخفيض على كل باقة أونلاين</p>
+                                </div>
+                            </div>
+                            <div class="discount-note">
+                                <i class="fas fa-info-circle" style="color: #22b8aa; margin-left: 0.5rem;"></i>
+                                <strong>ملاحظة:</strong> التخفيضات تنطبق فقط على نظام التعليم عن بعد (الأونلاين) خلال فترة العرض
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
                         <a href="#register" class="btn btn-primary">
                             <i class="fas fa-user-plus"></i>
-                            سجل الآن للفصل الدراسي الثاني الكامل
+                            سجل الآن واحصل على الخصم المبكر
                         </a>
                         <a href="#online" class="btn btn-secondary">
                             <i class="fas fa-laptop"></i>
@@ -1283,11 +1644,21 @@
                                 <i class="fas fa-check" style="color: var(--accent); margin-left: 0.5rem;"></i>
                                 محتوى معتمد ومتابعة مستمرة
                             </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                                <i class="fas fa-check" style="color: var(--accent); margin-left: 0.5rem;"></i>
+                                خصم 20% عند الجمع بين النظامين معاً
+                            </li>
                             <li style="padding: 0.5rem 0;">
                                 <i class="fas fa-check" style="color: var(--accent); margin-left: 0.5rem;"></i>
-                                الأولوية للمسجلين مبكرًا لضمان المقاعد
+                                التسجيل متاح للجنسين ذكور وإناث
                             </li>
                         </ul>
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 215, 0, 0.1); border-radius: var(--radius-sm); border: 1px solid rgba(255, 215, 0, 0.3);">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fas fa-bolt" style="color: #ffd700;"></i>
+                                <span style="color: #ffd700; font-weight: 600;">تخفيضات التسجيل المبكر متاحة حتى 25 يناير</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1303,15 +1674,35 @@
                 <p class="section-subtitle">بيئة تعليمية منظمة، ومحتوى مُعتمد، ومتابعة مستمرة تهدف إلى رفع مستوى التحصيل وبناء فهمٍ راسخ لدى الطلبة</p>
             </div>
             
+            <!-- شارة التسجيل المبكر -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div style="display: inline-flex; align-items: center; gap: 1rem; padding: 1rem 2rem; background: linear-gradient(135deg, #ff3838, #ff4757); border-radius: 50px; box-shadow: 0 5px 20px rgba(255, 56, 56, 0.3);">
+                    <i class="fas fa-bolt" style="color: white; font-size: 1.2rem;"></i>
+                    <h3 style="color: white; margin: 0; font-size: 1.3rem;">أسعار التسجيل المبكر - حتى 25 يناير 2026</h3>
+                    <span class="savings-badge">خصم 3-5 ريال</span>
+                </div>
+            </div>
+            
             <div class="offers-grid">
                 <!-- الصفوف من الخامس إلى الثامن -->
                 <div class="offer-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="early-bird-badge">التسجيل المبكر</div>
                     <h3 style="color: white; margin-bottom: 1rem; font-size: 1.6rem;">الصفوف من الخامس إلى الثامن</h3>
                     
                     <div class="price" style="font-size: 1.8rem; font-weight: 800; color: var(--primary-light); margin: 1.5rem 0;">
-                        <span style="font-size: 2rem;">14 ريال</span>
-                        <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
-                        <span style="font-size: 1.5rem; color: var(--gold);">باقة أربع مواد: 45 ريال</span>
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 2rem; color: #ffd700;">11 ريال</span>
+                            <span class="original-price">14 ريال</span>
+                            <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem; color: #ffd700;">باقة أربع مواد: 40 ريال</span>
+                            <span class="original-price">45 ريال</span>
+                        </div>
+                        <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">
+                            <i class="fas fa-shopping-bag" style="color: #22b8aa; margin-left: 0.3rem;"></i>
+                            <span>توفير 3 ريال على المادة و 5 ريال على الباقة</span>
+                        </div>
                     </div>
                     
                     <div class="material-list">
@@ -1325,13 +1716,27 @@
 
                 <!-- الصفوف من التاسع إلى الحادي عشر -->
                 <div class="offer-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="early-bird-badge">التسجيل المبكر</div>
                     <h3 style="color: white; margin-bottom: 1rem; font-size: 1.6rem;">الصفوف من التاسع إلى الحادي عشر</h3>
                     
                     <div class="price" style="font-size: 1.8rem; font-weight: 800; color: var(--primary-light); margin: 1.5rem 0;">
-                        <span style="font-size: 2rem;">18 ريال</span>
-                        <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
-                        <span style="font-size: 1.5rem; color: var(--gold);">باقة أربع مواد: 65 ريال</span>
-                        <span style="font-size: 1.5rem; color: var(--accent);">باقة جميع المواد: 85 ريال</span>
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 2rem; color: #ffd700;">15 ريال</span>
+                            <span class="original-price">18 ريال</span>
+                            <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem; color: #ffd700;">باقة أربع مواد: 60 ريال</span>
+                            <span class="original-price">65 ريال</span>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem; color: #ffd700;">باقة جميع المواد: 80 ريال</span>
+                            <span class="original-price">85 ريال</span>
+                        </div>
+                        <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">
+                            <i class="fas fa-shopping-bag" style="color: #22b8aa; margin-left: 0.3rem;"></i>
+                            <span>توفير 3 ريال على المادة و 5 ريال على الباقات</span>
+                        </div>
                     </div>
                     
                     <div class="material-list">
@@ -1339,8 +1744,8 @@
                         <li><i class="fas fa-book"></i> اللغة العربية</li>
                         <li><i class="fas fa-language"></i> اللغة الإنجليزية</li>
                         <li><i class="fas fa-calculator"></i> الرياضيات</li>
-                         <li><i class="fas fa-calculator"></i> الرياضيات المتقدمة للصف 11</li>
-                         <li><i class="fas fa-calculator"></i> الرياضيات الأساسية للصف 11</li>
+                        <li><i class="fas fa-calculator"></i> الرياضيات المتقدمة للصف 11</li>
+                        <li><i class="fas fa-calculator"></i> الرياضيات الأساسية للصف 11</li>
                         <li><i class="fas fa-atom"></i> الفيزياء</li>
                         <li><i class="fas fa-flask"></i> الكيمياء</li>
                         <li><i class="fas fa-dna"></i> الأحياء</li>
@@ -1349,13 +1754,27 @@
 
                 <!-- الصف الثاني عشر -->
                 <div class="offer-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="early-bird-badge">التسجيل المبكر</div>
                     <h3 style="color: white; margin-bottom: 1rem; font-size: 1.6rem;">الصف الثاني عشر</h3>
                     
                     <div class="price" style="font-size: 1.8rem; font-weight: 800; color: var(--primary-light); margin: 1.5rem 0;">
-                        <span style="font-size: 2rem;">20 ريال</span>
-                        <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
-                        <span style="font-size: 1.5rem; color: var(--gold);">باقة أربع مواد: 70 ريال</span>
-                        <span style="font-size: 1.5rem; color: var(--accent);">باقة جميع المواد: 90 ريال</span>
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 2rem; color: #ffd700;">17 ريال</span>
+                            <span class="original-price">20 ريال</span>
+                            <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem; color: #ffd700;">باقة أربع مواد: 65 ريال</span>
+                            <span class="original-price">70 ريال</span>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <span style="font-size: 1.5rem; color: #ffd700;">باقة جميع المواد: 85 ريال</span>
+                            <span class="original-price">90 ريال</span>
+                        </div>
+                        <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">
+                            <i class="fas fa-shopping-bag" style="color: #22b8aa; margin-left: 0.3rem;"></i>
+                            <span>توفير 3 ريال على المادة و 5 ريال على الباقات</span>
+                        </div>
                     </div>
                     
                     <div class="material-list">
@@ -1363,7 +1782,7 @@
                         <li><i class="fas fa-book"></i> اللغة العربية</li>
                         <li><i class="fas fa-language"></i> اللغة الإنجليزية</li>
                         <li><i class="fas fa-calculator"></i> الرياضيات المتقدمة</li>
-                         <li><i class="fas fa-calculator"></i> الرياضيات الأساسية</li>
+                        <li><i class="fas fa-calculator"></i> الرياضيات الأساسية</li>
                         <li><i class="fas fa-atom"></i> الفيزياء</li>
                         <li><i class="fas fa-flask"></i> الكيمياء</li>
                         <li><i class="fas fa-dna"></i> الأحياء</li>
@@ -1380,6 +1799,14 @@
                 <span class="education-type-badge onsite-badge">التعليم المباشر – حضوري داخل القاعات</span>
                 <h2 class="section-title">التعليم الحضوري المباشر</h2>
                 <p class="section-subtitle">بيئة تعليمية منظمة تركز على الفهم العميق، والانضباط الأكاديمي، والمتابعة المستمرة لتحقيق أفضل النتائج</p>
+            </div>
+            
+            <!-- ملاحظة هامة -->
+            <div class="alert-message alert-info" data-aos="fade-up">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>ملاحظة هامة:</strong> تخفيضات التسجيل المبكر (3 ريال على المادة و5 ريال على الباقات) تنطبق فقط على نظام التعليم عن بعد (الأونلاين). الأسعار أدناه هي الأسعار العادية للتعليم الحضوري.
+                </div>
             </div>
             
             <div class="offers-grid">
@@ -1429,6 +1856,37 @@
                         <strong>المقر:</strong> مدرسة سوار العلم الخاصة
                     </div>
                 </div>
+
+                <!-- النظام المدمج مع الخصم -->
+                <div class="offer-card combo-offer-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="discount-badge">خصم خاص ⭐</div>
+                    
+                    <h3 style="color: white; margin-bottom: 1rem; font-size: 1.6rem;">النظام المدمج (عن بعد + حضوري)</h3>
+                    
+                    <div class="price" style="font-size: 1.8rem; font-weight: 800; color: var(--accent); margin: 1.5rem 0;">
+                        <span style="font-size: 2rem;">خصم 20%</span>
+                        <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">عند التسجيل في النظامين معاً</span>
+                        <span style="font-size: 1.5rem; color: var(--gold);">تطبق على باقات متعددة المواد</span>
+                    </div>
+                    
+                    <div class="combo-details">
+                        <h4 style="color: white; margin-bottom: 1rem; font-size: 1.2rem;">مزايا النظام المدمج:</h4>
+                        <li><i class="fas fa-check" style="color: var(--accent); margin-left: 0.5rem;"></i>مرونة التعليم عن بعد مع فعالية الحضور</li>
+                        <li><i class="fas fa-check" style="color: var(--accent); margin-left: 0.5rem;"></i>متابعة مزدوجة من المعلمين</li>
+                        <li><i class="fas fa-check" style="color: var(--accent); margin-left: 0.5rem;"></i>محاضرات مسجلة + جلسات تفاعلية مباشرة</li>
+                        <li><i class="fas fa-check" style="color: var(--accent); margin-left: 0.5rem;"></i>خصم خاص عند الجمع بين النظامين</li>
+                    </div>
+                    
+                    <div class="discount-info">
+                        <i class="fas fa-percentage" style="color: var(--gold); font-size: 1.5rem;"></i>
+                        <div>
+                            <strong style="color: var(--gold);">شرط الخصم:</strong>
+                            <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin: 0.3rem 0 0;">
+                                يجب اختيار مواد من كلا النظامين (أونلاين + حضوري) للحصول على خصم 20%
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1440,6 +1898,11 @@
                 <div class="section-badge">التسجيل متاح الآن</div>
                 <h2 class="section-title">سجل في أكاديمية ملهم التعليمية</h2>
                 <p class="section-subtitle">سهل وميسر - اختر ما يناسبك واتبع الخطوات البسيطة للتسجيل</p>
+                <!-- إضافة إشارة للتسجيل للجنسين -->
+                <div style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; padding: 0.7rem 1.5rem; background: rgba(34, 184, 170, 0.1); border-radius: 50px; border: 1px solid rgba(34, 184, 170, 0.3);">
+                    <i class="fas fa-venus-mars" style="color: var(--accent);"></i>
+                    <span>التسجيل متاح للجنسين ذكور وإناث</span>
+                </div>
             </div>
 
             <!-- خطوات التسجيل -->
@@ -1490,6 +1953,15 @@
                                 <option value="12">الصف الثاني عشر</option>
                             </select>
                         </div>
+                        <!-- إضافة حقل الجنس -->
+                        <div class="form-group">
+                            <label for="gender">الجنس <span style="color: var(--accent);">*</span></label>
+                            <select id="gender" name="gender" required>
+                                <option value="">اختر الجنس</option>
+                                <option value="ذكر">ذكر</option>
+                                <option value="أنثى">أنثى</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -1503,6 +1975,14 @@
                             <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 0.5rem;">
                                 فصل دراسي كامل عبر الإنترنت
                             </p>
+                            <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(106, 45, 243, 0.1); border-radius: 6px;">
+                                <small>أسعار مميزة للباقات</small>
+                            </div>
+                            <div style="margin-top: 0.5rem; padding: 0.3rem; background: linear-gradient(135deg, #ffd700, #ffed4e); border-radius: 4px;">
+                                <small style="color: #15162b; font-weight: 700;">
+                                    <i class="fas fa-bolt"></i> تخفيضات التسجيل المبكر
+                                </small>
+                            </div>
                         </div>
                         <div class="grade-option" data-education-type="onsite">
                             <i class="fas fa-chalkboard-teacher fa-2x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
@@ -1510,13 +1990,22 @@
                             <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 0.5rem;">
                                 حضور مباشر في القاعات الدراسية
                             </p>
+                            <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(255, 138, 60, 0.1); border-radius: 6px;">
+                                <small>تفاعل مباشر مع المعلمين</small>
+                            </div>
                         </div>
                         <div class="grade-option" data-education-type="combo">
-                            <i class="fas fa-layer-group fa-2x" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                            <div style="position: relative;">
+                                <i class="fas fa-layer-group fa-2x" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                                <span style="position: absolute; top: -10px; left: -10px; background: var(--gold-gradient); color: var(--deep-space); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">خصم 20%</span>
+                            </div>
                             <h4>النظامين معًا</h4>
                             <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 0.5rem;">
                                 مزيج بين التعليم عن بعد والحضوري
                             </p>
+                            <div style="margin-top: 1rem; padding: 0.5rem; background: rgba(34, 184, 170, 0.1); border-radius: 6px;">
+                                <small><i class="fas fa-percentage"></i> خصم خاص عند الجمع بين النظامين</small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1524,6 +2013,32 @@
                 <!-- الخطوة 3: اختيار المواد -->
                 <div class="selector-group" id="step3">
                     <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.5rem;">اختر المواد التي ترغب في التسجيل بها</h3>
+                    
+                    <!-- رسالة تذكير بالخصومات -->
+                    <div id="earlyBirdReminder" class="alert-message alert-success" style="display: flex;">
+                        <i class="fas fa-gift"></i>
+                        <div>
+                            <strong>عرض التسجيل المبكر متاح!</strong>
+                            <span>خصم 3 ريال على كل مادة أونلاين و 5 ريال على الباقات</span>
+                            <small style="display: block; color: rgba(40, 167, 69, 0.8);">العرض ينتهي في 25 يناير 2026</small>
+                        </div>
+                    </div>
+                    
+                    <!-- إظهار معلومات الخصم للنظام المدمج -->
+                    <div id="comboDiscountInfo" style="display: none; margin-bottom: 1.5rem; padding: 1rem; background: rgba(34, 184, 170, 0.1); border-radius: var(--radius-sm); border-right: 3px solid var(--accent);">
+                        <i class="fas fa-gift" style="color: var(--accent); margin-left: 0.5rem;"></i>
+                        <strong>خصم 20% على النظام المدمج:</strong> يجب اختيار مواد من كلا النظامين (أونلاين + حضوري) للحصول على خصم 20% على الإجمالي النهائي.
+                    </div>
+                    
+                    <!-- رسالة شرط النظام المدمج -->
+                    <div id="comboRequirementAlert" style="display: none; margin-bottom: 1.5rem;" class="alert-message alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <strong>شرط الخصم:</strong> يجب اختيار مواد من كلا النظامين (أونلاين + حضوري) للحصول على خصم 20%.<br>
+                            <small>إذا اخترت مواد من نظام واحد فقط، سيتم احتساب السعر العادي بدون خصم.</small>
+                        </div>
+                    </div>
+                    
                     <div id="onlineMaterials" class="material-selection" style="display: none;">
                         <!-- المواد الأونلاين ستظهر هنا ديناميكيًا -->
                     </div>
@@ -1533,11 +2048,59 @@
                     <div id="comboMaterials" class="material-selection" style="display: none;">
                         <!-- المواد للنظامين معًا ستظهر هنا ديناميكيًا -->
                     </div>
+                    
+                    <!-- خيارات الباقات -->
                     <div id="packageOptions" style="margin-top: 2rem; display: none;">
-                        <label for="packageSelect" style="display: block; margin-bottom: 1rem; font-size: 1.1rem;">اختر الباقة المناسبة:</label>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <label for="packageSelect" style="display: block; margin-bottom: 0; font-size: 1.1rem; flex: 1;">اختر الباقة المناسبة:</label>
+                            <span id="packageSavings" style="display: none; padding: 0.3rem 0.8rem; background: rgba(34, 184, 170, 0.2); border-radius: 6px; color: var(--accent); font-weight: 600; font-size: 0.9rem;">
+                                <i class="fas fa-piggy-bank"></i> توفير: <span id="savingsAmount">0</span> ريال
+                            </span>
+                        </div>
                         <select id="packageSelect" name="packageSelect" style="width: 100%; padding: 1rem; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255, 255, 255, 0.2);">
                             <option value="">اختر الباقة</option>
                         </select>
+                    </div>
+                    
+                    <!-- حساب الخصم للنظام المدمج -->
+                    <div id="comboDiscountCalc" style="display: none; margin-top: 2rem; padding: 1.5rem; background: rgba(255, 215, 0, 0.1); border-radius: var(--radius-sm); border: 2px dashed rgba(255, 215, 0, 0.3);">
+                        <h4 style="color: var(--gold); margin-bottom: 1rem; font-size: 1.2rem;">
+                            <i class="fas fa-calculator"></i> حساب الخصم للنظام المدمج
+                        </h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.3rem;">عدد مواد الأونلاين:</p>
+                                <p id="onlineCount" style="color: white; font-weight: 600; font-size: 1.2rem;">0</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.3rem;">عدد مواد الحضوري:</p>
+                                <p id="onsiteCount" style="color: white; font-weight: 600; font-size: 1.2rem;">0</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.3rem;">الإجمالي قبل الخصم:</p>
+                                <p id="beforeDiscount" style="color: white; font-weight: 600; font-size: 1.2rem;">0 ريال</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.3rem;">قيمة الخصم (20%):</p>
+                                <p id="discountValue" style="color: var(--accent); font-weight: 800; font-size: 1.3rem;">0 ريال</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.3rem;">الإجمالي بعد الخصم:</p>
+                            <p id="afterDiscount" style="color: var(--gold); font-weight: 800; font-size: 1.5rem;">0 ريال</p>
+                        </div>
+                        
+                        <!-- رسالة تذكير بالشرط -->
+                        <div id="comboConditionCheck" style="margin-top: 1rem; padding: 1rem; background: rgba(255, 193, 7, 0.1); border-radius: var(--radius-sm); border-left: 4px solid #ffc107;">
+                            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                                <i class="fas fa-info-circle" style="color: #ffc107;"></i>
+                                <div>
+                                    <p style="color: #ffc107; margin: 0; font-size: 0.9rem;">
+                                        <strong>تذكير:</strong> الخصم 20% يطبق فقط عند اختيار مواد من كلا النظامين
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1551,8 +2114,20 @@
                         <i class="fas fa-credit-card"></i> <strong>خطوات إتمام التسجيل:</strong><br>
                         1. اضغط على زر "إرسال التسجيل" لفتح واتساب<br>
                         2. ستقوم الأكاديمية بالتواصل معك لتأكيد التسجيل<br>
-                        3. قم بتحويل المبلغ على رقم الأكاديمية <strong>74120010</strong><br>
-                        4. ستصل رسالة تأكيد التسجيل على واتساب
+                        3. قم بتحويل المبلغ على رقم التحويل: <strong>92147179</strong><br>
+                        4. سيتم التأكيد النهائي وتسجيلك في النظام<br>
+                        5. ستصل رسالة تأكيد التسجيل على واتساب
+                    </div>
+                    
+                    <!-- إضافة ملاحظة مهمة -->
+                    <div style="background: rgba(255, 215, 0, 0.1); padding: 1.5rem; border-radius: var(--radius-sm); margin-top: 1.5rem; border-right: 3px solid var(--gold);">
+                        <i class="fas fa-exclamation-circle" style="color: var(--gold); margin-left: 0.5rem;"></i>
+                        <strong>ملاحظات مهمة:</strong>
+                        <ul style="margin: 0.5rem 0 0 1.5rem; color: rgba(255,255,255,0.8);">
+                            <li>يتم الحجز النهائي بعد استلام الدفع</li>
+                            <li>يجب ذكر اسم الطالب ورقم التسجيل عند التحويل</li>
+                            <li>للاستفسارات الأخرى يرجى التواصل على رقم الأكاديمية: 74120010</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1578,6 +2153,39 @@
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="faq-question">
                         <i class="fas fa-question-circle"></i>
+                        هل التسجيل متاح للجنسين؟
+                    </div>
+                    <div class="faq-answer">
+                        نعم، التسجيل في أكاديمية ملهم متاح للجنسين ذكور وإناث. نحن نؤمن بتوفير تعليم نوعي للجميع ضمن بيئة تعليمية محفزة ومناسبة.
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        ما هو خصم التسجيل المبكر؟
+                    </div>
+                    <div class="faq-answer">
+                        خصم التسجيل المبكر متاح حتى 25 يناير 2026 ويتضمن:<br>
+                        • خصم 3 ريال على كل مادة في نظام التعليم عن بعد<br>
+                        • خصم 5 ريال على كل باقة في نظام التعليم عن بعد<br>
+                        • هذه التخفيضات تنطبق فقط على نظام التعليم عن بعد خلال فترة العرض
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        ما هو خصم النظام المدمج؟
+                    </div>
+                    <div class="faq-answer">
+                        عند التسجيل في النظام المدمج (مواد أونلاين + مواد حضوري) يتم تطبيق خصم 20% على إجمالي الرسوم. <strong>شرط الخصم:</strong> يجب اختيار مواد من كلا النظامين للحصول على الخصم.
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
                         كيف يتم عملية التسجيل؟
                     </div>
                     <div class="faq-answer">
@@ -1585,23 +2193,46 @@
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
                     <div class="faq-question">
                         <i class="fas fa-question-circle"></i>
-                        متى يتم الدفع؟
+                        كيف ومتى يتم الدفع؟
                     </div>
                     <div class="faq-answer">
-                        بعد إرسال طلب التسجيل عبر واتساب، ستتواصل معك الأكاديمية لتأكيد التفاصيل، ثم تقوم بتحويل المبلغ على رقم 74120010.
+                        بعد إرسال طلب التسجيل عبر واتساب، ستتواصل معك الأكاديمية لتأكيد التفاصيل، ثم تقوم بتحويل المبلغ على رقم التحويل: <strong>92147179</strong>.
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
                     <div class="faq-question">
                         <i class="fas fa-question-circle"></i>
                         هل يمكنني التسجيل في أكثر من مادة؟
                     </div>
                     <div class="faq-answer">
                         نعم، يمكنك التسجيل في باقات متعددة المواد بأسعار مخفضة. نظامنا يسمح لك باختيار المواد التي تحتاجها.
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        هل يمكنني الجمع بين التعليم عن بعد والحضوري؟
+                    </div>
+                    <div class="faq-answer">
+                        نعم، يمكنك اختيار النظام المدمج الذي يجمع بين مميزات التعليم عن بعد والحضوري مع خصم 20% على الرسوم الإجمالية (بشرط اختيار مواد من كلا النظامين).
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="800">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        كيف يمكنني التواصل مع الأكاديمية؟
+                    </div>
+                    <div class="faq-answer">
+                        يمكنك التواصل عبر:<br>
+                        • واتساب: 74120010<br>
+                        • إنستجرام: <strong>@mulhimacademy9</strong><br>
+                        • الموقع الإلكتروني
                     </div>
                 </div>
             </div>
@@ -1626,7 +2257,7 @@
                         نؤمن بأن كل طالب يحمل بداخله عالماً من الإمكانات، ومهمتنا هي مساعدته على اكتشاف هذا العالم وصنع مستقبله
                     </p>
                     <div class="footer-social">
-                        <a href="https://www.instagram.com/mulnimacademy" target="_blank" class="social-link">
+                        <a href="https://www.instagram.com/mulhimacademy9" target="_blank" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://wa.me/96874120010" target="_blank" class="social-link">
@@ -1644,10 +2275,10 @@
                 <div>
                     <h4 style="color: white; margin-bottom: 1.5rem; font-size: 1.3rem;">روابط سريعة</h4>
                     <ul style="list-style: none; color: rgba(255, 255, 255, 0.8);">
-                        <li style="padding: 0.5rem 0;"><a href="#about" style="color: inherit; text-decoration: none;">عن الأكاديمية</a></li>
                         <li style="padding: 0.5rem 0;"><a href="#online" style="color: inherit; text-decoration: none;">التعليم عن بعد</a></li>
                         <li style="padding: 0.5rem 0;"><a href="#onsite" style="color: inherit; text-decoration: none;">التعليم المباشر</a></li>
                         <li style="padding: 0.5rem 0;"><a href="#register" style="color: inherit; text-decoration: none;">تسجيل طالب</a></li>
+                        <li style="padding: 0.5rem 0;"><a href="#faq" style="color: inherit; text-decoration: none;">الأسئلة الشائعة</a></li>
                     </ul>
                 </div>
                 
@@ -1664,7 +2295,7 @@
                         </li>
                         <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
                             <i class="fab fa-instagram" style="color: var(--accent);"></i>
-                            mulnimacademy
+                            mulhimacademy9
                         </li>
                         <li style="padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
                             <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i>
@@ -1674,8 +2305,12 @@
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: 1.5rem; font-size: 1.3rem;">ساعات العمل</h4>
+                    <h4 style="color: white; margin-bottom: 1.5rem; font-size: 1.3rem;">معلومات الدفع</h4>
                     <ul style="list-style: none; color: rgba(255, 255, 255, 0.8);">
+                        <li style="padding: 0.5rem 0;">
+                            <i class="fas fa-credit-card" style="color: var(--accent); margin-left: 0.5rem;"></i>
+                            رقم التحويل: <strong>92147179</strong>
+                        </li>
                         <li style="padding: 0.5rem 0;">
                             <i class="fas fa-clock" style="color: var(--accent); margin-left: 0.5rem;"></i>
                             الأحد - الخميس: 8 صباحًا - 9 مساءً
@@ -1693,7 +2328,7 @@
                     &copy; 2025 أكاديمية ملهم التعليمية. جميع الحقوق محفوظة.
                 </p>
                 <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; margin-top: 0.5rem;">
-                    تصميم وتطوير: فريق أكاديمية ملهم التعليمية
+                    الفصل الدراسي الثاني 2025/2026 | تصميم وتطوير: فريق أكاديمية ملهم التعليمية
                 </p>
             </div>
         </div>
@@ -1776,28 +2411,163 @@
             }
         });
 
+        // === نظام العد التنازلي للتسجيل المبكر ===
+        const offerEndDate = new Date('2026-01-25T23:59:59').getTime();
+        const countdownAlert = document.getElementById('countdownAlert');
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = offerEndDate - now;
+            
+            // إخفاء العداد إذا انتهى العرض
+            if (distance < 0) {
+                countdownAlert.style.display = 'none';
+                // تحديث الأسعار للعودة للأسعار الأصلية
+                disableEarlyBirdDiscounts();
+                return;
+            }
+            
+            // حساب الوقت المتبقي
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // تحديث العرض
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            
+            // تغيير لون العداد إذا بقي أقل من 24 ساعة
+            if (days === 0) {
+                document.querySelectorAll('.countdown-box').forEach(box => {
+                    box.style.background = 'rgba(255, 56, 56, 0.3)';
+                    box.style.borderColor = 'rgba(255, 56, 56, 0.5)';
+                });
+            }
+        }
+
+        // تحديث العداد كل ثانية
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // التشغيل الأولي
+
+        // التحقق من صلاحية العرض
+        function isEarlyBirdActive() {
+            const now = new Date().getTime();
+            return now < offerEndDate;
+        }
+
+        // === أسعار التسجيل المبكر ===
+        const earlyBirdOnlinePrices = {
+            '5-8': { single: 11, package4: 40 },
+            '9-11': { single: 15, package4: 60, all: 80 },
+            '12': { single: 17, package4: 65, all: 85 }
+        };
+
+        // الأسعار الأصلية (بعد انتهاء العرض)
+        const regularOnlinePrices = {
+            '5-8': { single: 14, package4: 45 },
+            '9-11': { single: 18, package4: 65, all: 85 },
+            '12': { single: 20, package4: 70, all: 90 }
+        };
+
+        // الأسعار الحالية (تتغير حسب حالة العرض)
+        let currentOnlinePrices = isEarlyBirdActive() ? earlyBirdOnlinePrices : regularOnlinePrices;
+
+        // === تحديث الأسعار عند انتهاء العرض ===
+        function disableEarlyBirdDiscounts() {
+            currentOnlinePrices = regularOnlinePrices;
+            
+            // تحديث عرض البطاقات
+            updateOfferCardsPrices();
+            
+            // إخفاء شارة التسجيل المبكر
+            document.querySelectorAll('.early-bird-badge').forEach(badge => {
+                badge.style.display = 'none';
+            });
+            
+            // تحديث الأسعار في النموذج
+            if (typeof updateMaterialsForSelection === 'function') {
+                updateMaterialsForSelection();
+            }
+        }
+
+        // تحديث أسعار البطاقات
+        function updateOfferCardsPrices() {
+            // تحديث أسعار الصفوف 5-8
+            const card58 = document.querySelectorAll('.offer-card')[0];
+            if (card58) {
+                const priceDiv58 = card58.querySelector('.price');
+                priceDiv58.innerHTML = `
+                    <div style="margin-bottom: 1rem;">
+                        <span style="font-size: 2rem; color: var(--primary-light);">${currentOnlinePrices['5-8'].single} ريال</span>
+                        <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem; color: var(--gold);">باقة أربع مواد: ${currentOnlinePrices['5-8'].package4} ريال</span>
+                    </div>
+                `;
+            }
+            
+            // تحديث أسعار الصفوف 9-11
+            const card911 = document.querySelectorAll('.offer-card')[1];
+            if (card911) {
+                const priceDiv911 = card911.querySelector('.price');
+                priceDiv911.innerHTML = `
+                    <div style="margin-bottom: 1rem;">
+                        <span style="font-size: 2rem; color: var(--primary-light);">${currentOnlinePrices['9-11'].single} ريال</span>
+                        <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem; color: var(--gold);">باقة أربع مواد: ${currentOnlinePrices['9-11'].package4} ريال</span>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem; color: var(--accent);">باقة جميع المواد: ${currentOnlinePrices['9-11'].all} ريال</span>
+                    </div>
+                `;
+            }
+            
+            // تحديث أسعار الصف 12
+            const card12 = document.querySelectorAll('.offer-card')[2];
+            if (card12) {
+                const priceDiv12 = card12.querySelector('.price');
+                priceDiv12.innerHTML = `
+                    <div style="margin-bottom: 1rem;">
+                        <span style="font-size: 2rem; color: var(--primary-light);">${currentOnlinePrices['12'].single} ريال</span>
+                        <span style="font-size: 1rem; color: rgba(255,255,255,0.7); display: block;">للمادة الواحدة</span>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem; color: var(--gold);">باقة أربع مواد: ${currentOnlinePrices['12'].package4} ريال</span>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem; color: var(--accent);">باقة جميع المواد: ${currentOnlinePrices['12'].all} ريال</span>
+                    </div>
+                `;
+            }
+        }
+
+        // === بقية كود JavaScript الأصلي ===
+
         // متغيرات نظام التسجيل
         let currentStep = 1;
         const totalSteps = 4;
         const registrationData = {
             studentName: '',
             phoneNumber: '',
+            gender: '',
             grade: '',
             educationType: '',
             selectedMaterials: [],
             package: '',
             totalAmount: 0,
+            discountApplied: 0,
+            discountEligible: false,
             registrationId: '',
             timestamp: ''
         };
 
-        // أسعار المواد
-        const onlinePrices = {
-            '5-8': { single: 14, package4: 45 },
-            '9-11': { single: 18, package4: 65, all: 90 },
-            '12': { single: 20, package4: 70, all: 100 }
-        };
-
+        // أسعار المواد الحضورية
         const onsitePrices = {
             '5-8': { single: 35, package3: 100 },
             '9-12': { single: 50, package3: 130 }
@@ -1819,13 +2589,30 @@
         // الباقات المتاحة
         const packages = {
             online: {
-                '5-8': ['مادة واحدة - 14 ريال', 'باقة 4 مواد - 45 ريال'],
-                '9-11': ['مادة واحدة - 18 ريال', 'باقة 4 مواد - 65 ريال', 'باقة جميع المواد - 90 ريال'],
-                '12': ['مادة واحدة - 20 ريال', 'باقة 4 مواد - 70 ريال', 'باقة جميع المواد - 100 ريال']
+                '5-8': [
+                    {name: `مادة واحدة - ${currentOnlinePrices['5-8'].single} ريال`, value: 'single', price: currentOnlinePrices['5-8'].single},
+                    {name: `باقة 4 مواد - ${currentOnlinePrices['5-8'].package4} ريال`, value: 'package4', price: currentOnlinePrices['5-8'].package4}
+                ],
+                '9-11': [
+                    {name: `مادة واحدة - ${currentOnlinePrices['9-11'].single} ريال`, value: 'single', price: currentOnlinePrices['9-11'].single},
+                    {name: `باقة 4 مواد - ${currentOnlinePrices['9-11'].package4} ريال`, value: 'package4', price: currentOnlinePrices['9-11'].package4},
+                    {name: `باقة جميع المواد - ${currentOnlinePrices['9-11'].all} ريال`, value: 'all', price: currentOnlinePrices['9-11'].all}
+                ],
+                '12': [
+                    {name: `مادة واحدة - ${currentOnlinePrices['12'].single} ريال`, value: 'single', price: currentOnlinePrices['12'].single},
+                    {name: `باقة 4 مواد - ${currentOnlinePrices['12'].package4} ريال`, value: 'package4', price: currentOnlinePrices['12'].package4},
+                    {name: `باقة جميع المواد - ${currentOnlinePrices['12'].all} ريال`, value: 'all', price: currentOnlinePrices['12'].all}
+                ]
             },
             onsite: {
-                '5-8': ['مادة واحدة - 35 ريال', 'باقة 3 مواد - 100 ريال'],
-                '9-12': ['مادة واحدة - 50 ريال', 'باقة 3 مواد - 130 ريال']
+                '5-8': [
+                    {name: 'مادة واحدة - 35 ريال', value: 'single', price: 35},
+                    {name: 'باقة 3 مواد - 100 ريال', value: 'package3', price: 100}
+                ],
+                '9-12': [
+                    {name: 'مادة واحدة - 50 ريال', value: 'single', price: 50},
+                    {name: 'باقة 3 مواد - 130 ريال', value: 'package3', price: 130}
+                ]
             }
         };
 
@@ -1872,7 +2659,7 @@
             
             switch(currentStep) {
                 case 1:
-                    isValid = registrationData.studentName && registrationData.phoneNumber && registrationData.grade;
+                    isValid = registrationData.studentName && registrationData.phoneNumber && registrationData.grade && registrationData.gender;
                     break;
                 case 2:
                     isValid = registrationData.educationType !== '';
@@ -1881,12 +2668,32 @@
                     isValid = registrationData.selectedMaterials.length > 0;
                     if (registrationData.educationType !== 'combo') {
                         isValid = isValid && registrationData.package !== '';
+                    } else {
+                        // للنظام المدمج، يجب التحقق من اختيار مواد من كلا النظامين إذا أراد الخصم
+                        isValid = isValid && checkComboRequirement();
                     }
                     break;
             }
             
             nextBtn.disabled = !isValid;
             return isValid;
+        }
+
+        // التحقق من شرط النظام المدمج
+        function checkComboRequirement() {
+            if (registrationData.educationType !== 'combo') return true;
+            
+            // احتساب عدد المواد من كل نوع
+            let onlineCount = 0;
+            let onsiteCount = 0;
+            
+            registrationData.selectedMaterials.forEach(material => {
+                if (material.type === 'online') onlineCount++;
+                if (material.type === 'onsite') onsiteCount++;
+            });
+            
+            // يجب أن يكون هناك مواد من كلا النظامين
+            return onlineCount > 0 && onsiteCount > 0;
         }
 
         // الخطوة التالية
@@ -1923,7 +2730,32 @@
                 if (currentStep >= 3) {
                     registrationData.selectedMaterials = [];
                     registrationData.package = '';
+                    registrationData.discountApplied = 0;
+                    registrationData.discountEligible = false;
                     document.getElementById('packageSelect').value = '';
+                }
+                
+                // إظهار/إخفاء معلومات الخصم للنظام المدمج
+                const comboDiscountInfo = document.getElementById('comboDiscountInfo');
+                const comboRequirementAlert = document.getElementById('comboRequirementAlert');
+                const comboDiscountCalc = document.getElementById('comboDiscountCalc');
+                const earlyBirdReminder = document.getElementById('earlyBirdReminder');
+                
+                if (registrationData.educationType === 'combo') {
+                    comboDiscountInfo.style.display = 'block';
+                    comboRequirementAlert.style.display = 'none'; // سيتم إظهاره عند اختيار المواد
+                    comboDiscountCalc.style.display = 'none';
+                    earlyBirdReminder.style.display = 'none';
+                } else if (registrationData.educationType === 'online') {
+                    comboDiscountInfo.style.display = 'none';
+                    comboRequirementAlert.style.display = 'none';
+                    comboDiscountCalc.style.display = 'none';
+                    earlyBirdReminder.style.display = 'flex';
+                } else {
+                    comboDiscountInfo.style.display = 'none';
+                    comboRequirementAlert.style.display = 'none';
+                    comboDiscountCalc.style.display = 'none';
+                    earlyBirdReminder.style.display = 'flex';
                 }
                 
                 validateStep();
@@ -1946,6 +2778,11 @@
             validateStep();
         });
 
+        document.getElementById('gender').addEventListener('change', function() {
+            registrationData.gender = this.value;
+            validateStep();
+        });
+
         // تحميل المواد المتاحة
         function loadMaterials() {
             const grade = parseInt(registrationData.grade);
@@ -1956,11 +2793,13 @@
             document.getElementById('onsiteMaterials').style.display = 'none';
             document.getElementById('comboMaterials').style.display = 'none';
             document.getElementById('packageOptions').style.display = 'none';
+            document.getElementById('comboDiscountCalc').style.display = 'none';
             
             if (educationType === 'combo') {
                 // عرض خيارات للنظامين معًا
                 document.getElementById('comboMaterials').style.display = 'grid';
                 loadComboMaterials(grade);
+                document.getElementById('comboDiscountCalc').style.display = 'block';
             } else {
                 const containerId = `${educationType}Materials`;
                 const container = document.getElementById(containerId);
@@ -1987,6 +2826,11 @@
                     materialDiv.addEventListener('click', function() {
                         this.classList.toggle('selected');
                         updateSelectedMaterials();
+                        if (educationType !== 'combo') {
+                            updatePackageSavings();
+                        } else {
+                            updateComboDiscount();
+                        }
                     });
                     
                     container.appendChild(materialDiv);
@@ -1998,7 +2842,10 @@
             
             registrationData.selectedMaterials = [];
             registrationData.package = '';
+            registrationData.discountApplied = 0;
+            registrationData.discountEligible = false;
             document.getElementById('packageSelect').value = '';
+            document.getElementById('packageSavings').style.display = 'none';
         }
 
         // تحميل المواد للنظامين معًا
@@ -2023,6 +2870,8 @@
                 materialDiv.addEventListener('click', function() {
                     this.classList.toggle('selected');
                     updateSelectedMaterials();
+                    updateComboDiscount();
+                    checkComboAlert();
                 });
                 
                 container.appendChild(materialDiv);
@@ -2044,10 +2893,33 @@
                 materialDiv.addEventListener('click', function() {
                     this.classList.toggle('selected');
                     updateSelectedMaterials();
+                    updateComboDiscount();
+                    checkComboAlert();
                 });
                 
                 container.appendChild(materialDiv);
             });
+        }
+
+        // التحقق من شرط النظام المدمج وعرض التنبيه
+        function checkComboAlert() {
+            const comboRequirementAlert = document.getElementById('comboRequirementAlert');
+            
+            // احتساب عدد المواد من كل نوع
+            let onlineCount = 0;
+            let onsiteCount = 0;
+            
+            registrationData.selectedMaterials.forEach(material => {
+                if (material.type === 'online') onlineCount++;
+                if (material.type === 'onsite') onsiteCount++;
+            });
+            
+            // إظهار التنبيه إذا تم اختيار مواد ولكن ليس من كلا النظامين
+            if (registrationData.selectedMaterials.length > 0 && (onlineCount === 0 || onsiteCount === 0)) {
+                comboRequirementAlert.style.display = 'flex';
+            } else {
+                comboRequirementAlert.style.display = 'none';
+            }
         }
 
         // تحديث المواد المختارة
@@ -2071,6 +2943,99 @@
             validateStep();
         }
 
+        // تحديث الخصم للنظام المدمج
+        function updateComboDiscount() {
+            const grade = parseInt(registrationData.grade);
+            let totalBeforeDiscount = 0;
+            let onlineCount = 0;
+            let onsiteCount = 0;
+            
+            // حساب الإجمالي قبل الخصم
+            registrationData.selectedMaterials.forEach(material => {
+                let price = 0;
+                
+                if (material.type === 'online') {
+                    onlineCount++;
+                    let gradeGroup = '';
+                    if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                    else if (grade >= 9 && grade <= 11) gradeGroup = '9-11';
+                    else if (grade === 12) gradeGroup = '12';
+                    
+                    price = currentOnlinePrices[gradeGroup].single;
+                } else if (material.type === 'onsite') {
+                    onsiteCount++;
+                    let gradeGroup = '';
+                    if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                    else if (grade >= 9 && grade <= 12) gradeGroup = '9-12';
+                    
+                    price = onsitePrices[gradeGroup].single;
+                }
+                
+                totalBeforeDiscount += price;
+            });
+            
+            // التحقق من أهلية الخصم (يجب أن يكون هناك مواد من كلا النظامين)
+            const isEligibleForDiscount = onlineCount > 0 && onsiteCount > 0;
+            
+            // حساب الخصم (20%) إذا كان مؤهلاً
+            const discount = isEligibleForDiscount ? totalBeforeDiscount * 0.20 : 0;
+            const totalAfterDiscount = totalBeforeDiscount - discount;
+            
+            // تحديث العرض
+            document.getElementById('onlineCount').textContent = onlineCount;
+            document.getElementById('onsiteCount').textContent = onsiteCount;
+            document.getElementById('beforeDiscount').textContent = totalBeforeDiscount + ' ريال';
+            document.getElementById('discountValue').textContent = discount.toFixed(2) + ' ريال';
+            document.getElementById('afterDiscount').textContent = totalAfterDiscount.toFixed(2) + ' ريال';
+            
+            // تحديث شارة حالة الخصم
+            const comboConditionCheck = document.getElementById('comboConditionCheck');
+            if (isEligibleForDiscount) {
+                comboConditionCheck.style.display = 'block';
+                comboConditionCheck.style.background = 'rgba(40, 167, 69, 0.1)';
+                comboConditionCheck.style.borderLeft = '4px solid #28a745';
+                comboConditionCheck.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 0.8rem;">
+                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                        <div>
+                            <p style="color: #28a745; margin: 0; font-size: 0.9rem;">
+                                <strong>✓ مؤهل للخصم:</strong> تم اختيار مواد من كلا النظامين
+                            </p>
+                        </div>
+                    </div>
+                `;
+            } else if (registrationData.selectedMaterials.length > 0) {
+                comboConditionCheck.style.display = 'block';
+                comboConditionCheck.style.background = 'rgba(255, 193, 7, 0.1)';
+                comboConditionCheck.style.borderLeft = '4px solid #ffc107';
+                comboConditionCheck.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 0.8rem;">
+                        <i class="fas fa-exclamation-circle" style="color: #ffc107;"></i>
+                        <div>
+                            <p style="color: #ffc107; margin: 0; font-size: 0.9rem;">
+                                <strong>✗ غير مؤهل للخصم:</strong> يجب اختيار مواد من كلا النظامين للحصول على خصم 20%
+                            </p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                comboConditionCheck.style.display = 'block';
+            }
+            
+            // تحديث بيانات التسجيل
+            registrationData.totalAmount = totalAfterDiscount;
+            registrationData.discountApplied = discount;
+            registrationData.discountEligible = isEligibleForDiscount;
+            
+            // إظهار/إخفاء حاسبة الخصم بناءً على عدد المواد المختارة
+            const comboDiscountCalc = document.getElementById('comboDiscountCalc');
+            if (registrationData.selectedMaterials.length > 0) {
+                comboDiscountCalc.style.display = 'block';
+            } else {
+                comboDiscountCalc.style.display = 'none';
+            }
+        }
+
         // تحميل الباقات
         function loadPackages(educationType, gradeGroup) {
             const packageSelect = document.getElementById('packageSelect');
@@ -2079,8 +3044,9 @@
             const availablePackages = packages[educationType][gradeGroup] || [];
             availablePackages.forEach(pkg => {
                 const option = document.createElement('option');
-                option.value = pkg;
-                option.textContent = pkg;
+                option.value = pkg.value;
+                option.textContent = pkg.name;
+                option.dataset.price = pkg.price;
                 packageSelect.appendChild(option);
             });
             
@@ -2088,8 +3054,54 @@
             
             packageSelect.addEventListener('change', function() {
                 registrationData.package = this.value;
+                updatePackageSavings();
                 validateStep();
             });
+        }
+
+        // تحديث توفير الباقات
+        function updatePackageSavings() {
+            const educationType = registrationData.educationType;
+            const grade = parseInt(registrationData.grade);
+            const selectedMaterialsCount = registrationData.selectedMaterials.length;
+            const packageSelect = document.getElementById('packageSelect');
+            const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+            
+            if (!selectedOption || !selectedOption.dataset.price) {
+                document.getElementById('packageSavings').style.display = 'none';
+                return;
+            }
+            
+            let gradeGroup = '';
+            if (educationType === 'online') {
+                if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                else if (grade >= 9 && grade <= 11) gradeGroup = '9-11';
+                else if (grade === 12) gradeGroup = '12';
+            } else if (educationType === 'onsite') {
+                if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                else if (grade >= 9 && grade <= 12) gradeGroup = '9-12';
+            }
+            
+            const singlePrice = educationType === 'online' ? currentOnlinePrices[gradeGroup].single : onsitePrices[gradeGroup].single;
+            const packagePrice = parseFloat(selectedOption.dataset.price);
+            const materialsCountForPackage = selectedOption.value === 'package4' ? 4 : 
+                                          selectedOption.value === 'package3' ? 3 : 
+                                          selectedOption.value === 'all' ? 
+                                            (educationType === 'online' ? 
+                                                (gradeGroup === '5-8' ? 4 : 
+                                                 gradeGroup === '9-11' ? 7 : 6) : 
+                                                (gradeGroup === '5-8' ? 3 : 4)) : 
+                                          1;
+            
+            const individualTotal = singlePrice * materialsCountForPackage;
+            const savings = individualTotal - packagePrice;
+            
+            if (savings > 0) {
+                document.getElementById('savingsAmount').textContent = savings;
+                document.getElementById('packageSavings').style.display = 'block';
+            } else {
+                document.getElementById('packageSavings').style.display = 'none';
+            }
         }
 
         // تحديث الملخص
@@ -2105,6 +3117,10 @@
                     <span>${registrationData.studentName}</span>
                 </div>
                 <div class="summary-item">
+                    <span>الجنس:</span>
+                    <span>${registrationData.gender}</span>
+                </div>
+                <div class="summary-item">
                     <span>رقم الهاتف:</span>
                     <span>${registrationData.phoneNumber}</span>
                 </div>
@@ -2118,11 +3134,23 @@
                 </div>
             `;
             
-            if (educationType !== 'combo') {
+            // إضافة معلومات التسجيل المبكر إذا كان نشطاً
+            if (isEarlyBirdActive() && educationType === 'online') {
+                summaryHTML += `
+                    <div class="summary-item" style="color: var(--gold);">
+                        <span><i class="fas fa-gift"></i> حالة العرض:</span>
+                        <span>التسجيل المبكر (خصم 3-5 ريال)</span>
+                    </div>
+                `;
+            }
+            
+            if (educationType !== 'combo' && registrationData.package) {
+                const packageSelect = document.getElementById('packageSelect');
+                const selectedOption = packageSelect.options[packageSelect.selectedIndex];
                 summaryHTML += `
                     <div class="summary-item">
                         <span>الباقة المختارة:</span>
-                        <span>${registrationData.package}</span>
+                        <span>${selectedOption.textContent}</span>
                     </div>
                 `;
             }
@@ -2130,71 +3158,80 @@
             if (registrationData.selectedMaterials.length > 0) {
                 summaryHTML += '<div class="summary-item"><span>المواد المختارة:</span><span></span></div>';
                 
-                registrationData.selectedMaterials.forEach(material => {
-                    let price = 0;
+                if (educationType === 'combo') {
+                    // عرض المواد مع نوعها
+                    registrationData.selectedMaterials.forEach(material => {
+                        summaryHTML += `
+                            <div class="summary-item" style="padding-right: 2rem;">
+                                <span>• ${material.name} (${material.type === 'online' ? 'أونلاين' : 'حضوري'})</span>
+                                <span>${calculateMaterialPrice(material, grade)} ريال</span>
+                            </div>
+                        `;
+                    });
                     
-                    if (educationType === 'online') {
-                        let gradeGroup = '';
-                        if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
-                        else if (grade >= 9 && grade <= 11) gradeGroup = '9-11';
-                        else if (grade === 12) gradeGroup = '12';
-                        
-                        if (registrationData.package.includes('باقة 4 مواد')) {
-                            price = onlinePrices[gradeGroup].package4 / registrationData.selectedMaterials.length;
-                        } else if (registrationData.package.includes('باقة جميع المواد')) {
-                            price = onlinePrices[gradeGroup].all / registrationData.selectedMaterials.length;
-                        } else {
-                            price = onlinePrices[gradeGroup].single;
-                        }
-                    } else if (educationType === 'onsite') {
-                        let gradeGroup = '';
-                        if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
-                        else if (grade >= 9 && grade <= 12) gradeGroup = '9-12';
-                        
-                        if (registrationData.package.includes('باقة 3 مواد')) {
-                            price = onsitePrices[gradeGroup].package3 / registrationData.selectedMaterials.length;
-                        } else {
-                            price = onsitePrices[gradeGroup].single;
-                        }
-                    } else if (educationType === 'combo') {
-                        // حساب سعر النظامين معًا
-                        if (material.type === 'online') {
-                            let onlineGroup = '';
-                            if (grade >= 5 && grade <= 8) onlineGroup = '5-8';
-                            else if (grade >= 9 && grade <= 11) onlineGroup = '9-11';
-                            else if (grade === 12) onlineGroup = '12';
-                            
-                            price = onlinePrices[onlineGroup].single;
-                        } else if (material.type === 'onsite') {
-                            let onsiteGroup = '';
-                            if (grade >= 5 && grade <= 8) onsiteGroup = '5-8';
-                            else if (grade >= 9 && grade <= 12) onsiteGroup = '9-12';
-                            
-                            price = onsitePrices[onsiteGroup].single;
-                        }
+                    // عرض تفاصيل الخصم إذا كان مؤهلاً
+                    if (registrationData.discountEligible && registrationData.discountApplied > 0) {
+                        summaryHTML += `
+                            <div class="summary-item" style="border-top: 2px solid rgba(255, 255, 255, 0.1); padding-top: 1rem;">
+                                <span>الإجمالي قبل الخصم:</span>
+                                <span>${(registrationData.totalAmount + registrationData.discountApplied).toFixed(2)} ريال</span>
+                            </div>
+                            <div class="summary-item" style="color: var(--accent);">
+                                <span>خصم النظام المدمج (20%):</span>
+                                <span>-${registrationData.discountApplied.toFixed(2)} ريال</span>
+                            </div>
+                        `;
+                    } else if (registrationData.discountApplied === 0 && registrationData.selectedMaterials.length > 0) {
+                        summaryHTML += `
+                            <div class="summary-item" style="color: #ffc107; font-style: italic; font-size: 0.9rem;">
+                                <span>ملاحظة:</span>
+                                <span>لم يتم تطبيق الخصم (يجب اختيار مواد من كلا النظامين)</span>
+                            </div>
+                        `;
                     }
-                    
-                    total += price;
-                    
-                    summaryHTML += `
-                        <div class="summary-item" style="padding-right: 2rem;">
-                            <span>• ${material.name} (${material.type === 'online' ? 'أونلاين' : 'حضوري'})</span>
-                            <span>${price} ريال</span>
-                        </div>
-                    `;
-                });
+                } else {
+                    // عرض المواد بدون تفاصيل الخصم
+                    registrationData.selectedMaterials.forEach(material => {
+                        summaryHTML += `
+                            <div class="summary-item" style="padding-right: 2rem;">
+                                <span>• ${material.name}</span>
+                                <span>${calculateMaterialPrice(material, grade)} ريال</span>
+                            </div>
+                        `;
+                    });
+                }
                 
                 summaryHTML += `
                     <div class="summary-item total">
                         <span>المبلغ الإجمالي:</span>
-                        <span>${total} ريال</span>
+                        <span>${registrationData.totalAmount.toFixed(2)} ريال</span>
                     </div>
                 `;
-                
-                registrationData.totalAmount = total;
             }
             
             summaryDiv.innerHTML = summaryHTML;
+        }
+
+        // حساب سعر المادة
+        function calculateMaterialPrice(material, grade) {
+            const educationType = material.type || registrationData.educationType;
+            
+            if (educationType === 'online') {
+                let gradeGroup = '';
+                if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                else if (grade >= 9 && grade <= 11) gradeGroup = '9-11';
+                else if (grade === 12) gradeGroup = '12';
+                
+                return currentOnlinePrices[gradeGroup].single;
+            } else if (educationType === 'onsite') {
+                let gradeGroup = '';
+                if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                else if (grade >= 9 && grade <= 12) gradeGroup = '9-12';
+                
+                return onsitePrices[gradeGroup].single;
+            }
+            
+            return 0;
         }
 
         // رابط Google Apps Script
@@ -2209,6 +3246,35 @@
                     text: 'يرجى تعبئة جميع الحقول المطلوبة'
                 });
                 return;
+            }
+
+            // حساب المبلغ الإجمالي للنظام غير المدمج
+            if (registrationData.educationType !== 'combo' && registrationData.package) {
+                const grade = parseInt(registrationData.grade);
+                let gradeGroup = '';
+                
+                if (registrationData.educationType === 'online') {
+                    if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                    else if (grade >= 9 && grade <= 11) gradeGroup = '9-11';
+                    else if (grade === 12) gradeGroup = '12';
+                    
+                    if (registrationData.package === 'single') {
+                        registrationData.totalAmount = currentOnlinePrices[gradeGroup].single;
+                    } else if (registrationData.package === 'package4') {
+                        registrationData.totalAmount = currentOnlinePrices[gradeGroup].package4;
+                    } else if (registrationData.package === 'all') {
+                        registrationData.totalAmount = currentOnlinePrices[gradeGroup].all;
+                    }
+                } else if (registrationData.educationType === 'onsite') {
+                    if (grade >= 5 && grade <= 8) gradeGroup = '5-8';
+                    else if (grade >= 9 && grade <= 12) gradeGroup = '9-12';
+                    
+                    if (registrationData.package === 'single') {
+                        registrationData.totalAmount = onsitePrices[gradeGroup].single;
+                    } else if (registrationData.package === 'package3') {
+                        registrationData.totalAmount = onsitePrices[gradeGroup].package3;
+                    }
+                }
             }
 
             // توليد رمز تسجيل فريد
@@ -2262,19 +3328,23 @@
             try {
                 const gradeName = getGradeName(parseInt(registrationData.grade));
                 const educationTypeName = getEducationTypeName(registrationData.educationType);
-                const materialsList = registrationData.selectedMaterials.map(m => `${m.name} (${m.type})`).join(', ');
+                const materialsList = registrationData.selectedMaterials.map(m => `${m.name} (${m.type || registrationData.educationType})`).join(', ');
                 
                 // تحضير البيانات للإرسال
                 const data = {
                     timestamp: registrationData.timestamp,
                     registrationId: registrationData.registrationId,
                     studentName: registrationData.studentName,
+                    gender: registrationData.gender,
                     phoneNumber: registrationData.phoneNumber,
                     grade: gradeName,
                     educationType: educationTypeName,
                     materials: materialsList,
                     package: registrationData.package,
-                    totalAmount: registrationData.totalAmount,
+                    discountEligible: registrationData.discountEligible,
+                    discountApplied: registrationData.discountApplied.toFixed(2),
+                    totalAmount: registrationData.totalAmount.toFixed(2),
+                    earlyBirdDiscount: isEarlyBirdActive() && registrationData.educationType === 'online',
                     status: 'معلق'
                 };
                 
@@ -2312,8 +3382,8 @@
                     <div style="text-align: right;">
                         <p>⚠️ <strong>تم حفظ بياناتك محلياً</strong></p>
                         <p>📞 سيتم التواصل معك قريباً عبر واتساب</p>
-                        <p>💳 يرجى تحويل المبلغ <strong>${registrationData.totalAmount} ريال</strong> على الرقم:</p>
-                        <h3 style="color: #22b8aa;">74120010</h3>
+                        <p>💳 يرجى تحويل المبلغ <strong>${registrationData.totalAmount.toFixed(2)} ريال</strong> على رقم التحويل:</p>
+                        <h3 style="color: #22b8aa;">92147179</h3>
                         <p>📲 سيتم إرسال تفاصيل التسجيل عبر واتساب</p>
                     </div>
                 `,
@@ -2362,16 +3432,24 @@
 📅 *التاريخ:* ${registrationData.timestamp}
 
 👤 *الطالب:* ${registrationData.studentName}
+⚤ *الجنس:* ${registrationData.gender}
 📞 *رقم الهاتف:* ${registrationData.phoneNumber}
 🏫 *الصف الدراسي:* ${gradeName}
 🎓 *نوع التعليم:* ${educationTypeName}
+${isEarlyBirdActive() && registrationData.educationType === 'online' ? '🎁 *التسجيل المبكر:* نعم (خصم 3-5 ريال)\n' : ''}
 ${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n` : ''}
+${registrationData.discountEligible && registrationData.discountApplied > 0 ? `🎁 *الخصم المطبق:* ${registrationData.discountApplied.toFixed(2)} ريال (مؤهل للخصم)\n` : ''}
+${!registrationData.discountEligible && registrationData.educationType === 'combo' ? `⚠️ *ملاحظة الخصم:* لم يتم تطبيق الخصم (يجب اختيار مواد من كلا النظامين)\n` : ''}
+
 📖 *المواد المختارة:*
 • ${materialsList}
 
-💰 *المبلغ الإجمالي:* ${registrationData.totalAmount} ريال
+💰 *المبلغ الإجمالي:* ${registrationData.totalAmount.toFixed(2)} ريال
 
-💳 *رقم التحويل:* 74120010
+💳 *رقم التحويل:* 92147179
+📞 *رقم الأكاديمية:* 74120010
+
+📱 *إنستجرام:* @mulhimacademy9
 
 🔔 *ملاحظة:* هذا طلب تسجيل تلقائي من موقع الأكاديمية. يرجى التواصل مع ولي الأمر لتأكيد التسجيل ودفع الرسوم.`;
             
@@ -2388,20 +3466,29 @@ ${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n
                     <div style="text-align: right;">
                         <p>✅ <strong>تم تسجيل بياناتك بنجاح</strong></p>
                         <p>🆔 <strong>رقم التسجيل:</strong> ${registrationData.registrationId}</p>
+                        <p>👤 <strong>الطالب:</strong> ${registrationData.studentName}</p>
+                        <p>⚤ <strong>الجنس:</strong> ${registrationData.gender}</p>
                         <p>📞 <strong>رقم الهاتف:</strong> ${registrationData.phoneNumber}</p>
                         <p>🏫 <strong>الصف الدراسي:</strong> ${getGradeName(parseInt(registrationData.grade))}</p>
                         <p>🎓 <strong>نوع التعليم:</strong> ${getEducationTypeName(registrationData.educationType)}</p>
+                        ${isEarlyBirdActive() && registrationData.educationType === 'online' ? 
+                            '<p>🎁 <strong>التسجيل المبكر:</strong> نعم (تم تطبيق خصم 3-5 ريال)</p>' : ''}
                         ${registrationData.package ? `<p>📦 <strong>الباقة:</strong> ${registrationData.package}</p>` : ''}
-                        <p>💰 <strong>المبلغ الإجمالي:</strong> ${registrationData.totalAmount} ريال</p>
+                        ${registrationData.discountEligible && registrationData.discountApplied > 0 ? 
+                            `<p>🎁 <strong>الخصم المطبق:</strong> ${registrationData.discountApplied.toFixed(2)} ريال</p>` : 
+                            registrationData.educationType === 'combo' ?
+                            `<p style="color: #ffc107;">⚠️ <strong>ملاحظة:</strong> لم يتم تطبيق الخصم (يجب اختيار مواد من كلا النظامين)</p>` : ''
+                        }
+                        <p>💰 <strong>المبلغ الإجمالي:</strong> ${registrationData.totalAmount.toFixed(2)} ريال</p>
                         
                         <hr style="margin: 1.5rem 0; border-color: rgba(255,255,255,0.1);">
                         
                         <h4 style="color: var(--accent); margin-bottom: 1rem;">خطوات إتمام التسجيل:</h4>
                         <ol style="text-align: right; padding-right: 1rem;">
                             <li>📱 تم فتح واتساب لإرسال تفاصيل التسجيل</li>
-                            <li>💳 قم بتحويل المبلغ <strong>${registrationData.totalAmount} ريال</strong> على الرقم:</li>
+                            <li>💳 قم بتحويل المبلغ <strong>${registrationData.totalAmount.toFixed(2)} ريال</strong> على رقم التحويل:</li>
                             <li style="text-align: center; margin: 1rem 0;">
-                                <h3 style="color: var(--gold);">74120010</h3>
+                                <h3 style="color: var(--gold);">92147179</h3>
                             </li>
                             <li>📞 ستتصل بك الأكاديمية خلال 24 ساعة لتأكيد التسجيل</li>
                             <li>✅ ستصل رسالة تأكيد على واتساب بعد التحويل</li>
@@ -2409,7 +3496,10 @@ ${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n
                         
                         <div style="background: rgba(34, 184, 170, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem; border-right: 3px solid var(--accent);">
                             <i class="fas fa-info-circle" style="color: var(--accent); margin-left: 0.5rem;"></i>
-                            <strong>حفظ رقم التسجيل:</strong> ${registrationData.registrationId} للإشارة إليه عند التواصل.
+                            <strong>معلومات التواصل:</strong><br>
+                            • رقم الأكاديمية: 74120010<br>
+                            • إنستجرام: @mulhimacademy9<br>
+                            • حفظ رقم التسجيل: ${registrationData.registrationId}
                         </div>
                     </div>
                 `,
@@ -2424,17 +3514,21 @@ ${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n
             // إعادة تعيين البيانات
             registrationData.studentName = '';
             registrationData.phoneNumber = '';
+            registrationData.gender = '';
             registrationData.grade = '';
             registrationData.educationType = '';
             registrationData.selectedMaterials = [];
             registrationData.package = '';
             registrationData.totalAmount = 0;
+            registrationData.discountApplied = 0;
+            registrationData.discountEligible = false;
             registrationData.registrationId = '';
             registrationData.timestamp = '';
             
             // إعادة تعيين النموذج
             document.getElementById('studentName').value = '';
             document.getElementById('phoneNumber').value = '';
+            document.getElementById('gender').value = '';
             document.getElementById('gradeSelect').value = '';
             
             // إزالة التحديد من خيارات التعليم
@@ -2449,8 +3543,12 @@ ${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n
             
             document.getElementById('packageSelect').value = '';
             
-            // إخفاء خيارات الباقات
+            // إخفاء خيارات الباقات والخصم
             document.getElementById('packageOptions').style.display = 'none';
+            document.getElementById('packageSavings').style.display = 'none';
+            document.getElementById('comboDiscountInfo').style.display = 'none';
+            document.getElementById('comboRequirementAlert').style.display = 'none';
+            document.getElementById('comboDiscountCalc').style.display = 'none';
             
             // العودة إلى الخطوة الأولى
             currentStep = 1;
@@ -2479,7 +3577,7 @@ ${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n
             const types = {
                 'online': 'التعليم عن بعد',
                 'onsite': 'التعليم الحضوري',
-                'combo': 'النظامين معًا'
+                'combo': 'النظام المدمج (أونلاين + حضوري)'
             };
             return types[type] || type;
         }
@@ -2505,8 +3603,13 @@ ${registrationData.package ? `📦 *الباقة:* ${registrationData.package}\n
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
             updateSteps();
+            
+            // تحديث حالة التسجيل المبكر
+            if (!isEarlyBirdActive()) {
+                disableEarlyBirdDiscounts();
+                countdownAlert.style.display = 'none';
+            }
         });
     </script>
 </body>
 </html>
-
